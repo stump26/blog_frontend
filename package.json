@@ -2,21 +2,37 @@
   "name": "blog-frontend",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@material-ui/core": "^4.5.0",
-    "@material-ui/icons": "^4.4.3",
-    "@toast-ui/react-editor": "https://github.com/nhn/toast-ui.react-editor",
-    "node-sass": "^4.12.0",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@apollo/react-hooks": "^3.1.3",
+    "@material-ui/core": "^4.5.0",
+    "@material-ui/icons": "^4.4.3",
+    "@toast-ui/react-editor": "https://github.com/nhn/toast-ui.react-editor",
+    "apollo-client": "^2.6.4",
+    "cross-env": "^6.0.3",
+    "graphql-tag": "^2.10.1",
+    "install": "^0.13.0",
+    "node-sass": "^4.12.0",
+    "react": "^16.10.2",
+    "react-apollo-hooks": "^0.5.0",
+    "react-dom": "^16.10.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0",
+    "webpack": "^4.41.0"
+  },
+  "devDependencies": {
+    "babel-plugin-root-import": "^6.4.1",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "prettier-eslint": "^9.0.0"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,12 +49,26 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "eslint": "^6.5.1",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-promise": "^4.2.1",
-    "prettier-eslint": "^9.0.0"
+  "babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      [
+        "babel-plugin-root-import",
+        {
+          "rootPathSuffix": "src",
+          "rootPathPrefix": "~"
+        }
+      ]
+    ]
+  },
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "src/*"
+      ]
+    }
   }
 }

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useQuery } from '@apollo/react-hooks';
 import { Card, CardContent, Typography } from '@material-ui/core';
 
+import { GET_POST_LIST } from '~/graphql/queries/postQueries';
 import './ArticleList.scss';
 
 const ArticleCard = ({ title, date, desc, tags }) => {
@@ -26,6 +28,9 @@ const ArticleCard = ({ title, date, desc, tags }) => {
 };
 
 const ArticleList = () => {
+  const { loading, error, data } = useQuery(GET_POST_LIST);
+  const list = data;
+  console.log('TCL: ArticleList -> list', list);
   return (
     <div className="Article-list">
       <ArticleCard
