@@ -44,11 +44,12 @@
 
     .Article-desc {
       width: 68%;
+      height: 4rem;
       color: #707070;
       text-indent: 0.5em;
       font-family: "Segoe UI";
+      overflow: hidden;
       font-size: 1rem;
-
     }
 
     .Article-Tag-list {

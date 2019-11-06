@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { ApolloProvider } from '@apollo/react-hooks';
 
-import NavBar from './component/NavBar';
-import ArticleList from './component/ArticleList';
+import ApolloClient from './apolloClient';
+import { Home, Editor } from './pages';
 import { DarkModeContext } from './context.js';
+
 import './App.css';
 
 function App() {
@@ -38,12 +41,16 @@ function App() {
   });
 
   return (
-    <div className="App">
-      <DarkModeContext.Provider value={{ darkMode, ...actions }}>
-        <NavBar />
-        <ArticleList />
-      </DarkModeContext.Provider>
-    </div>
+    <ApolloProvider client={ApolloClient}>
+      <BrowserRouter>
+        <div className="App">
+          <DarkModeContext.Provider value={{ darkMode, ...actions }}>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/Editor" component={Editor} />
+          </DarkModeContext.Provider>
+        </div>
+      </BrowserRouter>
+    </ApolloProvider>
   );
 }
 
