@@ -1,10 +1,13 @@
 import React from 'react';
-import NavBar from '../component/NavBar';
 
-const Post = ({match:{params}}) => {
+import NavBar from 'component/NavBar';
+import PostBody from 'component/PostBody';
+
+const Post = ({ match: { params } }) => {
   return (
     <>
       <NavBar />
+      <PostBody postID={params.id} />
     </>
   );
 };

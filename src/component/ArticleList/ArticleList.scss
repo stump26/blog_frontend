@@ -5,9 +5,9 @@
   flex-direction: column;
   margin: 0 auto;
   margin-top: 64px;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 
-  >.Article-card {
+  > .Article-card {
     position: relative;
     width: 100%;
     height: 220px;
@@ -26,15 +26,14 @@
         font-size: 2rem;
       }
 
-      >.Article-divide {
+      > .Article-divide {
         width: 50%;
-        border-color: #0410FD;
+        border-color: #0410fd;
         margin: 0;
         border-width: 0.5px;
-
       }
 
-      >.Article-date {
+      > .Article-date {
         padding-left: 4px;
         color: #707070;
         font-style: italic;
@@ -44,11 +43,9 @@
 
     .Article-desc {
       width: 68%;
-      height: 4rem;
       color: #707070;
       text-indent: 0.5em;
-      font-family: "Segoe UI";
-      overflow: hidden;
+      font-family: 'Segoe UI';
       font-size: 1rem;
     }
 
@@ -56,12 +53,12 @@
       position: absolute;
       top: 10px;
       right: 10px;
-      color: #BBBBBB;
-      font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+      color: #bbbbbb;
+      font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
       font-size: 0.8em;
       font-weight: 300;
 
-      >.Article-tag-item {
+      > .Article-tag-item {
         margin: 0 2px;
         border-radius: 10px;
         box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.2);
@@ -73,17 +70,17 @@
 
 .dark-mode {
   .Article-list {
-    >.Article-card {
+    > .Article-card {
       background-color: #363636;
 
       .Article-title,
       .Article-desc,
       .Article-date {
-        color: #BBBBBB;
+        color: #bbbbbb;
       }
 
       .Article-divide {
-        border-color: #FFFFFF;
+        border-color: #ffffff;
       }
     }
   }
