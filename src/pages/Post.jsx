@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from '../component/NavBar';
 
-const Post = () => {
+const Post = ({match:{params}}) => {
   return (
     <>
       <NavBar />
