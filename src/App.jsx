@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 
 import ApolloClient from './apolloClient';
-import { Home, Editor } from './pages';
+import { Home, Editor, Post } from './pages';
 import { DarkModeContext } from './context.js';
 
 import './App.css';
@@ -47,6 +47,7 @@ function App() {
           <DarkModeContext.Provider value={{ darkMode, ...actions }}>
             <Route exact path="/" component={Home} />
             <Route exact path="/Editor" component={Editor} />
+            <Route exact path="/post/:id" component={Post} />
           </DarkModeContext.Provider>
         </div>
       </BrowserRouter>
