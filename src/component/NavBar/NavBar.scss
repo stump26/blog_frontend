@@ -1,14 +1,15 @@
 #Nav-Bar {
-  position: fixed;
+  position: relative;
   display: flex;
   flex-direction: row;
-  background-color: #FFF;
+  background-color: #fff;
   transition: background-color 0.3s;
   -webkit-transition: background-color 0.3s;
+  z-index: 1;
 
   .Nav-logo {
     flex: 0;
-    color: #3376FB;
+    color: #3376fb;
     font-weight: bold;
     margin: 0 2em;
     padding: 1rem 0;
@@ -19,11 +20,11 @@
     margin: auto 10px;
 
     &::before {
-      border-bottom-color: #0410FD;
+      border-bottom-color: #0410fd;
     }
 
     &::after {
-      border-bottom-color: #3376FB;
+      border-bottom-color: #3376fb;
     }
   }
 
@@ -37,21 +38,19 @@
       font-size: 0.7em;
       color: #707070;
       margin: auto 20px;
-
     }
 
-    >a {
+    > a {
       display: flex;
 
-      >#Nav-Link {
+      > #Nav-Link {
         color: #707070;
         font-weight: 600;
         margin: auto 10px;
       }
 
-
-      >#Nav-Profile {
-        border: 2px #BBBBBB solid;
+      > #Nav-Profile {
+        border: 2px #bbbbbb solid;
         margin-left: 10px;
         margin-right: 40px;
       }

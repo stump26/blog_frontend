@@ -5,6 +5,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from './apolloClient';
 import { Home, Editor, Post } from './pages';
 import { DarkModeContext } from './context.js';
+import NavBar from 'component/NavBar';
 
 import './App.css';
 
@@ -43,13 +44,16 @@ function App() {
   return (
     <ApolloProvider client={ApolloClient}>
       <BrowserRouter>
-        <div className="App">
-          <DarkModeContext.Provider value={{ darkMode, ...actions }}>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/Editor" component={Editor} />
-            <Route exact path="/post/:id" component={Post} />
-          </DarkModeContext.Provider>
-        </div>
+        <DarkModeContext.Provider value={{ darkMode, ...actions }}>
+          <div className="App">
+            <NavBar />
+            <>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/Editor" component={Editor} />
+              <Route exact path="/post/:id" component={Post} />
+            </>
+          </div>
+        </DarkModeContext.Provider>
       </BrowserRouter>
     </ApolloProvider>
   );

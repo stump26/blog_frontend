@@ -1,0 +1,208 @@
+#container {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  margin: 50px auto 20px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  .title-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 0 15px;
+    > p.label-title {
+      display: inline-block;
+      font-size: 1.5rem;
+      margin: 10px;
+    }
+
+    > .input-title {
+      flex: 1;
+      margin: 0;
+      padding: 0 20px;
+
+      > .MuiInputBase-root {
+        line-height: 2rem;
+        font-size: 2rem;
+        input {
+          height: 2rem;
+        }
+      }
+    }
+  }
+  .tag-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 0 15px;
+    > p.label-tags {
+      display: inline-block;
+      width: 3em;
+      font-size: 1rem;
+      margin: 10px;
+    }
+    > .input-tags {
+      min-width: 20em;
+      margin: 0;
+      padding: 0 20px;
+
+      > .MuiInputBase-root {
+        line-height: 1.5rem;
+        font-size: 1rem;
+        input {
+          height: 2rem;
+        }
+      }
+    }
+  }
+  .MuiDivider-vertical {
+    zwidth: 1px;
+    height: 2rem;
+    margin: 2px 5px;
+    background-color: #d9d9d9;
+  }
+  .editor-toolbar {
+    button {
+      background: 0 0;
+      display: inline-block;
+      text-align: center;
+      text-decoration: none !important;
+      width: 30px;
+      height: 30px;
+      margin: 0;
+      padding: 0;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    i.separator {
+      display: inline-block;
+      width: 0;
+      border-left: 1px solid #d9d9d9;
+      border-right: 1px solid #fff;
+      color: transparent;
+      text-indent: -10px;
+      margin: 0 6px;
+    }
+  }
+
+  .CodeMirror {
+    box-sizing: border-box;
+    height: 800px;
+    border: 1px solid #ddd;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 10px;
+    font: inherit;
+    z-index: 1;
+    word-wrap: break-word;
+  }
+  .editor-toolbar button.active,
+  .editor-toolbar button:hover {
+    background: #fcfcfc;
+    border-color: #95a5a6;
+  }
+
+  .saveBtn {
+    align-self: flex-end;
+    width: 9em;
+  }
+}
+
+.dark-mode #container {
+  .title-field,
+  .tag-field {
+    > .MuiDivider-vertical {
+      background-color: gray;
+    }
+    .MuiInput-underline {
+      color: inherit;
+      &::before {
+        border-bottom: 1px solid gray;
+      }
+    }
+  }
+
+  .editor-toolbar {
+    button {
+      display: inline-block;
+      text-align: center;
+      text-decoration: none !important;
+      width: 30px;
+      height: 30px;
+      margin: 0;
+      padding: 0;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      cursor: pointer;
+      > i {
+        color: white !important;
+      }
+    }
+    i.separator {
+      display: inline-block;
+      width: 0;
+      border-left: 1px solid #696969;
+      border-right: 1px solid #696969;
+      color: transparent;
+      text-indent: -10px;
+      margin: 0 6px;
+    }
+  }
+  .editor-toolbar.fullscreen {
+    width: 100%;
+    height: 50px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    background: #1a1a1a;
+    border: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    z-index: 9;
+    &::before {
+      background: #1a1a1a;
+    }
+    &::after {
+      background: #1a1a1a;
+    }
+  }
+
+  .editor-toolbar button.active,
+  .editor-toolbar button:hover {
+    background: #070707;
+    border-color: #fcfcfc;
+  }
+  .CodeMirror {
+    box-sizing: border-box;
+    height: 800px;
+    border: 1px solid #696969;
+    background-color: #1a1a1a;
+    color: inherit;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 10px;
+    font: inherit;
+    z-index: 1;
+    word-wrap: break-word;
+
+    .CodeMirror-cursor {
+      border-left: 1px solid #fff;
+      border-right: none;
+      width: 0;
+    }
+  }
+
+  .editor-preview {
+    color: inherit;
+    background: #1a1a1a;
+  }
+}
