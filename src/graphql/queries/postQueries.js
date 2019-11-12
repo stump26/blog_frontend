@@ -1,11 +1,13 @@
 import gql from 'graphql-tag';
 
 export const GET_POST_LIST = gql`
-  query post {
-    post {
+  query post($page:Int!) {
+    post(page:$page) {
       _id
       title
+      modifyDate
       description
+      tags
     }
   }
 `;
@@ -17,6 +19,15 @@ export const GET_POST_BYID = gql`
       title
       modifyDate
       description
+      tags
+    }
+  }
+`;
+
+export const WRITE_POST = gql`
+  mutation writePost($title:String!, $writer:String!, $description:String!, $tags:[String]){
+    writePost(title:$title,writer:$writer,description:$description,tags:$tags){
+      _id
     }
   }
 `;
