@@ -44,7 +44,7 @@ const ArticleList = () => {
   const [existNext, setExistNext] = useState(true);
   const { loading, error, data, fetchMore } = useQuery(GET_POST_LIST, {
     variables: {
-      page: page,
+      page: 0,
     },
   });
   const history = useHistory();
