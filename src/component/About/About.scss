@@ -1,0 +1,16 @@
+#container {
+  width: 65%;
+  padding-left: 2em;
+  border: none;
+
+  >.title {
+    margin-top: 0;
+    font-size: 5rem;
+    font-family: 'Nanum Pen Script', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+      'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+    >.title-Name {
+      margin-right: 0.7em;
+    }
+  }
+}

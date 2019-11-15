@@ -2,68 +2,77 @@
   display: flex;
   flex-direction: column;
   width: 65%;
-  margin: 50px auto 20px;
+  margin: 30px auto 20px;
   padding: 20px;
   border-radius: 10px;
   border: 1px solid gray;
+
   .title-field {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     margin: 0 0 15px;
-    > p.label-title {
+
+    >p.label-title {
       display: inline-block;
       font-size: 1.5rem;
       margin: 10px;
     }
 
-    > .input-title {
+    >.input-title {
       flex: 1;
       margin: 0;
       padding: 0 20px;
 
-      > .MuiInputBase-root {
+      >.MuiInputBase-root {
         line-height: 2rem;
         font-size: 2rem;
+
         input {
           height: 2rem;
         }
       }
     }
   }
+
   .tag-field {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     margin: 0 0 15px;
-    > p.label-tags {
+
+    >p.label-tags {
       display: inline-block;
       width: 3em;
       font-size: 1rem;
       margin: 10px;
     }
-    > .input-tags {
+
+    >.input-tags {
       min-width: 20em;
       margin: 0;
       padding: 0 20px;
 
-      > .MuiInputBase-root {
+      >.MuiInputBase-root {
         line-height: 1.5rem;
         font-size: 1rem;
+
         input {
           height: 2rem;
         }
       }
     }
   }
+
   .MuiDivider-vertical {
     width: 1px;
     height: 2rem;
     margin: 2px 5px;
     background-color: #d9d9d9;
   }
+
   .editor-toolbar {
     button {
       background: 0 0;
@@ -78,6 +87,7 @@
       border-radius: 3px;
       cursor: pointer;
     }
+
     i.separator {
       display: inline-block;
       width: 0;
@@ -100,6 +110,7 @@
     z-index: 1;
     word-wrap: break-word;
   }
+
   .editor-toolbar button.active,
   .editor-toolbar button:hover {
     background: #fcfcfc;
@@ -113,13 +124,16 @@
 }
 
 .dark-mode #container {
+
   .title-field,
   .tag-field {
-    > .MuiDivider-vertical {
+    >.MuiDivider-vertical {
       background-color: gray;
     }
+
     .MuiInput-underline {
       color: inherit;
+
       &::before {
         border-bottom: 1px solid gray;
       }
@@ -138,10 +152,12 @@
       border: 1px solid transparent;
       border-radius: 3px;
       cursor: pointer;
-      > i {
+
+      >i {
         color: white !important;
       }
     }
+
     i.separator {
       display: inline-block;
       width: 0;
@@ -152,6 +168,7 @@
       margin: 0 6px;
     }
   }
+
   .editor-toolbar.fullscreen {
     width: 100%;
     height: 50px;
@@ -168,9 +185,11 @@
     left: 0;
     opacity: 1;
     z-index: 9;
+
     &::before {
       background: #1a1a1a;
     }
+
     &::after {
       background: #1a1a1a;
     }
@@ -181,6 +200,7 @@
     background: #070707;
     border-color: #fcfcfc;
   }
+
   .CodeMirror {
     box-sizing: border-box;
     height: 800px;

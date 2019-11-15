@@ -48,7 +48,7 @@ const ArticleList = () => {
     },
   });
   const history = useHistory();
-  const fetchNextPage = async (nextPage, scrollY) => {
+  const fetchNextPage = async (nextPage) => {
     setPage(nextPage);
     fetchMore({
       variables: {
@@ -56,12 +56,10 @@ const ArticleList = () => {
       },
       updateQuery: (previousResult, { fetchMoreResult }) => {
         if (!fetchMoreResult) return previousResult;
-        console.log('TCL: fetchNextPage -> articleElements', articleElements);
         if (fetchMoreResult.post.length === 0) {
           setExistNext(false);
         }
         setArticleElements([...articleElements, ...fetchMoreResult.post]);
-        window.scrollTo(0, scrollY);
         return fetchMoreResult.post;
       },
     });
@@ -75,7 +73,7 @@ const ArticleList = () => {
     );
     console.log(scrollTop, ' / ', scrollMax);
     if (scrollMax !== 0 && existNext && scrollMax === scrollTop) {
-      fetchNextPage(page + 1, scrollMax);
+      fetchNextPage(page + 1);
     }
   };
   useEffect(() => {

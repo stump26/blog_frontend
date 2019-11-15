@@ -38,6 +38,9 @@ const NavButtons = () => {
       <Typography id="Nav-Color-switch">
         L<DarkSwitch onChange={toggleDarkMode} checked={darkMode} />D
       </Typography>
+      <Link href="/aboutMe">
+        <Typography id="Nav-Link">AboutMe</Typography>
+      </Link>
       <Link href={instaURL}>
         <Typography id="Nav-Link">Instagram</Typography>
       </Link>
