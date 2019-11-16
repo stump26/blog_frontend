@@ -3,14 +3,49 @@
   padding-left: 2em;
   border: none;
 
-  >.title {
+  > .title {
     margin-top: 0;
-    font-size: 5rem;
+    font-size: 6rem;
+    font-weight: 500;
     font-family: 'Nanum Pen Script', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
       'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    border-bottom: 1px #707070 solid;
 
-    >.title-Name {
-      margin-right: 0.7em;
+    > .title-Name {
+      margin-right: 0.3em;
+    }
+  }
+  > .row-me {
+    display: flex;
+    flex-direction: row;
+    > .me {
+      display: inline-block;
+      font-size: 2.5em;
+      line-height: 1.7em;
+      font-weight: 200;
+      font-family: 'Nanum Pen Script', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+        'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      width: 45%;
+    }
+    > .my-shot {
+      width: 500px;
+      margin: 0 auto;
+    }
+  }
+  > .skills-list {
+    margin: 60px 0;
+    > .skills {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-content: center;
+      margin: 10px 0 80px;
+      > img {
+        object-fit: contain;
+        padding: 1rem 10px;
+      }
     }
   }
 }
