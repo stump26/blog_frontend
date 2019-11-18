@@ -7,6 +7,7 @@ import {
   Link,
   Avatar,
 } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 import { purple } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/core/styles';
 import { DarkModeContext } from '../../context';
@@ -55,9 +56,17 @@ const NavButtons = () => {
 };
 
 const NavBar = () => {
+  const history = useHistory();
   return (
     <AppBar id="Nav-Bar">
-      <Typography variant="h5" className="Nav-logo" color="FFFFFF">
+      <Typography
+        variant="h5"
+        className="Nav-logo"
+        color="FFFFFF"
+        onClick={() => {
+          history.push('/');
+        }}
+      >
         StumPark
       </Typography>
       <Input className="Nav-Search-Bar" />
