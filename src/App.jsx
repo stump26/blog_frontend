@@ -3,11 +3,11 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 
 import ApolloClient from './apolloClient';
-import { Home, Editor, Post, About } from './pages';
+import { Home, Editor, Post, About, Auth } from './pages';
 import { DarkModeContext } from './context.js';
 import NavBar from 'component/NavBar';
-
-import './App.css';
+import Footer from 'component/Footer';
+import './App.scss';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -52,7 +52,9 @@ function App() {
               <Route exact path="/Editor" component={Editor} />
               <Route exact path="/post/:id" component={Post} />
               <Route exact path="/aboutMe" component={About} />
+              <Route exact path="/auth" component={Auth} />
             </>
+            <Footer />
           </div>
         </DarkModeContext.Provider>
       </BrowserRouter>

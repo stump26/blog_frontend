@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Viga&display=swap');
+
+.Foot-menu {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 1rem;
+  height: 4rem;
+  font-family: 'Viga', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  border-top: 1px #eaeaea solid;
+  color: #a5a5a5;
+
+  a:-webkit-any-link {
+    color: #a5a5a5;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+.dark-mode {
+  .Foot-menu {
+    border-top: 1px #353535 solid;
+    color: #5f5f5f;
+
+    a:-webkit-any-link {
+      color: #5f5f5f;
+    }
+  }
+}

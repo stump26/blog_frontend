@@ -13,9 +13,10 @@
     font-weight: bold;
     margin: 0 1.7em;
     padding: 1rem 0;
-    font-size: 2rem;
+    font-size: 1.5rem;
     cursor: pointer;
     transition: color 0.3s;
+
     &:hover {
       color: black;
     }
@@ -46,16 +47,17 @@
       margin: auto 20px;
     }
 
-    > a {
+    >a {
       display: flex;
 
-      > #Nav-Link {
+      >#Nav-Link {
+        font-size: 0.8rem;
         color: #707070;
         font-weight: 600;
         margin: auto 10px;
       }
 
-      > #Nav-Profile {
+      >#Nav-Profile {
         border: 2px #bbbbbb solid;
         margin-left: 10px;
         margin-right: 40px;
@@ -67,9 +69,11 @@
 .dark-mode {
   #Nav-Bar {
     background-color: #1a1a1a;
+
     .Nav-logo:hover {
       color: white;
     }
+
     .Nav-Search-Bar {
       &::before {
         border-bottom-color: #707070 !important;

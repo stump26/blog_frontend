@@ -1,7 +1,12 @@
 import React from 'react';
 import Editor from 'component/Editor';
-
+import { useHistory } from 'react-router-dom';
 const EditorPage = () => {
+  const history = useHistory();
+  const token = localStorage.getItem('token');
+  if (!token) {
+    history.push('/auth');
+  }
   return (
     <div>
       <Editor />
