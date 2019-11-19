@@ -71,7 +71,6 @@ const ArticleList = () => {
       document.documentElement.scrollHeight -
         document.documentElement.clientHeight,
     );
-    console.log(scrollTop, ' / ', scrollMax);
     if (scrollMax !== 0 && existNext && scrollMax === scrollTop) {
       fetchNextPage(page + 1);
     }
@@ -90,7 +89,6 @@ const ArticleList = () => {
   }, data);
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
-  console.log('TCL: ArticleList -> articleElements', articleElements);
 
   const onClickArticle = (articleId) => {
     history.push(`/post/${articleId}`);

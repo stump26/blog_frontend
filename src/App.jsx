@@ -14,7 +14,6 @@ function App() {
 
   const actions = {
     toggleDarkMode: async () => {
-      console.log('toggle_mode');
       setDarkMode(!darkMode);
       localStorage.setItem('isDark', !darkMode);
     },

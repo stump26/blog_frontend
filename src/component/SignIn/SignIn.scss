@@ -1,6 +1,31 @@
 .sign-in-box-bg {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
   width: 30%;
-  height: 71%;
+  height: 60%;
   margin: auto;
-  border: 1px;
+  border: 1px solid gray;
+  border-radius: 10px;
+
+  > .input-form-header {
+    margin: 40px 0 50px;
+    width: 80%;
+  }
+  > .input-email {
+    width: 80%;
+  }
+  > .input-password {
+    width: 80%;
+  }
+  > .button-signin {
+    width: 80%;
+    justify-self: flex-end;
+    height: 3rem;
+    font-size: 18px;
+    margin-top: auto;
+    margin-bottom: 30px;
+  }
 }

@@ -4,7 +4,7 @@ import './Footer.scss';
 
 const Footer = () => {
   return (
-    <div class="Foot-menu">
+    <div className="Foot-menu">
       <span>
         ⓒ <Link href="/editor">stumpark</Link>, created by react.js
       </span>
