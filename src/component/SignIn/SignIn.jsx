@@ -59,6 +59,7 @@ const SignIn = () => {
         id="filled-password"
         label="password"
         className="input-password"
+        type="password"
         margin="normal"
         variant="filled"
         onChange={handleinputPW}
