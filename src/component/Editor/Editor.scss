@@ -14,18 +14,18 @@
     justify-content: flex-start;
     margin: 0 0 15px;
 
-    >p.label-title {
+    > p.label-title {
       display: inline-block;
       font-size: 1.5rem;
       margin: 10px;
     }
 
-    >.input-title {
+    > .input-title {
       flex: 1;
       margin: 0;
       padding: 0 20px;
 
-      >.MuiInputBase-root {
+      > .MuiInputBase-root {
         line-height: 2rem;
         font-size: 2rem;
 
@@ -43,19 +43,19 @@
     justify-content: flex-start;
     margin: 0 0 15px;
 
-    >p.label-tags {
+    > p.label-tags {
       display: inline-block;
       width: 3em;
       font-size: 1rem;
       margin: 10px;
     }
 
-    >.input-tags {
+    > .input-tags {
       min-width: 20em;
       margin: 0;
       padding: 0 20px;
 
-      >.MuiInputBase-root {
+      > .MuiInputBase-root {
         line-height: 1.5rem;
         font-size: 1rem;
 
@@ -124,10 +124,9 @@
 }
 
 .dark-mode #container {
-
   .title-field,
   .tag-field {
-    >.MuiDivider-vertical {
+    > .MuiDivider-vertical {
       background-color: gray;
     }
 
@@ -153,7 +152,7 @@
       border-radius: 3px;
       cursor: pointer;
 
-      >i {
+      > i {
         color: white !important;
       }
     }
@@ -225,4 +224,14 @@
     color: inherit;
     background: #1a1a1a;
   }
+}
+
+.image-uploader-modal-container {
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 1000px;
+  height: 100%;
 }

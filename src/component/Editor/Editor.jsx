@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { Markdown } from 'react-showdown';
-import { TextField, Typography, Divider, Button } from '@material-ui/core';
+import {
+  TextField,
+  Typography,
+  Divider,
+  Button,
+  Modal,
+} from '@material-ui/core';
 import { Save as SaveIcon } from '@material-ui/icons';
 import SimpleMDE from 'react-simplemde-editor';
 import { useMutation } from '@apollo/react-hooks';
 import { useHistory } from 'react-router-dom';
 
 import { WRITE_POST } from 'graphql/queries/postQueries';
+import ImageUploader from 'component/ImageUploader';
 
 import 'easymde/dist/easymde.min.css';
 import './Editor.scss';
@@ -16,6 +23,9 @@ const Editor = () => {
   const [title, setTitle] = useState('');
   const [tags, setTags] = useState([]);
   const [value, setValue] = useState('#Hello World');
+  const [imageUploaderModalIsOpen, setImageUploaderModalIsOpen] = useState(
+    false,
+  );
   const history = useHistory();
   const [writePost, { loading, error }] = useMutation(WRITE_POST, {
     onCompleted({ writePost: { _id } }) {
@@ -39,7 +49,21 @@ const Editor = () => {
       },
     });
   };
+  const handleImageUploadModal = (editor) => {
+    setImageUploaderModalIsOpen(true);
 
+    // For editing result
+    // const cm = editor.codemirror;
+    // console.log('handleImageUploadModal-test');
+    // const output = `[](https://)`;
+    // cm.replaceSelection(output);
+  };
+  const customImageUploadTool = {
+    name: 'custom-image',
+    action: handleImageUploadModal,
+    className: 'fa fa-picture-o',
+    title: 'Custom-Image-button',
+  };
   return (
     <div id="container">
       <div className="title-field">
@@ -61,8 +85,30 @@ const Editor = () => {
         value={value}
         onChange={setValue}
         options={{
+          toolbar: [
+            'bold',
+            'italic',
+            'heading',
+            '|',
+            'quote',
+            'ordered-list',
+            'unordered-list',
+            '|',
+            'code',
+            customImageUploadTool,
+            'table',
+            'link',
+            '|',
+            'preview',
+            'side-by-side',
+            'fullscreen',
+          ],
           previewRender: (text) => {
             return ReactDOMServer.renderToString(<Markdown markup={text} />);
+          },
+          uploadImage: true,
+          imageUploadFunction: () => {
+            console.log('test');
           },
         }}
       />
@@ -77,6 +123,11 @@ const Editor = () => {
       >
         Save
       </Button>
+      <Modal open={imageUploaderModalIsOpen}>
+        <div className="image-uploader-modal-container">
+          <ImageUploader />
+        </div>
+      </Modal>
     </div>
   );
 };
