@@ -51,19 +51,26 @@ const Editor = () => {
   };
   const handleImageUploadModal = (editor) => {
     setImageUploaderModalIsOpen(true);
-
-    // For editing result
-    // const cm = editor.codemirror;
-    // console.log('handleImageUploadModal-test');
-    // const output = `[](https://)`;
-    // cm.replaceSelection(output);
   };
+  // 사용자가 모달의 x를 눌러 업로드 취소.
+  const handleImageUploadModalClose = () => {
+    setImageUploaderModalIsOpen(false);
+  };
+  // 사용자가 업로드를 완료한경우 이루어져야될것
+  // For editing result
+  // const cm = editor.codemirror;
+  // console.log('handleImageUploadModal-test');
+  // const output = `[](https://)`;
+  // cm.replaceSelection(output);
+
+  // simpleMDE tool 객체
   const customImageUploadTool = {
     name: 'custom-image',
     action: handleImageUploadModal,
     className: 'fa fa-picture-o',
     title: 'Custom-Image-button',
   };
+
   return (
     <div id="container">
       <div className="title-field">
@@ -125,7 +132,7 @@ const Editor = () => {
       </Button>
       <Modal open={imageUploaderModalIsOpen}>
         <div className="image-uploader-modal-container">
-          <ImageUploader />
+          <ImageUploader handleModalClose={handleImageUploadModalClose} />
         </div>
       </Modal>
     </div>

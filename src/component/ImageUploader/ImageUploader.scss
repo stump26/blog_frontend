@@ -1,11 +1,25 @@
 .image-uploader-bg {
   display: flex;
   flex-direction: column;
-  flex-basis: 70%;
-  min-height: 600px;
-  max-height: 800px;
+  flex-basis: 800px;
   padding: 20px;
   background-color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-button {
+    display: block;
+    height: 0;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #3376fb;
+    border-radius: 2px;
+  }
 
   > .modal-header {
     flex-direction: row;
@@ -61,14 +75,17 @@
         }
       }
     }
-    > .image-preview {
+    > #image-preview {
       display: flex;
+      position: relative;
       height: 62%;
+      max-height: 600px;
       margin: 40px 80px;
       background: url('/img/empty_background_pattern.jpg');
       background-repeat: repeat;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
     }
     > .recent-image-list {
       display: flex;
