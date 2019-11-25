@@ -80,7 +80,7 @@
       position: relative;
       height: 62%;
       max-height: 600px;
-      margin: 40px 80px;
+      margin: 20px 80px;
       background: url('/img/empty_background_pattern.jpg');
       background-repeat: repeat;
       justify-content: center;
@@ -108,6 +108,12 @@
         left: 5em;
         text-align: center;
       }
+    }
+  }
+  > .modal-footer {
+    > .upload-btn {
+      width: 100%;
+      background-color: #3376fb;
     }
   }
 }

@@ -2,7 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Moveable, { updateRect } from 'react-moveable';
 
-const PreviewImage = ({ superElemtnt, file }) => {
+const PreviewImage = ({ superElemtnt, file, isEdited }) => {
+  const [srcImage, setSrcImage] = useState(null);
   const [target, setTarget] = useState(null);
   const [isMoveable, setIsMoveable] = useState(false);
   const [isPressShift, setIsPressShift] = useState(false);
@@ -35,7 +36,7 @@ const PreviewImage = ({ superElemtnt, file }) => {
     clientX,
     clientY,
   }) => {
-    console.log(currentTarget);
+    isEdited(true);
     if (isPressShift) {
       transform = transform.replace(
         /scale\([0-9.,\s]+\)/g,
@@ -46,6 +47,7 @@ const PreviewImage = ({ superElemtnt, file }) => {
     target.style.transform = transform;
   };
   const onRotate = ({ target, delta, dist, transform, clientX, clientY }) => {
+    isEdited(true);
     console.log('onRotate', dist);
     target.style.transform = transform;
   };
@@ -70,8 +72,21 @@ const PreviewImage = ({ superElemtnt, file }) => {
       console.log('update');
     }
   };
+  // convert blob to Base64
+  const toBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+  };
+  const changePreviewImage = async () => {
+    setSrcImage(await toBase64(file));
+  };
+
   useEffect(() => {
-    setTarget(document.getElementsByClassName('previewTraget')[0]);
+    setTarget(document.getElementsByClassName('previewTarget')[0]);
     window.addEventListener('keydown', keydownHandler);
     window.addEventListener('keyup', keyupHandler);
     window.addEventListener('resize', onWindowReisze);
@@ -86,7 +101,7 @@ const PreviewImage = ({ superElemtnt, file }) => {
 
   useEffect(() => {
     setIsMoveable(false);
-
+    changePreviewImage();
     if (moveableRef.current) {
       moveableRef.current.updateTarget();
       console.log('update');
@@ -96,15 +111,15 @@ const PreviewImage = ({ superElemtnt, file }) => {
   return (
     <>
       <img
-        className="previewTraget"
-        src={file}
+        className="previewTarget"
+        src={srcImage}
         alt="preview"
         style={imgStyle}
         onLoad={() => {
           setIsMoveable(true);
         }}
       />
-      {isMoveable && (
+      {isMoveable && file.type !== 'image/gif' && (
         <Moveable
           ref={moveableRef}
           target={target}
