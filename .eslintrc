@@ -12,7 +12,8 @@
     "no-console": "off",
     "no-debugger": "warn",
     "no-alert": "off",
-    "no-shadow": "off"
+    "no-shadow": "off",
+    "no-param-reassign": "off"
   },
   "parser": "babel-eslint"
 }

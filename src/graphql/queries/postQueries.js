@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export const GET_POST_LIST = gql`
-  query post($page:Int!) {
-    post(page:$page) {
+  query post($page: Int!) {
+    post(page: $page) {
       _id
       title
       modifyDate
@@ -25,8 +25,18 @@ export const GET_POST_BYID = gql`
 `;
 
 export const WRITE_POST = gql`
-  mutation writePost($title:String!, $writer:String!, $description:String!, $tags:[String]){
-    writePost(title:$title,writer:$writer,description:$description,tags:$tags){
+  mutation writePost(
+    $title: String!
+    $writer: String!
+    $description: String!
+    $tags: [String]
+  ) {
+    writePost(
+      title: $title
+      writer: $writer
+      description: $description
+      tags: $tags
+    ) {
       _id
     }
   }
