@@ -11,9 +11,9 @@ export const IMAGE_UPLOAD_QUERY = gql`
       fileSize: $fileSize
       lastModifiedDate: $lastModifiedDate
     ) {
+      id
       isExist
       fileName
-      filePath
     }
   }
 `;
