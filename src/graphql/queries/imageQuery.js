@@ -14,6 +14,8 @@ export const IMAGE_UPLOAD_QUERY = gql`
       id
       isExist
       fileName
+      filePath
+      lastModifiedDate
     }
   }
 `;

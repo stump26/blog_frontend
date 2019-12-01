@@ -12,7 +12,7 @@ import { IMAGE_UPLOAD_QUERY } from 'graphql/queries/imageQuery';
 import PreviewImage from 'component/PreviewImage';
 import './ImageUploader.scss';
 
-const ImageUploader = ({ handleModalClose }) => {
+const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {
   const [targetFile, setTargetFile] = useState(null);
   const [isEdited, setIsEdited] = useState(false);
   const [imageUploadMutation] = useCallback(
@@ -88,6 +88,11 @@ const ImageUploader = ({ handleModalClose }) => {
       },
     });
     console.log('TCL: handleUploadImage -> imageUpload', imageUpload);
+
+    handleImageUploadComplet({
+      name: uploadTargetFile.name,
+      path: imageUpload.filePath,
+    });
   };
 
   return (

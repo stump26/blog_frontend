@@ -23,6 +23,7 @@ const Editor = () => {
   const [title, setTitle] = useState('');
   const [tags, setTags] = useState([]);
   const [value, setValue] = useState('#Hello World');
+  const [focusedEditor, setFocusedEditor] = useState(null);
   const [imageUploaderModalIsOpen, setImageUploaderModalIsOpen] = useState(
     false,
   );
@@ -51,17 +52,23 @@ const Editor = () => {
   };
   const handleImageUploadModal = (editor) => {
     setImageUploaderModalIsOpen(true);
+    setFocusedEditor(editor);
   };
   // 사용자가 모달의 x를 눌러 업로드 취소.
   const handleImageUploadModalClose = () => {
     setImageUploaderModalIsOpen(false);
+    setFocusedEditor(null);
   };
+
   // 사용자가 업로드를 완료한경우 이루어져야될것
   // For editing result
-  // const cm = editor.codemirror;
-  // console.log('handleImageUploadModal-test');
-  // const output = `[](https://)`;
-  // cm.replaceSelection(output);
+  const handleImageUploadComplet = (img) => {
+    const cm = focusedEditor.codemirror;
+    console.log('handleImageUploadModal-test');
+    const output = `[${img.name}](${img.path})`;
+    cm.replaceSelection(output);
+    setImageUploaderModalIsOpen(false);
+  };
 
   // simpleMDE tool 객체
   const customImageUploadTool = {
@@ -132,7 +139,10 @@ const Editor = () => {
       </Button>
       <Modal open={imageUploaderModalIsOpen}>
         <div className="image-uploader-modal-container">
-          <ImageUploader handleModalClose={handleImageUploadModalClose} />
+          <ImageUploader
+            handleModalClose={handleImageUploadModalClose}
+            handleImageUploadComplet={handleImageUploadComplet}
+          />
         </div>
       </Modal>
     </div>
