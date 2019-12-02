@@ -65,7 +65,7 @@ const Editor = () => {
   const handleImageUploadComplet = (img) => {
     const cm = focusedEditor.codemirror;
     console.log('handleImageUploadModal-test');
-    const output = `[${img.name}](${img.path})`;
+    const output = `![${img.name}](${img.path})`;
     cm.replaceSelection(output);
     setImageUploaderModalIsOpen(false);
   };
