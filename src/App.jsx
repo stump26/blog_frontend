@@ -21,7 +21,7 @@ function App() {
   // componentDidMount
   useEffect(() => {
     const historyDark = localStorage.getItem('isDark');
-    console.log('TCL: App -> historyDark', historyDark);
+    // console.log('TCL: App -> historyDark', historyDark);
     if (historyDark === 'true') {
       console.log('load localstorage');
       setDarkMode(true);

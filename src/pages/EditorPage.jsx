@@ -19,8 +19,8 @@ const EditorPage = () => {
   if (error) return `Error! ${error.message}`;
   if (!loading) {
     const { authority } = data.jwtVerify;
-    console.log('TCL: data', data);
-    console.log('TCL: authority', authority);
+    // console.log('TCL: data', data);
+    // console.log('TCL: authority', authority);
     if (authority > 1) {
       alert('권한이 없습니다.');
       history.goBack();
