@@ -1,15 +1,10 @@
 import ApolloClient from 'apollo-client';
 import { ApolloLink } from 'apollo-link';
-import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createUploadLink } from 'apollo-upload-client';
 import { setContext } from 'apollo-link-context';
 
-const uri =
-  process.env.REACT_APP_BACKEND_HOST +
-  ':' +
-  process.env.REACT_APP_BACKEND_PORT +
-  '/graphql';
+const uri = process.env.REACT_APP_BACKEND_HOST + '/graphql';
 console.log('TCL: uri', uri);
 
 // const httpLink = new HttpLink({

@@ -25,8 +25,6 @@ const SignIn = () => {
       method: 'post',
       url:
         process.env.REACT_APP_BACKEND_HOST +
-        ':' +
-        process.env.REACT_APP_BACKEND_PORT +
         '/signin',
       headers: {
         Accept: '*/*',
