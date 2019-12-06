@@ -41,3 +41,20 @@ export const WRITE_POST = gql`
     }
   }
 `;
+export const UPDATE_POST = gql`
+  mutation UPDATEPOST(
+    $id: String!
+    $newTitle: String!
+    $newDescription: String!
+    $newTags: [String]
+  ) {
+    updatePost(
+      _id: $id
+      newTitle: $newTitle
+      newDescription: $newDescription
+      newTags: $newTags
+    ) {
+      _id
+    }
+  }
+`;

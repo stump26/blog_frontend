@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { Markdown } from 'react-showdown';
 import {
@@ -8,18 +8,23 @@ import {
   Button,
   Modal,
 } from '@material-ui/core';
-import { Save as SaveIcon } from '@material-ui/icons';
+import { Save as SaveIcon, Update as UpdateIcon } from '@material-ui/icons';
 import SimpleMDE from 'react-simplemde-editor';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useLazyQuery } from '@apollo/react-hooks';
 import { useHistory } from 'react-router-dom';
 
-import { WRITE_POST } from 'graphql/queries/postQueries';
+import {
+  WRITE_POST,
+  GET_POST_BYID,
+  UPDATE_POST,
+} from 'graphql/queries/postQueries';
 import ImageUploader from 'component/ImageUploader';
 
 import 'easymde/dist/easymde.min.css';
 import './Editor.scss';
 
-const Editor = () => {
+const Editor = ({ postID }) => {
+  const [editMode, setEditMode] = useState(postID !== undefined); // false: newPost, true: modifyPost
   const [title, setTitle] = useState('');
   const [tags, setTags] = useState([]);
   const [value, setValue] = useState('#Hello World');
@@ -28,11 +33,39 @@ const Editor = () => {
     false,
   );
   const history = useHistory();
-  const [writePost, { loading, error }] = useMutation(WRITE_POST, {
-    onCompleted({ writePost: { _id } }) {
+
+  // 글 id 조회 graphql query
+  const [currentPostdata] = useLazyQuery(GET_POST_BYID, {
+    variables: { id: postID },
+    fetchPolicy: 'cache-and-network', // 게시글(post)에서 한번 동일한 조회가 캐싱되어 안보이는것을 방지.
+    onCompleted: ({ post_BY_ID: curPostData }) => {
+      console.log('TCL: curPostData', curPostData);
+      setTitle(curPostData.title);
+      setTags(curPostData.tags);
+      setValue(curPostData.description);
+    },
+  });
+
+  // 글 작성 grapql mutation
+  const [writePost, { loading: writeLoding, error: writeErr }] = useMutation(
+    WRITE_POST,
+    {
+      onCompleted({ writePost: { _id } }) {
+        history.push(`/post/${_id}`);
+      },
+    },
+  );
+
+  // 글 업데이트 graphql mutation
+  const [
+    updatePostQuering,
+    { loading: updateLoding, error: updateErr },
+  ] = useMutation(UPDATE_POST, {
+    onCompleted: ({ updatePost: { _id } }) => {
       history.push(`/post/${_id}`);
     },
   });
+
   const onTypeTitle = (e) => {
     setTitle(e.target.value);
   };
@@ -50,6 +83,17 @@ const Editor = () => {
       },
     });
   };
+  const onClickUpdate = (e) => {
+    updatePostQuering({
+      variables: {
+        id: postID,
+        newTitle: title,
+        newDescription: value,
+        newTags: tags,
+      },
+    });
+  };
+
   const handleImageUploadModal = (editor) => {
     setImageUploaderModalIsOpen(true);
     setFocusedEditor(editor);
@@ -64,12 +108,10 @@ const Editor = () => {
   // For editing result
   const handleImageUploadComplet = (img) => {
     const cm = focusedEditor.codemirror;
-    console.log('handleImageUploadModal-test');
     const output = `![${img.name}](${img.path})`;
     cm.replaceSelection(output);
     setImageUploaderModalIsOpen(false);
   };
-
   // simpleMDE tool 객체
   const customImageUploadTool = {
     name: 'custom-image',
@@ -78,6 +120,15 @@ const Editor = () => {
     title: 'Custom-Image-button',
   };
 
+  // 수정모드인경우 postid를통해 쿼리요청.
+  useEffect(() => {
+    if (postID !== undefined) {
+      console.log('TCL: editor >> postID', postID);
+      currentPostdata();
+      console.log(title);
+    }
+  }, [postID]);
+
   return (
     <div id="container">
       <div className="title-field">
@@ -85,6 +136,7 @@ const Editor = () => {
         <Divider orientation="vertical" />
         <TextField
           className="input-title"
+          value={title}
           margin="normal"
           onChange={onTypeTitle}
         />
@@ -92,7 +144,11 @@ const Editor = () => {
       <div className="tag-field">
         <Typography className="label-tags"> tag </Typography>
         <Divider orientation="vertical" />
-        <TextField className="input-tags" onChange={onTypeTags} />
+        <TextField
+          className="input-tags"
+          onChange={onTypeTags}
+          value={tags.join(', ')}
+        />
       </div>
 
       <SimpleMDE
@@ -126,17 +182,31 @@ const Editor = () => {
           },
         }}
       />
-      <Button
-        variant="contained"
-        color="primary"
-        size="large"
-        className="saveBtn"
-        startIcon={<SaveIcon />}
-        onClick={onClickSave}
-        disabled={loading}
-      >
-        Save
-      </Button>
+      {editMode ? (
+        <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          className="saveBtn"
+          startIcon={<UpdateIcon />}
+          onClick={onClickUpdate}
+          disabled={updateLoding}
+        >
+          Update
+        </Button>
+      ) : (
+        <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          className="saveBtn"
+          startIcon={<SaveIcon />}
+          onClick={onClickSave}
+          disabled={writeLoding}
+        >
+          Save
+        </Button>
+      )}
       <Modal open={imageUploaderModalIsOpen}>
         <div className="image-uploader-modal-container">
           <ImageUploader
