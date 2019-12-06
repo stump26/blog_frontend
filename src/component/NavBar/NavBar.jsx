@@ -33,7 +33,6 @@ const NavButtons = () => {
   const DSMURL = 'https://stumpark.com:5001';
   const githubProfileIMG = 'https://avatars2.githubusercontent.com/u/13835452';
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-  console.log('checked=', darkMode);
   return (
     <div className="Nav-Button-group">
       <Typography id="Nav-Color-switch">
@@ -62,7 +61,6 @@ const NavBar = () => {
       <Typography
         variant="h5"
         className="Nav-logo"
-        color="FFFFFF"
         onClick={() => {
           history.push('/');
         }}

@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+/* eslint-disable no-underscore-dangle */
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { TextField, Typography, Button } from '@material-ui/core';
 import qs from 'querystring';
 import { useHistory } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 
+import { UserInfoContext } from 'context';
 import './SignIn.scss';
 
 const SignIn = () => {
@@ -12,6 +14,7 @@ const SignIn = () => {
   const [inputPW, setInputPW] = useState();
   const [isSigninLoading, setIsSigninLoading] = useState(false);
   const history = useHistory();
+  const { setUserInfoContext } = useContext(UserInfoContext);
 
   const handleInputEmail = (e) => {
     setInputEmail(e.target.value);
@@ -23,9 +26,7 @@ const SignIn = () => {
     setIsSigninLoading(true);
     const opt = {
       method: 'post',
-      url:
-        process.env.REACT_APP_BACKEND_HOST +
-        '/signin',
+      url: process.env.REACT_APP_BACKEND_HOST + '/signin',
       headers: {
         Accept: '*/*',
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -38,10 +39,16 @@ const SignIn = () => {
 
     axios(opt)
       .then((res) => {
-        const { data } = res;
-        // console.log('TCL: handleSubmit -> data', data);
-        sessionStorage.setItem('token', data.token);
-        alert(`Wellcome, ${data.user.username}`);
+        const {
+          data: { token, user },
+        } = res;
+        sessionStorage.setItem('token', token);
+        setUserInfoContext({
+          userId: user._id,
+          username: user.username,
+          authority: user.authority,
+        });
+        alert(`Wellcome, ${user.username}`);
         history.goBack();
       })
       .catch(({ response }) => {

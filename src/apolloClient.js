@@ -14,7 +14,7 @@ console.log('TCL: uri', uri);
 const authLink = setContext((_, { headers, ...context }) => {
   // get the authentication token from local storage if it exists
   const token = sessionStorage.getItem('token');
-  console.log('TCL: authLink -> token', token);
+  // console.log('TCL: authLink -> token', token);
   // return the headers to the context so httpLink can read them
   return {
     headers: {
