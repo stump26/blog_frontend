@@ -42,13 +42,13 @@ function App() {
     const historyDark = localStorage.getItem('isDark');
     // console.log('TCL: App -> historyDark', historyDark);
     if (historyDark === 'true') {
-      console.log('load localstorage');
+      // console.log('TCL: load localstorage');
       setDarkMode(true);
     } else if (
       (historyDark === undefined || historyDark === null) &&
       window.matchMedia('(prefers-color-scheme: dark)').matches
     ) {
-      console.log('load prefers-color-scheme');
+      // console.log('TCL: load prefers-color-scheme');
       setDarkMode(true);
     }
   }, []);

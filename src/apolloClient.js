@@ -5,7 +5,7 @@ import { createUploadLink } from 'apollo-upload-client';
 import { setContext } from 'apollo-link-context';
 
 const uri = process.env.REACT_APP_BACKEND_HOST + '/graphql';
-console.log('TCL: uri', uri);
+// console.log('TCL: uri', uri);
 
 // const httpLink = new HttpLink({
 // 	uri,

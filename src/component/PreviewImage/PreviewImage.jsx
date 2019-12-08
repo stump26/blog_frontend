@@ -22,8 +22,6 @@ const PreviewImage = ({ superElemtnt, file, isEdited }) => {
     clientX,
     clientY,
   }) => {
-    console.log('onDrag left, top', left, top);
-    console.log('onDrag translate', dist);
     target.style.transform = transform;
   };
   const onScale = ({
@@ -43,12 +41,10 @@ const PreviewImage = ({ superElemtnt, file, isEdited }) => {
         `scale(${scale[0]},${scale[0]})`,
       );
     }
-    console.log('TCL: PreviewImage -> transform', transform);
     target.style.transform = transform;
   };
   const onRotate = ({ target, delta, dist, transform, clientX, clientY }) => {
     isEdited(true);
-    console.log('onRotate', dist);
     target.style.transform = transform;
   };
   const imgStyle = {
@@ -69,7 +65,6 @@ const PreviewImage = ({ superElemtnt, file, isEdited }) => {
   const onWindowReisze = () => {
     if (moveableRef.current) {
       moveableRef.current.updateTarget();
-      console.log('update');
     }
   };
   // convert blob to Base64
@@ -104,7 +99,6 @@ const PreviewImage = ({ superElemtnt, file, isEdited }) => {
     changePreviewImage();
     if (moveableRef.current) {
       moveableRef.current.updateTarget();
-      console.log('update');
     }
   }, [file]);
 
