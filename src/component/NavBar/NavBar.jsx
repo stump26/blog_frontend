@@ -25,7 +25,7 @@ const NavButtons = () => {
   const instaURL = 'https://www.instagram.com/stumpark_26/';
   const DSMURL = 'https://stumpark.com:5001';
 
-  const githubProfileIMG = 'https://https://stumpark.com:3000/img/stumpark/logo64.jpg';
+  const githubProfileIMG = 'https://stumpark.com/img/stumpark/logo64.jpg';
 
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   return (
