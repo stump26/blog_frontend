@@ -27,11 +27,6 @@ function App() {
       const token = sessionStorage.getItem('token');
       if (token) {
         const { _id: userId, username, authority } = jwt.decode(token);
-        // setUserInfo({
-        //   userId: userId,
-        //   username: username,
-        //   authority: authority,
-        // });
         return authority;
       }
       return false;
@@ -58,7 +53,6 @@ function App() {
       .getElementsByTagName('body')[0]
       .classList.toggle('dark-mode', darkMode);
   });
-
   return (
     <ApolloProvider client={ApolloClient}>
       <BrowserRouter>
