@@ -25,12 +25,7 @@ const PostBody = ({ postID, title, modifyDate, description }) => {
   return (
     <div className="container">
       {author !== false && author < 1 && (
-        <Fab
-          className="ModifyBtn"
-          size="small"
-          aria-label="edit"
-          onClick={onClickModify}
-        >
+        <Fab className="ModifyBtn" size="small" aria-label="edit" onClick={onClickModify}>
           <EditIcon />
         </Fab>
       )}
@@ -38,9 +33,27 @@ const PostBody = ({ postID, title, modifyDate, description }) => {
         <h1 id="post-title">{title}</h1>
       </div>
       <Divider className="titie-section-divider" />
-      <div className="modify-date">{modifyDate}</div>
-      <div className="post-desc">
+      <div className="modify-date">
+        {modifyDate}
+        <meta itemprop="dateModified" content={modifyDate}></meta>
+      </div>
+      <div className="post-desc" itemscope itemtype="http://schema.org/BlogPosting">
         <Markdown markup={description} />
+      </div>
+
+      <div>
+        <meta itemprop="mainEntityOfPage" content={`/post/${postID}`} />
+        <meta itemprop="name" content={title} />
+        <div itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+          <meta itemprop="name" content="Stumpark's blog" />
+          <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+            <meta itemprop="url" content="{https://blog.stumpark.com/logo512.png}" />
+          </div>
+        </div>
+        <div itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <meta itemprop="name" content="Outsider" />
+          <meta itemprop="url" content="/" />
+        </div>
       </div>
     </div>
   );
