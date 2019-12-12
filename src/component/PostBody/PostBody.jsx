@@ -1,25 +1,16 @@
 import React, { useContext, useState, useEffect } from 'react';
-import ReactLoading from 'react-loading';
 import { Markdown } from 'react-showdown';
-import { useQuery } from '@apollo/react-hooks';
 import { useHistory } from 'react-router-dom';
 import { Divider, Fab } from '@material-ui/core';
 import { Edit as EditIcon } from '@material-ui/icons';
 import jwt from 'jsonwebtoken';
 
-import { GET_POST_BYID } from 'graphql/queries/postQueries';
 import { UserInfoContext } from 'context';
 import './PostBody.scss';
-import { setState } from 'expect/build/jestMatchersObject';
 
-const PostBody = ({ postID }) => {
+const PostBody = ({ postID, title, modifyDate, description }) => {
   const history = useHistory();
   const [author, setAuthor] = useState(false);
-  const { decodeJWTPayload } = useContext(UserInfoContext);
-  const { loading, error, data } = useQuery(GET_POST_BYID, {
-    variables: { id: postID },
-    fetchPolicy: 'cache-and-network',
-  });
   useEffect(() => {
     const token = sessionStorage.getItem('token');
     if (token) {
@@ -27,25 +18,9 @@ const PostBody = ({ postID }) => {
       setAuthor(authority);
     }
   }, []);
-  if (loading) {
-    return (
-      <ReactLoading
-        className="loding-symbole"
-        type="bars"
-        color="#3376FB"
-        width={100}
-        height={100}
-      />
-    );
-  }
-  if (error) {
-    // console.log ('TCL: error', error);
-    return <div>bad</div>;
-  }
   const onClickModify = () => {
     history.push(`/editor/${postID}`);
   };
-  const { _id, title, modifyDate, description } = data.post_BY_ID;
 
   return (
     <div className="container">
