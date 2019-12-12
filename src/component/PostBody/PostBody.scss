@@ -21,8 +21,8 @@
       margin-bottom: 30px;
       font-size: 90px;
       font-weight: 400;
-      font-family: 'Nanum Pen Script', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-        'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      font-family: 'Nanum Pen Script', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+        'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     }
   }
   .titie-section-divider {
@@ -45,5 +45,9 @@
     letter-spacing: 0.05em;
     line-height: 1.3em;
     font-family: 'Nanum Gothic', 'Segoe UI', sans-serif;
+    code {
+      padding: 20px;
+      font-size: 20px;
+    }
   }
 }

@@ -49,31 +49,31 @@ function App() {
   }, []);
   // componentDidUpdate
   useEffect(() => {
-    document
-      .getElementsByTagName('body')[0]
-      .classList.toggle('dark-mode', darkMode);
+    document.getElementsByTagName('body')[0].classList.toggle('dark-mode', darkMode);
   });
   return (
-    <ApolloProvider client={ApolloClient}>
-      <BrowserRouter>
-        <DarkModeContext.Provider value={{ darkMode, ...darkActions }}>
-          <UserInfoContext.Provider value={{ userInfo, ...userActions }}>
-            <div className="App">
-              <NavBar />
-              <>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/editor/:postid" component={Editor} />
-                <Route exact path="/editor/" component={Editor} />
-                <Route exact path="/post/:id" component={Post} />
-                <Route exact path="/aboutMe" component={About} />
-                <Route exact path="/auth" component={Auth} />
-              </>
-              <Footer />
-            </div>
-          </UserInfoContext.Provider>
-        </DarkModeContext.Provider>
-      </BrowserRouter>
-    </ApolloProvider>
+    <>
+      <ApolloProvider client={ApolloClient}>
+        <BrowserRouter>
+          <DarkModeContext.Provider value={{ darkMode, ...darkActions }}>
+            <UserInfoContext.Provider value={{ userInfo, ...userActions }}>
+              <div className="App">
+                <NavBar />
+                <>
+                  <Route exact path="/" component={Home} />
+                  <Route exact path="/editor/:postid" component={Editor} />
+                  <Route exact path="/editor/" component={Editor} />
+                  <Route exact path="/post/:id" component={Post} />
+                  <Route exact path="/aboutMe" component={About} />
+                  <Route exact path="/auth" component={Auth} />
+                </>
+                <Footer />
+              </div>
+            </UserInfoContext.Provider>
+          </DarkModeContext.Provider>
+        </BrowserRouter>
+      </ApolloProvider>
+    </>
   );
 }
 

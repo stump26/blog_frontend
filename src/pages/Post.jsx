@@ -32,11 +32,20 @@ const Post = ({ match: { params } }) => {
   }
 
   // GET_POST_BYID 결과 구조분해
-  const { _id, title, modifyDate, description } = data.post_BY_ID;
+  const { _id, title, modifyDate, description, tags } = data.post_BY_ID;
+  const markdownRegExp = /!?\[.*?\]\(.*?\)|<.*?>|\*.*?\*|#+|\t+|\n|[\s]{2,}|`{3}.*?`{3}/g;
+  const extrectDescription = description.replace(markdownRegExp, '').slice(0, 150) + '...';
 
   return (
     <>
-      <Helmet></Helmet>
+      <Helmet>
+        <meta name="description" content={extrectDescription} />
+        <meta name="Keywords" content={tags.join(', ')} />
+        <title>{`${title} | Stumpark's blog`}</title>
+        <meta property="og:url" content={`https://blog.stumpark.co.kr/post/${_id}`} />
+        <meta name="og:description" content={extrectDescription} />
+        <meta name="og:title" content={`${title} | Stumpark's blog`} />
+      </Helmet>
       <PostBody
         postID={params.id}
         title={title}

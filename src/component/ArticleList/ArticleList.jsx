@@ -8,6 +8,9 @@ import { GET_POST_LIST } from 'graphql/queries/postQueries';
 import './ArticleList.scss';
 
 const ArticleCard = ({ id, title, date, desc, tags, onClickArticle }) => {
+  // filter Markdown syntex
+  const markdownRegExp = /!?\[.*?\]\(.*?\)|<.*?>|\*.*?\*|#+|\t+|\n|[\s]{2,}|`{3}.*?`{3}/gi;
+  const sampleDescription = desc.replace(markdownRegExp, '').slice(0, 200) + '...';
   return (
     <Card
       className="Article-card"
@@ -23,7 +26,7 @@ const ArticleCard = ({ id, title, date, desc, tags, onClickArticle }) => {
           <hr className="Article-divide" />
           <div className="Article-date">{date}</div>
         </div>
-        <p className="Article-desc">{desc.slice(0, 300) + '...'}</p>
+        <p className="Article-desc">{sampleDescription}</p>
         <div className="Article-Tag-list">
           {tags.map((i) => {
             return (
@@ -68,8 +71,7 @@ const ArticleList = () => {
   const setCurrentReadOffset = (e) => {
     const scrollTop = Math.floor(document.documentElement.scrollTop);
     const scrollMax = Math.floor(
-      document.documentElement.scrollHeight -
-        document.documentElement.clientHeight,
+      document.documentElement.scrollHeight - document.documentElement.clientHeight,
     );
     if (scrollMax !== 0 && existNext && scrollMax === scrollTop) {
       fetchNextPage(page + 1);
