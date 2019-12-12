@@ -180,6 +180,10 @@ const Editor = ({ postID }) => {
           imageUploadFunction: () => {
             console.log('test');
           },
+          renderingConfig: {
+            singleLineBreaks: false,
+            codeSyntaxHighlighting: true,
+          },
         }}
       />
       {editMode ? (
