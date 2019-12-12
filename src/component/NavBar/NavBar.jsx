@@ -1,12 +1,5 @@
 import React, { useContext } from 'react';
-import {
-  AppBar,
-  Typography,
-  Input,
-  Switch,
-  Link,
-  Avatar,
-} from '@material-ui/core';
+import { AppBar, Typography, Input, Switch, Link, Avatar } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { purple } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/core/styles';
@@ -31,7 +24,9 @@ const NavButtons = () => {
   const githubURL = 'https://github.com/stump26';
   const instaURL = 'https://www.instagram.com/stumpark_26/';
   const DSMURL = 'https://stumpark.com:5001';
-  const githubProfileIMG = 'https://avatars2.githubusercontent.com/u/13835452';
+
+  const githubProfileIMG = 'https://https://stumpark.com:3000/img/stumpark/logo64.jpg';
+
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   return (
     <div className="Nav-Button-group">
