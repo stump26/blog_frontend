@@ -1,11 +1,10 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { Markdown } from 'react-showdown';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Divider, Fab } from '@material-ui/core';
 import { Edit as EditIcon } from '@material-ui/icons';
 import jwt from 'jsonwebtoken';
 
-import { UserInfoContext } from 'context';
+import MDRenderer from 'component/commons/MarkdownRenderer';
 import './PostBody.scss';
 
 const PostBody = ({ postID, title, modifyDate, description }) => {
@@ -38,7 +37,7 @@ const PostBody = ({ postID, title, modifyDate, description }) => {
         <meta itemprop="dateModified" content={modifyDate}></meta>
       </div>
       <div className="post-desc" itemscope itemtype="http://schema.org/BlogPosting">
-        <Markdown markup={description} />
+        <MDRenderer markup={description} />
       </div>
 
       <div>

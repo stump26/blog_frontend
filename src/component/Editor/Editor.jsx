@@ -1,24 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { Markdown } from 'react-showdown';
-import {
-  TextField,
-  Typography,
-  Divider,
-  Button,
-  Modal,
-} from '@material-ui/core';
+import { TextField, Typography, Divider, Button, Modal } from '@material-ui/core';
 import { Save as SaveIcon, Update as UpdateIcon } from '@material-ui/icons';
 import SimpleMDE from 'react-simplemde-editor';
 import { useMutation, useLazyQuery } from '@apollo/react-hooks';
 import { useHistory } from 'react-router-dom';
 
-import {
-  WRITE_POST,
-  GET_POST_BYID,
-  UPDATE_POST,
-} from 'graphql/queries/postQueries';
+import { WRITE_POST, GET_POST_BYID, UPDATE_POST } from 'graphql/queries/postQueries';
 import ImageUploader from 'component/ImageUploader';
+import MDRenderer from 'component/commons/MarkdownRenderer';
 
 import 'easymde/dist/easymde.min.css';
 import './Editor.scss';
@@ -29,9 +19,7 @@ const Editor = ({ postID }) => {
   const [tags, setTags] = useState([]);
   const [value, setValue] = useState('#Hello World');
   const [focusedEditor, setFocusedEditor] = useState(null);
-  const [imageUploaderModalIsOpen, setImageUploaderModalIsOpen] = useState(
-    false,
-  );
+  const [imageUploaderModalIsOpen, setImageUploaderModalIsOpen] = useState(false);
   const history = useHistory();
 
   // 글 id 조회 graphql query
@@ -47,24 +35,21 @@ const Editor = ({ postID }) => {
   });
 
   // 글 작성 grapql mutation
-  const [writePost, { loading: writeLoding, error: writeErr }] = useMutation(
-    WRITE_POST,
+  const [writePost, { loading: writeLoding, error: writeErr }] = useMutation(WRITE_POST, {
+    onCompleted({ writePost: { _id } }) {
+      history.push(`/post/${_id}`);
+    },
+  });
+
+  // 글 업데이트 graphql mutation
+  const [updatePostQuering, { loading: updateLoding, error: updateErr }] = useMutation(
+    UPDATE_POST,
     {
-      onCompleted({ writePost: { _id } }) {
+      onCompleted: ({ updatePost: { _id } }) => {
         history.push(`/post/${_id}`);
       },
     },
   );
-
-  // 글 업데이트 graphql mutation
-  const [
-    updatePostQuering,
-    { loading: updateLoding, error: updateErr },
-  ] = useMutation(UPDATE_POST, {
-    onCompleted: ({ updatePost: { _id } }) => {
-      history.push(`/post/${_id}`);
-    },
-  });
 
   const onTypeTitle = (e) => {
     setTitle(e.target.value);
@@ -134,21 +119,12 @@ const Editor = ({ postID }) => {
       <div className="title-field">
         <Typography className="label-title"> 제목 </Typography>
         <Divider orientation="vertical" />
-        <TextField
-          className="input-title"
-          value={title}
-          margin="normal"
-          onChange={onTypeTitle}
-        />
+        <TextField className="input-title" value={title} margin="normal" onChange={onTypeTitle} />
       </div>
       <div className="tag-field">
         <Typography className="label-tags"> tag </Typography>
         <Divider orientation="vertical" />
-        <TextField
-          className="input-tags"
-          onChange={onTypeTags}
-          value={tags.join(', ')}
-        />
+        <TextField className="input-tags" onChange={onTypeTags} value={tags.join(', ')} />
       </div>
 
       <SimpleMDE
@@ -174,7 +150,7 @@ const Editor = ({ postID }) => {
             'fullscreen',
           ],
           previewRender: (text) => {
-            return ReactDOMServer.renderToString(<Markdown markup={text} />);
+            return ReactDOMServer.renderToString(<MDRenderer markup={text} />);
           },
           uploadImage: true,
           imageUploadFunction: () => {
