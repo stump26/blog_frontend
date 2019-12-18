@@ -6,19 +6,19 @@ import {
   ImageSearch as ImageSearchIcon,
   Publish as PublishIcon,
 } from '@material-ui/icons';
-import html2canvas from 'html2canvas';
-
+// import html2canvas from 'html2canvas';
 import { IMAGE_UPLOAD_QUERY } from '../../graphql/queries/imageQuery';
 import PreviewImage from '../PreviewImage';
 import './ImageUploader.scss';
 
+// window 객체가 있는경우에만.
+// eslint-disable-next-line global-require
+const html2canvas = typeof window !== 'undefined' ? require('html2canvas') : null;
+
 const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {
   const [targetFile, setTargetFile] = useState(null);
   const [isEdited, setIsEdited] = useState(false);
-  const [imageUploadMutation] = useCallback(
-    useMutation(IMAGE_UPLOAD_QUERY),
-    [],
-  );
+  const [imageUploadMutation] = useCallback(useMutation(IMAGE_UPLOAD_QUERY), []);
   // 이미지 미리보기에 추가.
   const setPreView = async (file) => {
     // console.log('TCL: setPreView -> file', file);
@@ -34,9 +34,7 @@ const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {
 
   // 이미지 셀렉터를 불러오기 위한.
   const handleImageSelector = () => {
-    const imagePathField = document.getElementsByClassName(
-      'image-path-field',
-    )[0];
+    const imagePathField = document.getElementsByClassName('image-path-field')[0];
     const upload = document.createElement('input');
     upload.type = 'file';
     upload.onchange = (event) => {
@@ -101,11 +99,7 @@ const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {
         <Typography className="modal-title" variant="h5">
           Image Uploader
         </Typography>
-        <CloseIcon
-          color="disabled"
-          className="CloseBtn"
-          onClick={handleModalClose}
-        />
+        <CloseIcon color="disabled" className="CloseBtn" onClick={handleModalClose} />
       </div>
       <div className="modal-body">
         <div className="image-selector-field">
