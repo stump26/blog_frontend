@@ -6,9 +6,9 @@ import SimpleMDE from 'react-simplemde-editor';
 import { useMutation, useLazyQuery } from '@apollo/react-hooks';
 import { useHistory } from 'react-router-dom';
 
-import { WRITE_POST, GET_POST_BYID, UPDATE_POST } from 'graphql/queries/postQueries';
-import ImageUploader from 'component/ImageUploader';
-import MDRenderer from 'component/commons/MarkdownRenderer';
+import { WRITE_POST, GET_POST_BYID, UPDATE_POST } from '../../graphql/queries/postQueries';
+import ImageUploader from '../ImageUploader';
+import MDRenderer from '../commons/MarkdownRenderer';
 
 import 'easymde/dist/easymde.min.css';
 import './Editor.scss';

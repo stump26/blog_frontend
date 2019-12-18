@@ -1,5 +1,3 @@
-
-
 const path = require('path');
 const fs = require('fs');
 const url = require('url');
@@ -15,11 +13,11 @@ function ensureSlash(inputPath, needsSlash) {
   const hasSlash = inputPath.endsWith('/');
   if (hasSlash && !needsSlash) {
     return inputPath.substr(0, inputPath.length - 1);
-  } if (!hasSlash && needsSlash) {
+  }
+  if (!hasSlash && needsSlash) {
     return `${inputPath}/`;
-  } 
-    return inputPath;
-  
+  }
+  return inputPath;
 }
 
 const getPublicUrl = (appPackageJson) => envPublicUrl || require(appPackageJson).homepage;
@@ -81,8 +79,8 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
-  serverRendenJs: resolveApp('src/server/render.js'),
-  server: resolveApp('server/render'),
+  serverRenderJs: resolveApp('src/ssr/render.js'),
+  ssrBuild: resolveApp('ssr'),
 };
 
 module.exports.moduleFileExtensions = moduleFileExtensions;

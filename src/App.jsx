@@ -6,11 +6,11 @@ import jwt from 'jsonwebtoken';
 import ApolloClient from './apolloClient';
 import { Home, Editor, Post, About, Auth } from './pages';
 import { DarkModeContext, UserInfoContext } from './context.js';
-import NavBar from 'component/NavBar';
-import Footer from 'component/Footer';
+import NavBar from './component/NavBar/';
+import Footer from './component/Footer/';
 import './App.scss';
 
-function App() {
+export default () => {
   const [darkMode, setDarkMode] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
   const darkActions = {
@@ -75,6 +75,4 @@ function App() {
       </ApolloProvider>
     </>
   );
-}
-
-export default App;
+};

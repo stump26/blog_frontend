@@ -2,8 +2,8 @@ import React from 'react';
 import ReactLoading from 'react-loading';
 import { useQuery } from '@apollo/react-hooks';
 import { Helmet } from 'react-helmet';
-import PostBody from 'component/PostBody';
-import { GET_POST_BYID } from 'graphql/queries/postQueries';
+import PostBody from '../component/PostBody';
+import { GET_POST_BYID } from '../graphql/queries/postQueries';
 
 const Post = ({ match: { params } }) => {
   const { loading, error, data } = useQuery(GET_POST_BYID, {

@@ -8,8 +8,8 @@ import {
 } from '@material-ui/icons';
 import html2canvas from 'html2canvas';
 
-import { IMAGE_UPLOAD_QUERY } from 'graphql/queries/imageQuery';
-import PreviewImage from 'component/PreviewImage';
+import { IMAGE_UPLOAD_QUERY } from '../../graphql/queries/imageQuery';
+import PreviewImage from '../PreviewImage';
 import './ImageUploader.scss';
 
 const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {

@@ -6,7 +6,7 @@ import qs from 'querystring';
 import { useHistory } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 
-import { UserInfoContext } from 'context';
+import { UserInfoContext } from '../../context';
 import './SignIn.scss';
 
 const SignIn = () => {

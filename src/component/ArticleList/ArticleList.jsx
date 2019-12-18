@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { useHistory } from 'react-router-dom';
 import { Card, CardContent, Typography } from '@material-ui/core';
 
-import { GET_POST_LIST } from 'graphql/queries/postQueries';
+import { GET_POST_LIST } from '../../graphql/queries/postQueries';
 import './ArticleList.scss';
 
 const ArticleCard = ({ id, title, date, desc, tags, onClickArticle }) => {

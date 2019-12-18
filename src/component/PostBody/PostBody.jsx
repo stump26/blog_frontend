@@ -4,7 +4,7 @@ import { Divider, Fab } from '@material-ui/core';
 import { Edit as EditIcon } from '@material-ui/icons';
 import jwt from 'jsonwebtoken';
 
-import MDRenderer from 'component/commons/MarkdownRenderer';
+import MDRenderer from '../commons/MarkdownRenderer';
 import './PostBody.scss';
 
 const PostBody = ({ postID, title, modifyDate, description }) => {

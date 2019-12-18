@@ -1,8 +1,8 @@
 import React from 'react';
-import Editor from 'component/Editor';
+import Editor from '../component/Editor';
 import { useHistory } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-import { CHK_TOKEN_VERIFY } from 'graphql/queries/authQuerues';
+import { CHK_TOKEN_VERIFY } from '../graphql/queries/authQuerues';
 
 const EditorPage = ({ match: { params } }) => {
   const history = useHistory();
