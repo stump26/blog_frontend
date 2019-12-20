@@ -56,7 +56,6 @@ const serverRender = (req, res, next) => {
   res.send(createPage(root));
 };
 
-//
 const serve = express.static(path.resolve('./build'), {
   index: false, // "/" 경로에서 index.html을 보여주지 않도록 설정
 });
