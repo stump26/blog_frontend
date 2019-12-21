@@ -7,6 +7,7 @@ const paths = require('./paths');
 const webpack = require('webpack');
 const getClientEnvironment = require('./env');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
+const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
@@ -17,7 +18,7 @@ const env = getClientEnvironment(publicUrl);
 
 module.exports = {
   mode: 'production', // 프로덕션 모드로 설정하여 최적화 옵션들을 활성화
-  entry: ['@babel/polyfill', paths.serverRenderJs], // 엔트리 경로
+  entry: paths.serverRenderJs, // 엔트리 경로
   target: 'node', // node 환경에서 실행 될 것이라는 것을 명시
   output: {
     path: paths.ssrBuild, // 빌드 경로
@@ -136,7 +137,7 @@ module.exports = {
     modules: ['node_modules'],
     extensions: ['.js', '.jsx'],
   },
-  externals: [nodeExternals()],
+  // externals: [nodeExternals()],
   plugins: [
     new webpack.DefinePlugin(env.stringified), // 환경변수를 주입해줍니다.
   ],
