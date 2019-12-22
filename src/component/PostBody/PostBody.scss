@@ -41,12 +41,46 @@
     position: relative;
     width: 100%;
     max-width: 40em;
-    font-size: 25px;
+    font-size: 22px;
     letter-spacing: 0.05em;
     line-height: 1.3em;
     font-family: 'Nanum Gothic', 'Segoe UI', sans-serif;
+
+    h2,
+    h3 {
+      border-left: solid 4px #3376fb;
+      margin-top: 2em;
+      padding: 0.3em 0 0.2em;
+      padding-left: 0.3em;
+    }
+    p {
+      line-height: 1.6em;
+      // text-indent: 0.5em;
+    }
     code {
-      font-size: 20px;
+      font-size: 17px;
+    }
+    blockquote {
+      color: #414565;
+      font-size: 17px;
+      border-radius: 0.3em;
+      background-color: #ececec;
+      > p {
+        padding: 1.4rem 2em;
+      }
+    }
+    a:-webkit-any-link {
+      color: #fb3333;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+        text-decoration-style: dashed;
+      }
+    }
+    li {
+      list-style-type: none;
+      position: relative;
+      padding-left: 15px;
     }
   }
 }
