@@ -41,10 +41,11 @@
     position: relative;
     width: 100%;
     max-width: 40em;
-    font-size: 25px;
+    font-size: 22px;
     letter-spacing: 0.05em;
     line-height: 1.3em;
     font-family: 'Nanum Gothic', 'Segoe UI', sans-serif;
+
     h2,
     h3 {
       border-left: solid 4px #3376fb;
@@ -53,14 +54,15 @@
       padding-left: 0.3em;
     }
     p {
-      text-indent: 0.5em;
+      line-height: 1.6em;
+      // text-indent: 0.5em;
     }
     code {
-      font-size: 20px;
+      font-size: 17px;
     }
     blockquote {
       color: #464646;
-      font-size: 20px;
+      font-size: 17px;
       border-radius: 0.3em;
       background-color: #eee;
       > p {
@@ -75,12 +77,9 @@
       position: relative;
       padding-left: 15px;
     }
-
-    li:before {
-      content: '▶';
-      font-size: 0.8em;
-      position: absolute;
-      left: -10px;
+    blockquote {
+      background-color: #d8d8d8;
+      color: #414565;
     }
   }
 }

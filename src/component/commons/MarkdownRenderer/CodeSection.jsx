@@ -25,8 +25,9 @@ export default (languageDefinitions) => {
 
   const Code = ({ className = '', children }) => {
     const language = className.split('-')[1] || '';
+    const inline = language !== '' ? null : true;
     const value = children[0] || '';
-    const props = { value };
+    const props = { value, inline };
 
     if (Object.keys(languageDefinitions).indexOf(language) > -1) {
       // Include the language only if it was previously registered
@@ -36,7 +37,7 @@ export default (languageDefinitions) => {
     console.log('TCL: Code -> language', language);
     return (
       <>
-        <LangTag language={language} />
+        {inline === null && <LangTag language={language} />}
         <Lowlight {...props} />
       </>
     );
