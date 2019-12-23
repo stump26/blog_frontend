@@ -5,7 +5,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app/package.json
 RUN yarn
 COPY . /app
-ARG REACT_APP_BACKEND_HOST=https://backend-lia5cgordq-an.a.run.app/
+ARG REACT_APP_BACKEND_HOST=https://api.blog.stumpark.com
 RUN yarn build
 
 # production environment

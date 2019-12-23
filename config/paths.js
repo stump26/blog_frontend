@@ -80,7 +80,7 @@ module.exports = {
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
   serverRenderJs: resolveApp('src/ssr/render.js'),
-  ssrBuild: resolveApp('ssr'),
+  ssrBuild: resolveApp('dist'),
 };
 
 module.exports.moduleFileExtensions = moduleFileExtensions;

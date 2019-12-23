@@ -8,6 +8,8 @@ const webpack = require('webpack');
 const getClientEnvironment = require('./env');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const path = require('path');
+
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
@@ -22,10 +24,9 @@ module.exports = {
   target: 'node', // node 환경에서 실행 될 것이라는 것을 명시
   output: {
     path: paths.ssrBuild, // 빌드 경로
-    filename: 'render.js', // 파일이름
+    filename: 'server.js', // 파일이름
     chunkFilename: 'js/[name].chunk.js', // 청크 파일이름
     publicPath: paths.servedPath, // 정적 파일이 제공 될 경로
-    libraryTarget: 'commonjs2',
   },
 
   module: {
@@ -40,7 +41,7 @@ module.exports = {
             loader: require.resolve('babel-loader'),
             options: {
               customize: require.resolve('babel-preset-react-app/webpack-overrides'),
-              presets: ['@babel/preset-env', '@babel/preset-react'],
+              // presets: ['@babel/preset-env', '@babel/preset-react'],
               plugins: [
                 [
                   require.resolve('babel-plugin-named-asset-import'),
@@ -135,10 +136,18 @@ module.exports = {
   },
   resolve: {
     modules: ['node_modules'],
-    extensions: ['.js', '.jsx'],
+    extensions: paths.moduleFileExtensions
+      .map((ext) => `.${ext}`)
+      .filter((ext) => true || !ext.includes('ts')),
   },
   // externals: [nodeExternals()],
   plugins: [
     new webpack.DefinePlugin(env.stringified), // 환경변수를 주입해줍니다.
   ],
+  optimization: {
+    minimize: false,
+  },
+  node: {
+    __dirname: false,
+  },
 };
