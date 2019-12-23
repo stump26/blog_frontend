@@ -33,6 +33,17 @@ module.exports = {
     rules: [
       {
         oneOf: [
+          // url-loader 를 위한 설정
+          {
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+            loader: require.resolve('url-loader'),
+            options: {
+              limit: 10000, // 원래는 9.76KB가 넘어가면 파일로 저장하는데
+              // emitFile 값이 false 일땐 경로만 준비하고 파일은 저장하지 않습니다.
+              name: 'static/media/[name].[hash:8].[ext]',
+              emitFile: false, // 파일을 따로 저장하지 않는 옵션
+            },
+          },
           // 자바스크립트를 위한 처리
           // 기존 webpack.config.js 를 참고하여 작성
           {
@@ -109,17 +120,6 @@ module.exports = {
               require.resolve('sass-loader'),
             ],
           },
-          // url-loader 를 위한 설정
-          {
-            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-            loader: require.resolve('url-loader'),
-            options: {
-              emitFile: false, // 파일을 따로 저장하지 않는 옵션
-              limit: 10000, // 원래는 9.76KB가 넘어가면 파일로 저장하는데
-              // emitFile 값이 false 일땐 경로만 준비하고 파일은 저장하지 않습니다.
-              name: 'static/media/[name].[hash:8].[ext]',
-            },
-          },
           // 위에서 설정된 확장자를 제외한 파일들은
           // file-loader 를 사용합니다.
           {
@@ -140,14 +140,11 @@ module.exports = {
       .map((ext) => `.${ext}`)
       .filter((ext) => true || !ext.includes('ts')),
   },
-  // externals: [nodeExternals()],
   plugins: [
     new webpack.DefinePlugin(env.stringified), // 환경변수를 주입해줍니다.
   ],
   optimization: {
-    minimize: false,
+    minimize: false, // build 결과물을 난독화x
   },
-  node: {
-    __dirname: false,
-  },
+  externals: [nodeExternals()],
 };

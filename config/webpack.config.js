@@ -28,6 +28,7 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const eslint = require('eslint');
+const LoadablePlugin = require('@loadable/webpack-plugin');
 
 const postcssNormalize = require('postcss-normalize');
 
@@ -607,6 +608,7 @@ module.exports = function(webpackEnv) {
             new RegExp('/[^/?]+\\.[^/]+$'),
           ],
         }),
+      isEnvProduction && new LoadablePlugin(),
       // TypeScript type checking
       useTypeScript &&
         new ForkTsCheckerWebpackPlugin({
