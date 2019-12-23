@@ -5,11 +5,6 @@ import { createUploadLink } from 'apollo-upload-client';
 import { setContext } from 'apollo-link-context';
 
 const uri = process.env.REACT_APP_BACKEND_HOST + '/graphql';
-// console.log('TCL: uri', uri);
-
-// const httpLink = new HttpLink({
-// 	uri,
-// });
 
 const authLink = setContext((_, { headers, ...context }) => {
   // get the authentication token from local storage if it exists
@@ -29,12 +24,12 @@ const uploadLink = createUploadLink({
   uri: uri,
 });
 
-const link = ApolloLink.from([authLink, uploadLink]);
+export const link = ApolloLink.from([authLink, uploadLink]);
 
 const client = new ApolloClient({
   uri,
   link: link,
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache().restore(window.__APOLLO_STATE__),
 });
 
 export default client;

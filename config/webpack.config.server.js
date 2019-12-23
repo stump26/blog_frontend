@@ -7,8 +7,6 @@ const paths = require('./paths');
 const webpack = require('webpack');
 const getClientEnvironment = require('./env');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
-const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
-const path = require('path');
 
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
@@ -20,12 +18,12 @@ const env = getClientEnvironment(publicUrl);
 
 module.exports = {
   mode: 'production', // 프로덕션 모드로 설정하여 최적화 옵션들을 활성화
-  entry: paths.serverRenderJs, // 엔트리 경로
+  entry: paths.ssrIndexJs, // 엔트리 경로
   target: 'node', // node 환경에서 실행 될 것이라는 것을 명시
   output: {
     path: paths.ssrBuild, // 빌드 경로
     filename: 'server.js', // 파일이름
-    chunkFilename: 'js/[name].chunk.js', // 청크 파일이름
+    chunkFilename: 'js/[name].[contenthash:8].chunk.js', // 청크 파일이름
     publicPath: paths.servedPath, // 정적 파일이 제공 될 경로
   },
 
@@ -147,4 +145,7 @@ module.exports = {
     minimize: false, // build 결과물을 난독화x
   },
   externals: [nodeExternals()],
+  node: {
+    __dirname: false,
+  },
 };

@@ -10,7 +10,7 @@ import { WRITE_POST, GET_POST_BYID, UPDATE_POST } from '../../graphql/queries/po
 import ImageUploader from '../ImageUploader';
 import MDRenderer from '../commons/MarkdownRenderer';
 
-import 'easymde/dist/easymde.min.css';
+process.browser && require('easymde/dist/easymde.min.css');
 import './Editor.scss';
 
 const Editor = ({ postID }) => {

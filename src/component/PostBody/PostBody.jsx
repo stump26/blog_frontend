@@ -10,13 +10,15 @@ import './PostBody.scss';
 const PostBody = ({ postID, title, modifyDate, description }) => {
   const history = useHistory();
   const [author, setAuthor] = useState(false);
-  useEffect(() => {
-    const token = sessionStorage.getItem('token');
-    if (token) {
-      const { _id: userId, username, authority } = jwt.decode(token);
-      setAuthor(authority);
-    }
-  }, []);
+  if (process.browser) {
+    useEffect(() => {
+      const token = sessionStorage.getItem('token');
+      if (token) {
+        const { _id: userId, username, authority } = jwt.decode(token);
+        setAuthor(authority);
+      }
+    }, []);
+  }
   const onClickModify = () => {
     history.push(`/editor/${postID}`);
   };

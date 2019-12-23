@@ -10,7 +10,7 @@ const Html = ({ content, styledElement, apolloState, extractor }) => {
       </head>
       <body>
         <div id="root" dangerouslySetInnerHTML={{ __html: content }}></div>
-        <scritp
+        <script
           dangerouslySetInnerHTML={{
             __html: `window.__APOLLO_STATE__=${JSON.stringify(apolloState).replace(
               /</g,
