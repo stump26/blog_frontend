@@ -2,6 +2,12 @@
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
+/******/ 	// object to store loaded chunks
+/******/ 	// "0" means "already loaded"
+/******/ 	var installedChunks = {
+/******/ 		0: 0
+/******/ 	};
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/
@@ -79,9 +85,16 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "/";
 /******/
+/******/ 	// uncaught error handler for webpack runtime
+/******/ 	__webpack_require__.oe = function(err) {
+/******/ 		process.nextTick(function() {
+/******/ 			throw err; // catch this error by using import().catch()
+/******/ 		});
+/******/ 	};
+/******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 60);
+/******/ 	return __webpack_require__(__webpack_require__.s = 66);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -98,459 +111,10 @@ module.exports = require("@material-ui/core");
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(44);
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-router-dom");
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-module.exports = require("@apollo/react-hooks");
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-module.exports = require("graphql-tag");
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/icons");
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-dom/server");
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-module.exports = require("path");
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-module.exports = require("jsonwebtoken");
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-loading");
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-module.exports = require("hast-util-sanitize/lib/github.json");
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/colors");
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-helmet");
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports) {
-
-module.exports = require("apollo-boost");
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports) {
-
-module.exports = require("@loadable/server");
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports) {
-
-module.exports = require("styled-components");
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-lowlight");
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-module.exports = require("koa");
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports) {
-
-module.exports = require("koa-static");
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports) {
-
-module.exports = require("@apollo/react-common");
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports) {
-
-module.exports = require("@apollo/react-ssr");
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports) {
-
-module.exports = require("apollo-link-http");
-
-/***/ }),
-/* 23 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-router");
-
-/***/ }),
-/* 24 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-simplemde-editor");
-
-/***/ }),
-/* 25 */
-/***/ (function(module, exports) {
-
-module.exports = require("remark-react");
-
-/***/ }),
-/* 26 */
-/***/ (function(module, exports) {
-
-module.exports = require("remark-parse");
-
-/***/ }),
-/* 27 */
-/***/ (function(module, exports) {
-
-module.exports = require("unified");
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports) {
-
-module.exports = require("highlight.js/lib/languages/css.js");
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports) {
-
-module.exports = require("highlight.js/lib/languages/javascript.js");
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports) {
-
-module.exports = require("highlight.js/lib/languages/xml.js");
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports) {
-
-module.exports = require("highlight.js/lib/languages/1c.js");
-
-/***/ }),
-/* 32 */
-/***/ (function(module, exports) {
-
-module.exports = require("highlight.js/lib/languages/cpp.js");
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports) {
-
-module.exports = require("highlight.js/lib/languages/java.js");
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports) {
-
-module.exports = require("highlight.js/lib/languages/nginx.js");
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports) {
-
-module.exports = require("highlight.js/lib/languages/python.js");
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports) {
-
-module.exports = require("highlight.js/lib/languages/sql.js");
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports) {
-
-module.exports = require("highlight.js/lib/languages/typescript.js");
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports) {
-
-module.exports = require("highlight.js/lib/languages/shell.js");
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports) {
-
-module.exports = require("highlight.js/lib/languages/yaml.js");
-
-/***/ }),
-/* 40 */
-/***/ (function(module, exports) {
-
-module.exports = require("highlight.js/lib/languages/json.js");
-
-/***/ }),
-/* 41 */
-/***/ (function(module, exports) {
-
-module.exports = require("axios");
-
-/***/ }),
-/* 42 */
-/***/ (function(module, exports) {
-
-module.exports = require("querystring");
-
-/***/ }),
-/* 43 */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/core/styles");
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports) {
-
-module.exports = require("regenerator-runtime");
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports) {
-
-module.exports = require("fetch-everywhere");
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-moveable");
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports) {
-
-module.exports = require("html2canvas");
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports) {
-
-module.exports = require("upath");
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports) {
-
-module.exports = require("easymde/dist/easymde.min.css");
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 57 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 58 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: external "koa"
-var external_koa_ = __webpack_require__(18);
-var external_koa_default = /*#__PURE__*/__webpack_require__.n(external_koa_);
-
-// EXTERNAL MODULE: external "path"
-var external_path_ = __webpack_require__(8);
-var external_path_default = /*#__PURE__*/__webpack_require__.n(external_path_);
-
-// EXTERNAL MODULE: external "koa-static"
-var external_koa_static_ = __webpack_require__(19);
-var external_koa_static_default = /*#__PURE__*/__webpack_require__.n(external_koa_static_);
-
-// EXTERNAL MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/regenerator/index.js
-var regenerator = __webpack_require__(2);
-var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
-
-// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-        args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-
-      _next(undefined);
-    });
-  };
-}
-// EXTERNAL MODULE: external "react"
-var external_react_ = __webpack_require__(0);
-var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
-
-// EXTERNAL MODULE: external "react-dom/server"
-var server_ = __webpack_require__(7);
-var server_default = /*#__PURE__*/__webpack_require__.n(server_);
-
-// EXTERNAL MODULE: external "apollo-boost"
-var external_apollo_boost_ = __webpack_require__(14);
-
-// EXTERNAL MODULE: external "@apollo/react-common"
-var react_common_ = __webpack_require__(20);
-
-// EXTERNAL MODULE: external "@apollo/react-ssr"
-var react_ssr_ = __webpack_require__(21);
-
-// EXTERNAL MODULE: external "apollo-link-http"
-var external_apollo_link_http_ = __webpack_require__(22);
-
-// EXTERNAL MODULE: external "react-router"
-var external_react_router_ = __webpack_require__(23);
-
-// EXTERNAL MODULE: external "@loadable/server"
-var external_loadable_server_ = __webpack_require__(15);
-
-// EXTERNAL MODULE: external "styled-components"
-var external_styled_components_ = __webpack_require__(16);
-
-// EXTERNAL MODULE: external "fetch-everywhere"
-var external_fetch_everywhere_ = __webpack_require__(45);
-
-// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/defineProperty.js
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
 // CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr)) return arr;
@@ -590,365 +154,297 @@ function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance");
 }
 // CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/slicedToArray.js
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _slicedToArray; });
 
 
 
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
 }
-// EXTERNAL MODULE: external "react-router-dom"
-var external_react_router_dom_ = __webpack_require__(3);
 
-// EXTERNAL MODULE: external "jsonwebtoken"
-var external_jsonwebtoken_ = __webpack_require__(9);
-var external_jsonwebtoken_default = /*#__PURE__*/__webpack_require__.n(external_jsonwebtoken_);
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
 
-// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) {
-    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
-      arr2[i] = arr[i];
-    }
-
-    return arr2;
-  }
-}
-// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/iterableToArray.js
-function _iterableToArray(iter) {
-  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
-}
-// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance");
-}
-// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js
+module.exports = __webpack_require__(50);
 
 
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
 
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
-}
-// EXTERNAL MODULE: external "@apollo/react-hooks"
-var react_hooks_ = __webpack_require__(4);
+module.exports = require("react-router-dom");
 
-// EXTERNAL MODULE: external "@material-ui/core"
-var core_ = __webpack_require__(1);
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js
-function _taggedTemplateLiteral(strings, raw) {
-  if (!raw) {
-    raw = strings.slice(0);
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _asyncToGenerator; });
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
   }
 
-  return Object.freeze(Object.defineProperties(strings, {
-    raw: {
-      value: Object.freeze(raw)
-    }
-  }));
-}
-// EXTERNAL MODULE: external "graphql-tag"
-var external_graphql_tag_ = __webpack_require__(5);
-var external_graphql_tag_default = /*#__PURE__*/__webpack_require__.n(external_graphql_tag_);
-
-// CONCATENATED MODULE: ./src/graphql/queries/postQueries.js
-
-
-function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  mutation UPDATEPOST(\n    $id: String!\n    $newTitle: String!\n    $newDescription: String!\n    $newTags: [String]\n  ) {\n    updatePost(\n      _id: $id\n      newTitle: $newTitle\n      newDescription: $newDescription\n      newTags: $newTags\n    ) {\n      _id\n    }\n  }\n"]);
-
-  _templateObject4 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  mutation writePost(\n    $title: String!\n    $writer: String!\n    $description: String!\n    $tags: [String]\n  ) {\n    writePost(\n      title: $title\n      writer: $writer\n      description: $description\n      tags: $tags\n    ) {\n      _id\n    }\n  }\n"]);
-
-  _templateObject3 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  query POST_BY_ID($id: String!) {\n    post_BY_ID(id: $id) {\n      _id\n      title\n      modifyDate\n      description\n      tags\n    }\n  }\n"]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query post($page: Int!) {\n    post(page: $page) {\n      _id\n      title\n      modifyDate\n      description\n      tags\n    }\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-
-var GET_POST_LIST = external_graphql_tag_default()(_templateObject());
-var GET_POST_BYID = external_graphql_tag_default()(_templateObject2());
-var WRITE_POST = external_graphql_tag_default()(_templateObject3());
-var UPDATE_POST = external_graphql_tag_default()(_templateObject4());
-// EXTERNAL MODULE: ./src/component/ArticleList/ArticleList.scss
-var ArticleList_ArticleList = __webpack_require__(46);
-
-// CONCATENATED MODULE: ./src/component/ArticleList/ArticleList.jsx
-
-
-
-
-
-/* eslint-disable no-underscore-dangle */
-
-
-
-
-
-
-
-var ArticleList_ArticleCard = function ArticleCard(_ref) {
-  var id = _ref.id,
-      title = _ref.title,
-      date = _ref.date,
-      desc = _ref.desc,
-      tags = _ref.tags,
-      onClickArticle = _ref.onClickArticle;
-  // filter Markdown syntex
-  var markdownRegExp = /!?\[.*?\]\(.*?\)|<.*?>|\*.*?\*|#+|\t+|\n|[\s]{2,}|`{3}.*?`{3}/gi;
-  var sampleDescription = desc.replace(markdownRegExp, '').slice(0, 200) + '...';
-  return external_react_default.a.createElement(core_["Card"], {
-    className: "Article-card",
-    onClick: function onClick() {
-      onClickArticle(id);
-    }
-  }, external_react_default.a.createElement(core_["CardContent"], null, external_react_default.a.createElement("div", {
-    className: "Article-card-head"
-  }, external_react_default.a.createElement(core_["Typography"], {
-    className: "Article-title",
-    variant: "h4"
-  }, title), external_react_default.a.createElement("hr", {
-    className: "Article-divide"
-  }), external_react_default.a.createElement("div", {
-    className: "Article-date"
-  }, date)), external_react_default.a.createElement("p", {
-    className: "Article-desc"
-  }, sampleDescription), external_react_default.a.createElement("div", {
-    className: "Article-Tag-list"
-  }, tags.map(function (i) {
-    return external_react_default.a.createElement("span", {
-      key: i,
-      className: "Article-tag-item"
-    }, i);
-  }))));
-};
-
-var ArticleList_ArticleList_ArticleList = function ArticleList() {
-  var _useState = Object(external_react_["useState"])([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      articleElements = _useState2[0],
-      setArticleElements = _useState2[1];
-
-  var _useState3 = Object(external_react_["useState"])(0),
-      _useState4 = _slicedToArray(_useState3, 2),
-      page = _useState4[0],
-      setPage = _useState4[1];
-
-  var _useState5 = Object(external_react_["useState"])(true),
-      _useState6 = _slicedToArray(_useState5, 2),
-      existNext = _useState6[0],
-      setExistNext = _useState6[1];
-
-  var _useQuery = Object(react_hooks_["useQuery"])(GET_POST_LIST, {
-    variables: {
-      page: 0
-    }
-  }),
-      loading = _useQuery.loading,
-      error = _useQuery.error,
-      data = _useQuery.data,
-      fetchMore = _useQuery.fetchMore;
-
-  var history = Object(external_react_router_dom_["useHistory"])();
-
-  var fetchNextPage =
-  /*#__PURE__*/
-  function () {
-    var _ref2 = _asyncToGenerator(
-    /*#__PURE__*/
-    regenerator_default.a.mark(function _callee(nextPage) {
-      return regenerator_default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              setPage(nextPage);
-              fetchMore({
-                variables: {
-                  page: nextPage
-                },
-                updateQuery: function updateQuery(previousResult, _ref3) {
-                  var fetchMoreResult = _ref3.fetchMoreResult;
-                  if (!fetchMoreResult) return previousResult;
-
-                  if (fetchMoreResult.post.length === 0) {
-                    setExistNext(false);
-                  }
-
-                  setArticleElements([].concat(_toConsumableArray(articleElements), _toConsumableArray(fetchMoreResult.post)));
-                  return fetchMoreResult.post;
-                }
-              });
-
-            case 2:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function fetchNextPage(_x) {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-
-  var setCurrentReadOffset = function setCurrentReadOffset(e) {
-    var scrollTop = Math.floor(document.documentElement.scrollTop);
-    var scrollMax = Math.floor(document.documentElement.scrollHeight - document.documentElement.clientHeight);
-
-    if (scrollMax !== 0 && existNext && scrollMax === scrollTop) {
-      fetchNextPage(page + 1);
-    }
-  };
-
-  Object(external_react_["useEffect"])(function () {
-    window.addEventListener('scroll', setCurrentReadOffset);
-    return function () {
-      window.removeEventListener('scroll', setCurrentReadOffset);
-    };
-  }, [setCurrentReadOffset]);
-  Object(external_react_["useMemo"])(function () {
-    if (!error && !loading && data) {
-      setArticleElements(_toConsumableArray(data.post));
-    }
-  }, data);
-
-  if (loading) {
-    return 'Loading...';
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
   }
+}
 
-  if (error) {
-    console.error('TCL: error', error);
-    return "Error! ".concat(error.message);
-  }
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
 
-  var onClickArticle = function onClickArticle(articleId) {
-    history.push("/post/".concat(articleId));
-  };
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
 
-  return external_react_default.a.createElement("div", {
-    className: "Article-list"
-  }, articleElements !== undefined && articleElements !== null && articleElements.map(function (articleElement) {
-    return external_react_default.a.createElement(ArticleList_ArticleCard, {
-      key: articleElement._id,
-      id: articleElement._id,
-      title: articleElement.title,
-      date: articleElement.modifyDate,
-      desc: articleElement.description,
-      tags: articleElement.tags,
-      onClickArticle: onClickArticle
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
     });
-  }));
-};
-
-/* harmony default export */ var component_ArticleList_ArticleList = (ArticleList_ArticleList_ArticleList);
-// CONCATENATED MODULE: ./src/component/ArticleList/index.jsx
-
-/* harmony default export */ var component_ArticleList = (component_ArticleList_ArticleList);
-// EXTERNAL MODULE: external "react-helmet"
-var external_react_helmet_ = __webpack_require__(13);
-
-// CONCATENATED MODULE: ./src/pages/Home.jsx
-
-
-
-
-var Home_Home = function Home() {
-  return external_react_default.a.createElement(external_react_default.a.Fragment, null, external_react_default.a.createElement("div", {
-    className: "home-container"
-  }, external_react_default.a.createElement(component_ArticleList, null)));
-};
-
-/* harmony default export */ var pages_Home = (Home_Home);
-// EXTERNAL MODULE: external "@material-ui/icons"
-var icons_ = __webpack_require__(6);
-
-// EXTERNAL MODULE: external "react-simplemde-editor"
-var external_react_simplemde_editor_ = __webpack_require__(24);
-var external_react_simplemde_editor_default = /*#__PURE__*/__webpack_require__.n(external_react_simplemde_editor_);
-
-// CONCATENATED MODULE: ./src/graphql/queries/imageQuery.js
-
-
-function imageQuery_templateObject() {
-  var data = _taggedTemplateLiteral(["\n  mutation imageUpload(\n    $file: Upload!\n    $fileSize: Int!\n    $lastModifiedDate: Date!\n  ) {\n    imageUpload(\n      file: $file\n      fileSize: $fileSize\n      lastModifiedDate: $lastModifiedDate\n    ) {\n      id\n      isExist\n      fileName\n      filePath\n      lastModifiedDate\n    }\n  }\n"]);
-
-  imageQuery_templateObject = function _templateObject() {
-    return data;
   };
-
-  return data;
 }
 
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
 
-var IMAGE_UPLOAD_QUERY = external_graphql_tag_default()(imageQuery_templateObject());
-// CONCATENATED MODULE: ./src/component/PreviewImage/PreviewImage.jsx
+module.exports = require("@apollo/react-hooks");
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+module.exports = require("graphql-tag");
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/icons");
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-dom/server");
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+module.exports = require("jsonwebtoken");
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-loading");
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+module.exports = require("hast-util-sanitize/lib/github.json");
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/styles");
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-helmet");
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+module.exports = require("apollo-boost");
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+module.exports = require("@loadable/server");
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+module.exports = require("styled-components");
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-lowlight");
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-moveable");
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+module.exports = require("koa");
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+module.exports = require("koa-static");
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports) {
+
+module.exports = require("@apollo/react-common");
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports) {
+
+module.exports = require("@apollo/react-ssr");
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports) {
+
+module.exports = require("apollo-link-http");
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-router");
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-simplemde-editor");
+
+/***/ }),
+/* 28 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _mnt_c_Users_moidp_CloudStation_sangwook_Programing_project_blog_blog_frontend_node_modules_babel_preset_react_app_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var _mnt_c_Users_moidp_CloudStation_sangwook_Programing_project_blog_blog_frontend_node_modules_babel_preset_react_app_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_mnt_c_Users_moidp_CloudStation_sangwook_Programing_project_blog_blog_frontend_node_modules_babel_preset_react_app_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _mnt_c_Users_moidp_CloudStation_sangwook_Programing_project_blog_blog_frontend_node_modules_babel_preset_react_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
+/* harmony import */ var _mnt_c_Users_moidp_CloudStation_sangwook_Programing_project_blog_blog_frontend_node_modules_babel_preset_react_app_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(0);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _loadable_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(29);
+/* harmony import */ var _loadable_component__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_loadable_component__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
 
 /* eslint-disable no-param-reassign */
 
-var Moveable = null;
 
-if (process.browser) {
-  Moveable = __webpack_require__(47);
-}
+var Moveable = _loadable_component__WEBPACK_IMPORTED_MODULE_4___default()({
+  resolved: {},
+  chunkName: function chunkName() {
+    return "react-moveable";
+  },
+  isReady: function isReady(props) {
+    var key = this.resolve(props);
 
-var PreviewImage_PreviewImage = function PreviewImage(_ref) {
+    if (this.resolved[key] === false) {
+      return false;
+    }
+
+    if (true) {
+      return !!__webpack_require__.m[key];
+    }
+
+    return false;
+  },
+  importAsync: function importAsync() {
+    return Promise.resolve(/* import() */).then(__webpack_require__.t.bind(null, 20, 7));
+  },
+  requireAsync: function requireAsync(props) {
+    var _this = this;
+
+    var key = this.resolve(props);
+    this.resolved[key] = false;
+    return this.importAsync(props).then(function (resolved) {
+      _this.resolved[key] = true;
+      return resolved;
+    });
+  },
+  requireSync: function requireSync(props) {
+    var id = this.resolve(props);
+
+    if (true) {
+      return __webpack_require__(id);
+    }
+
+    return eval('module.require')(id);
+  },
+  resolve: function resolve() {
+    if (true) {
+      return /*require.resolve*/(20);
+    }
+
+    return eval('require.resolve')("react-moveable");
+  }
+});
+
+var PreviewImage = function PreviewImage(_ref) {
   var superElemtnt = _ref.superElemtnt,
       file = _ref.file,
       isEdited = _ref.isEdited;
+  console.log('TCL: PreviewImage -> file', file);
 
-  var _useState = Object(external_react_["useState"])(null),
-      _useState2 = _slicedToArray(_useState, 2),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(null),
+      _useState2 = Object(_mnt_c_Users_moidp_CloudStation_sangwook_Programing_project_blog_blog_frontend_node_modules_babel_preset_react_app_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(_useState, 2),
       srcImage = _useState2[0],
       setSrcImage = _useState2[1];
 
-  var _useState3 = Object(external_react_["useState"])(null),
-      _useState4 = _slicedToArray(_useState3, 2),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(null),
+      _useState4 = Object(_mnt_c_Users_moidp_CloudStation_sangwook_Programing_project_blog_blog_frontend_node_modules_babel_preset_react_app_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(_useState3, 2),
       target = _useState4[0],
       setTarget = _useState4[1];
 
-  var _useState5 = Object(external_react_["useState"])(false),
-      _useState6 = _slicedToArray(_useState5, 2),
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(false),
+      _useState6 = Object(_mnt_c_Users_moidp_CloudStation_sangwook_Programing_project_blog_blog_frontend_node_modules_babel_preset_react_app_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(_useState5, 2),
       isMoveable = _useState6[0],
       setIsMoveable = _useState6[1];
 
-  var _useState7 = Object(external_react_["useState"])(false),
-      _useState8 = _slicedToArray(_useState7, 2),
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(false),
+      _useState8 = Object(_mnt_c_Users_moidp_CloudStation_sangwook_Programing_project_blog_blog_frontend_node_modules_babel_preset_react_app_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(_useState7, 2),
       isPressShift = _useState8[0],
       setIsPressShift = _useState8[1];
 
-  var moveableRef = Object(external_react_["useRef"])();
+  var moveableRef = Object(react__WEBPACK_IMPORTED_MODULE_3__["useRef"])();
 
   var onDrag = function onDrag(_ref2) {
     var target = _ref2.target,
@@ -1041,10 +537,10 @@ var PreviewImage_PreviewImage = function PreviewImage(_ref) {
   var changePreviewImage =
   /*#__PURE__*/
   function () {
-    var _ref7 = _asyncToGenerator(
+    var _ref7 = Object(_mnt_c_Users_moidp_CloudStation_sangwook_Programing_project_blog_blog_frontend_node_modules_babel_preset_react_app_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(
     /*#__PURE__*/
-    regenerator_default.a.mark(function _callee() {
-      return regenerator_default.a.wrap(function _callee$(_context) {
+    _mnt_c_Users_moidp_CloudStation_sangwook_Programing_project_blog_blog_frontend_node_modules_babel_preset_react_app_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      return _mnt_c_Users_moidp_CloudStation_sangwook_Programing_project_blog_blog_frontend_node_modules_babel_preset_react_app_node_modules_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
@@ -1069,7 +565,7 @@ var PreviewImage_PreviewImage = function PreviewImage(_ref) {
     };
   }();
 
-  Object(external_react_["useEffect"])(function () {
+  Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
     setTarget(document.getElementsByClassName('previewTarget')[0]);
     window.addEventListener('keydown', keydownHandler);
     window.addEventListener('keyup', keyupHandler);
@@ -1082,7 +578,7 @@ var PreviewImage_PreviewImage = function PreviewImage(_ref) {
       window.removeEventListener('scroll', onWindowReisze);
     };
   }, []);
-  Object(external_react_["useEffect"])(function () {
+  Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
     setIsMoveable(false);
     changePreviewImage();
 
@@ -1090,7 +586,7 @@ var PreviewImage_PreviewImage = function PreviewImage(_ref) {
       moveableRef.current.updateTarget();
     }
   }, [file]);
-  return external_react_default.a.createElement(external_react_default.a.Fragment, null, external_react_default.a.createElement("img", {
+  return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_3___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("img", {
     className: "previewTarget",
     src: srcImage,
     alt: "preview",
@@ -1098,7 +594,7 @@ var PreviewImage_PreviewImage = function PreviewImage(_ref) {
     onLoad: function onLoad() {
       setIsMoveable(true);
     }
-  }), isMoveable && file.type !== 'image/gif' && external_react_default.a.createElement(Moveable, {
+  }), isMoveable && file.type !== 'image/gif' && react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(Moveable, {
     ref: moveableRef,
     target: target,
     container: superElemtnt,
@@ -1118,12 +614,631 @@ var PreviewImage_PreviewImage = function PreviewImage(_ref) {
   }));
 };
 
-/* harmony default export */ var component_PreviewImage_PreviewImage = (PreviewImage_PreviewImage);
+/* harmony default export */ __webpack_exports__["a"] = (PreviewImage);
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports) {
+
+module.exports = require("@loadable/component");
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports) {
+
+module.exports = require("remark-react");
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports) {
+
+module.exports = require("remark-parse");
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports) {
+
+module.exports = require("unified");
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports) {
+
+module.exports = require("highlight.js/lib/languages/css.js");
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports) {
+
+module.exports = require("highlight.js/lib/languages/javascript.js");
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports) {
+
+module.exports = require("highlight.js/lib/languages/xml.js");
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports) {
+
+module.exports = require("highlight.js/lib/languages/1c.js");
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports) {
+
+module.exports = require("highlight.js/lib/languages/cpp.js");
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports) {
+
+module.exports = require("highlight.js/lib/languages/java.js");
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports) {
+
+module.exports = require("highlight.js/lib/languages/nginx.js");
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports) {
+
+module.exports = require("highlight.js/lib/languages/python.js");
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports) {
+
+module.exports = require("highlight.js/lib/languages/sql.js");
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports) {
+
+module.exports = require("highlight.js/lib/languages/typescript.js");
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports) {
+
+module.exports = require("highlight.js/lib/languages/shell.js");
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports) {
+
+module.exports = require("highlight.js/lib/languages/yaml.js");
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports) {
+
+module.exports = require("highlight.js/lib/languages/json.js");
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports) {
+
+module.exports = require("axios");
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports) {
+
+module.exports = require("querystring");
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports) {
+
+module.exports = require("koa-better-http-proxy");
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports) {
+
+module.exports = require("@koa/router");
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports) {
+
+module.exports = require("regenerator-runtime");
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports) {
+
+module.exports = require("fetch-everywhere");
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports) {
+
+module.exports = require("html2canvas");
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports) {
+
+module.exports = require("upath");
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/colors");
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 66 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+// EXTERNAL MODULE: external "koa"
+var external_koa_ = __webpack_require__(21);
+var external_koa_default = /*#__PURE__*/__webpack_require__.n(external_koa_);
+
+// EXTERNAL MODULE: external "path"
+var external_path_ = __webpack_require__(10);
+var external_path_default = /*#__PURE__*/__webpack_require__.n(external_path_);
+
+// EXTERNAL MODULE: external "koa-static"
+var external_koa_static_ = __webpack_require__(22);
+var external_koa_static_default = /*#__PURE__*/__webpack_require__.n(external_koa_static_);
+
+// EXTERNAL MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/regenerator/index.js
+var regenerator = __webpack_require__(3);
+var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
+
+// EXTERNAL MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js
+var asyncToGenerator = __webpack_require__(5);
+
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__(0);
+var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
+
+// EXTERNAL MODULE: external "react-dom/server"
+var server_ = __webpack_require__(9);
+var server_default = /*#__PURE__*/__webpack_require__.n(server_);
+
+// EXTERNAL MODULE: external "apollo-boost"
+var external_apollo_boost_ = __webpack_require__(16);
+
+// EXTERNAL MODULE: external "@apollo/react-common"
+var react_common_ = __webpack_require__(23);
+
+// EXTERNAL MODULE: external "@apollo/react-ssr"
+var react_ssr_ = __webpack_require__(24);
+
+// EXTERNAL MODULE: external "apollo-link-http"
+var external_apollo_link_http_ = __webpack_require__(25);
+
+// EXTERNAL MODULE: external "react-router"
+var external_react_router_ = __webpack_require__(26);
+
+// EXTERNAL MODULE: external "@loadable/server"
+var external_loadable_server_ = __webpack_require__(17);
+
+// EXTERNAL MODULE: external "styled-components"
+var external_styled_components_ = __webpack_require__(18);
+
+// EXTERNAL MODULE: external "@material-ui/core/styles"
+var styles_ = __webpack_require__(14);
+
+// EXTERNAL MODULE: external "fetch-everywhere"
+var external_fetch_everywhere_ = __webpack_require__(51);
+
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/defineProperty.js
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+// EXTERNAL MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 3 modules
+var slicedToArray = __webpack_require__(2);
+
+// EXTERNAL MODULE: external "react-router-dom"
+var external_react_router_dom_ = __webpack_require__(4);
+
+// EXTERNAL MODULE: external "jsonwebtoken"
+var external_jsonwebtoken_ = __webpack_require__(11);
+var external_jsonwebtoken_default = /*#__PURE__*/__webpack_require__.n(external_jsonwebtoken_);
+
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }
+
+    return arr2;
+  }
+}
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/iterableToArray.js
+function _iterableToArray(iter) {
+  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+}
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js
+
+
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+}
+// EXTERNAL MODULE: external "@apollo/react-hooks"
+var react_hooks_ = __webpack_require__(6);
+
+// EXTERNAL MODULE: external "@material-ui/core"
+var core_ = __webpack_require__(1);
+
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js
+function _taggedTemplateLiteral(strings, raw) {
+  if (!raw) {
+    raw = strings.slice(0);
+  }
+
+  return Object.freeze(Object.defineProperties(strings, {
+    raw: {
+      value: Object.freeze(raw)
+    }
+  }));
+}
+// EXTERNAL MODULE: external "graphql-tag"
+var external_graphql_tag_ = __webpack_require__(7);
+var external_graphql_tag_default = /*#__PURE__*/__webpack_require__.n(external_graphql_tag_);
+
+// CONCATENATED MODULE: ./src/graphql/queries/postQueries.js
+
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n  mutation UPDATEPOST(\n    $id: String!\n    $newTitle: String!\n    $newDescription: String!\n    $newTags: [String]\n  ) {\n    updatePost(\n      _id: $id\n      newTitle: $newTitle\n      newDescription: $newDescription\n      newTags: $newTags\n    ) {\n      _id\n    }\n  }\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n  mutation writePost(\n    $title: String!\n    $writer: String!\n    $description: String!\n    $tags: [String]\n  ) {\n    writePost(\n      title: $title\n      writer: $writer\n      description: $description\n      tags: $tags\n    ) {\n      _id\n    }\n  }\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  query POST_BY_ID($id: String!) {\n    post_BY_ID(id: $id) {\n      _id\n      title\n      modifyDate\n      description\n      tags\n    }\n  }\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  query post($page: Int!) {\n    post(page: $page) {\n      _id\n      title\n      modifyDate\n      description\n      tags\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+var GET_POST_LIST = external_graphql_tag_default()(_templateObject());
+var GET_POST_BYID = external_graphql_tag_default()(_templateObject2());
+var WRITE_POST = external_graphql_tag_default()(_templateObject3());
+var UPDATE_POST = external_graphql_tag_default()(_templateObject4());
+// EXTERNAL MODULE: ./src/component/ArticleList/ArticleList.scss
+var ArticleList_ArticleList = __webpack_require__(52);
+
+// CONCATENATED MODULE: ./src/component/ArticleList/ArticleList.jsx
+
+
+
+
+
+/* eslint-disable no-underscore-dangle */
+
+
+
+
+
+
+
+var ArticleList_ArticleCard = function ArticleCard(_ref) {
+  var id = _ref.id,
+      title = _ref.title,
+      date = _ref.date,
+      desc = _ref.desc,
+      tags = _ref.tags,
+      onClickArticle = _ref.onClickArticle;
+  // filter Markdown syntex
+  var markdownRegExp = /!?\[.*?\]\(.*?\)|<.*?>|\*.*?\*|#+|\t+|\n|[\s]{2,}|`{3}.*?`{3}/gi;
+  var sampleDescription = desc.replace(markdownRegExp, '').slice(0, 200) + '...';
+  return external_react_default.a.createElement(core_["Card"], {
+    className: "Article-card",
+    onClick: function onClick() {
+      onClickArticle(id);
+    }
+  }, external_react_default.a.createElement(core_["CardContent"], null, external_react_default.a.createElement("div", {
+    className: "Article-card-head"
+  }, external_react_default.a.createElement(core_["Typography"], {
+    className: "Article-title",
+    variant: "h4"
+  }, title), external_react_default.a.createElement("hr", {
+    className: "Article-divide"
+  }), external_react_default.a.createElement("div", {
+    className: "Article-date"
+  }, date)), external_react_default.a.createElement("p", {
+    className: "Article-desc"
+  }, sampleDescription), external_react_default.a.createElement("div", {
+    className: "Article-Tag-list"
+  }, tags.map(function (i) {
+    return external_react_default.a.createElement("span", {
+      key: i,
+      className: "Article-tag-item"
+    }, i);
+  }))));
+};
+
+var ArticleList_ArticleList_ArticleList = function ArticleList() {
+  var _useState = Object(external_react_["useState"])([]),
+      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
+      articleElements = _useState2[0],
+      setArticleElements = _useState2[1];
+
+  var _useState3 = Object(external_react_["useState"])(0),
+      _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
+      page = _useState4[0],
+      setPage = _useState4[1];
+
+  var _useState5 = Object(external_react_["useState"])(true),
+      _useState6 = Object(slicedToArray["a" /* default */])(_useState5, 2),
+      existNext = _useState6[0],
+      setExistNext = _useState6[1];
+
+  var _useQuery = Object(react_hooks_["useQuery"])(GET_POST_LIST, {
+    variables: {
+      page: 0
+    }
+  }),
+      loading = _useQuery.loading,
+      error = _useQuery.error,
+      data = _useQuery.data,
+      fetchMore = _useQuery.fetchMore;
+
+  var history = Object(external_react_router_dom_["useHistory"])();
+
+  var fetchNextPage =
+  /*#__PURE__*/
+  function () {
+    var _ref2 = Object(asyncToGenerator["a" /* default */])(
+    /*#__PURE__*/
+    regenerator_default.a.mark(function _callee(nextPage) {
+      return regenerator_default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              setPage(nextPage);
+              fetchMore({
+                variables: {
+                  page: nextPage
+                },
+                updateQuery: function updateQuery(previousResult, _ref3) {
+                  var fetchMoreResult = _ref3.fetchMoreResult;
+                  if (!fetchMoreResult) return previousResult;
+
+                  if (fetchMoreResult.post.length === 0) {
+                    setExistNext(false);
+                  }
+
+                  setArticleElements([].concat(_toConsumableArray(articleElements), _toConsumableArray(fetchMoreResult.post)));
+                  return fetchMoreResult.post;
+                }
+              });
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function fetchNextPage(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  var setCurrentReadOffset = function setCurrentReadOffset(e) {
+    var scrollTop = Math.floor(document.documentElement.scrollTop);
+    var scrollMax = Math.floor(document.documentElement.scrollHeight - document.documentElement.clientHeight);
+
+    if (scrollMax !== 0 && existNext && scrollMax === scrollTop) {
+      fetchNextPage(page + 1);
+    }
+  };
+
+  Object(external_react_["useEffect"])(function () {
+    window.addEventListener('scroll', setCurrentReadOffset);
+    return function () {
+      window.removeEventListener('scroll', setCurrentReadOffset);
+    };
+  }, [setCurrentReadOffset]);
+  Object(external_react_["useMemo"])(function () {
+    if (!error && !loading && data) {
+      setArticleElements(_toConsumableArray(data.post));
+    }
+  }, data);
+
+  if (loading) {
+    return 'Loading...';
+  }
+
+  if (error) {
+    console.error('TCL: error', error);
+    return "Error! ".concat(error.message);
+  }
+
+  var onClickArticle = function onClickArticle(articleId) {
+    history.push("/post/".concat(articleId));
+  };
+
+  return external_react_default.a.createElement("div", {
+    className: "Article-list"
+  }, articleElements !== undefined && articleElements !== null && articleElements.map(function (articleElement) {
+    return external_react_default.a.createElement(ArticleList_ArticleCard, {
+      key: articleElement._id,
+      id: articleElement._id,
+      title: articleElement.title,
+      date: articleElement.modifyDate,
+      desc: articleElement.description,
+      tags: articleElement.tags,
+      onClickArticle: onClickArticle
+    });
+  }));
+};
+
+/* harmony default export */ var component_ArticleList_ArticleList = (ArticleList_ArticleList_ArticleList);
+// CONCATENATED MODULE: ./src/component/ArticleList/index.jsx
+
+/* harmony default export */ var component_ArticleList = (component_ArticleList_ArticleList);
+// EXTERNAL MODULE: external "react-helmet"
+var external_react_helmet_ = __webpack_require__(15);
+
+// CONCATENATED MODULE: ./src/pages/Home.jsx
+
+
+
+
+var Home_Home = function Home() {
+  return external_react_default.a.createElement(external_react_default.a.Fragment, null, external_react_default.a.createElement("div", {
+    className: "home-container"
+  }, external_react_default.a.createElement(component_ArticleList, null)));
+};
+
+/* harmony default export */ var pages_Home = (Home_Home);
+// EXTERNAL MODULE: external "@material-ui/icons"
+var icons_ = __webpack_require__(8);
+
+// EXTERNAL MODULE: external "react-simplemde-editor"
+var external_react_simplemde_editor_ = __webpack_require__(27);
+var external_react_simplemde_editor_default = /*#__PURE__*/__webpack_require__.n(external_react_simplemde_editor_);
+
+// CONCATENATED MODULE: ./src/graphql/queries/imageQuery.js
+
+
+function imageQuery_templateObject() {
+  var data = _taggedTemplateLiteral(["\n  mutation imageUpload(\n    $file: Upload!\n    $fileSize: Int!\n    $lastModifiedDate: Date!\n  ) {\n    imageUpload(\n      file: $file\n      fileSize: $fileSize\n      lastModifiedDate: $lastModifiedDate\n    ) {\n      id\n      isExist\n      fileName\n      filePath\n      lastModifiedDate\n    }\n  }\n"]);
+
+  imageQuery_templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+var IMAGE_UPLOAD_QUERY = external_graphql_tag_default()(imageQuery_templateObject());
+// EXTERNAL MODULE: ./src/component/PreviewImage/PreviewImage.jsx
+var PreviewImage = __webpack_require__(28);
+
 // CONCATENATED MODULE: ./src/component/PreviewImage/index.jsx
 
-/* harmony default export */ var component_PreviewImage = (component_PreviewImage_PreviewImage);
+/* harmony default export */ var component_PreviewImage = (PreviewImage["a" /* default */]);
 // EXTERNAL MODULE: ./src/component/ImageUploader/ImageUploader.scss
-var ImageUploader_ImageUploader = __webpack_require__(48);
+var ImageUploader_ImageUploader = __webpack_require__(53);
 
 // CONCATENATED MODULE: ./src/component/ImageUploader/ImageUploader.jsx
 
@@ -1139,7 +1254,7 @@ var ImageUploader_ImageUploader = __webpack_require__(48);
 var html2canvas = null;
 
 if (process.browser) {
-  html2canvas = __webpack_require__(49);
+  html2canvas = __webpack_require__(54);
 }
 
 var ImageUploader_ImageUploader_ImageUploader = function ImageUploader(_ref) {
@@ -1147,24 +1262,24 @@ var ImageUploader_ImageUploader_ImageUploader = function ImageUploader(_ref) {
       handleImageUploadComplet = _ref.handleImageUploadComplet;
 
   var _useState = Object(external_react_["useState"])(null),
-      _useState2 = _slicedToArray(_useState, 2),
+      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
       targetFile = _useState2[0],
       setTargetFile = _useState2[1];
 
   var _useState3 = Object(external_react_["useState"])(false),
-      _useState4 = _slicedToArray(_useState3, 2),
+      _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
       isEdited = _useState4[0],
       setIsEdited = _useState4[1];
 
   var _useCallback = Object(external_react_["useCallback"])(Object(react_hooks_["useMutation"])(IMAGE_UPLOAD_QUERY), []),
-      _useCallback2 = _slicedToArray(_useCallback, 1),
+      _useCallback2 = Object(slicedToArray["a" /* default */])(_useCallback, 1),
       imageUploadMutation = _useCallback2[0]; // 이미지 미리보기에 추가.
 
 
   var setPreView =
   /*#__PURE__*/
   function () {
-    var _ref2 = _asyncToGenerator(
+    var _ref2 = Object(asyncToGenerator["a" /* default */])(
     /*#__PURE__*/
     regenerator_default.a.mark(function _callee(file) {
       var fileTypeRegex;
@@ -1172,29 +1287,29 @@ var ImageUploader_ImageUploader_ImageUploader = function ImageUploader(_ref) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              // console.log('TCL: setPreView -> file', file);
               // 이미지가 아닌것 거르기
               fileTypeRegex = /^image\/(.*?)/;
+              console.log('TCL: setPreView -> file.type', file.type);
 
               if (fileTypeRegex.test(file.type)) {
-                _context.next = 3;
+                _context.next = 4;
                 break;
               }
 
               throw new Error('type error');
 
-            case 3:
+            case 4:
               if (!(file.size > 1024 * 1024 * 10)) {
-                _context.next = 5;
+                _context.next = 6;
                 break;
               }
 
               throw new Error('sizeover');
 
-            case 5:
+            case 6:
               setTargetFile(file);
 
-            case 6:
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -1221,7 +1336,8 @@ var ImageUploader_ImageUploader_ImageUploader = function ImageUploader(_ref) {
         setPreView(file);
         imagePathField.innerText = file.name;
       } catch (err) {
-        // console.log('TCL: upload.onchange -> err', err);
+        console.log('TCL: upload.onchange -> err', err);
+
         if (err === 'type error') {
           alert('지원하지 않는 확장자입니다.');
         } else if (err === 'sizeover') {
@@ -1236,7 +1352,7 @@ var ImageUploader_ImageUploader_ImageUploader = function ImageUploader(_ref) {
   var capturePreviewEdit =
   /*#__PURE__*/
   function () {
-    var _ref3 = _asyncToGenerator(
+    var _ref3 = Object(asyncToGenerator["a" /* default */])(
     /*#__PURE__*/
     regenerator_default.a.mark(function _callee2() {
       var previewTarget, previewCanvas;
@@ -1276,7 +1392,7 @@ var ImageUploader_ImageUploader_ImageUploader = function ImageUploader(_ref) {
   var handleUploadImage =
   /*#__PURE__*/
   function () {
-    var _ref4 = _asyncToGenerator(
+    var _ref4 = Object(asyncToGenerator["a" /* default */])(
     /*#__PURE__*/
     regenerator_default.a.mark(function _callee3() {
       var uploadTargetFile, _ref5, imageUpload;
@@ -1375,27 +1491,27 @@ var ImageUploader_ImageUploader_ImageUploader = function ImageUploader(_ref) {
 
 /* harmony default export */ var component_ImageUploader = (component_ImageUploader_ImageUploader);
 // EXTERNAL MODULE: external "remark-react"
-var external_remark_react_ = __webpack_require__(25);
+var external_remark_react_ = __webpack_require__(30);
 var external_remark_react_default = /*#__PURE__*/__webpack_require__.n(external_remark_react_);
 
 // EXTERNAL MODULE: external "remark-parse"
-var external_remark_parse_ = __webpack_require__(26);
+var external_remark_parse_ = __webpack_require__(31);
 var external_remark_parse_default = /*#__PURE__*/__webpack_require__.n(external_remark_parse_);
 
 // EXTERNAL MODULE: external "unified"
-var external_unified_ = __webpack_require__(27);
+var external_unified_ = __webpack_require__(32);
 var external_unified_default = /*#__PURE__*/__webpack_require__.n(external_unified_);
 
 // EXTERNAL MODULE: external "hast-util-sanitize/lib/github.json"
-var github_json_ = __webpack_require__(11);
+var github_json_ = __webpack_require__(13);
 var github_json_default = /*#__PURE__*/__webpack_require__.n(github_json_);
 
 // EXTERNAL MODULE: external "react-lowlight"
-var external_react_lowlight_ = __webpack_require__(17);
+var external_react_lowlight_ = __webpack_require__(19);
 var external_react_lowlight_default = /*#__PURE__*/__webpack_require__.n(external_react_lowlight_);
 
 // EXTERNAL MODULE: external "upath"
-var external_upath_ = __webpack_require__(50);
+var external_upath_ = __webpack_require__(55);
 
 // CONCATENATED MODULE: ./src/component/commons/MarkdownRenderer/CodeSection.jsx
 
@@ -1438,9 +1554,9 @@ var CodeSection_LangTag = function LangTag(_ref) {
     if (Object.keys(languageDefinitions).indexOf(language) > -1) {
       // Include the language only if it was previously registered
       props.language = language;
-    }
+    } // console.log('TCL: Code -> language', language);
 
-    console.log('TCL: Code -> language', language);
+
     return external_react_default.a.createElement(external_react_default.a.Fragment, null, inline === null && external_react_default.a.createElement(CodeSection_LangTag, {
       language: language
     }), external_react_default.a.createElement(external_react_lowlight_default.a, props));
@@ -1449,58 +1565,58 @@ var CodeSection_LangTag = function LangTag(_ref) {
   return Code;
 });
 // EXTERNAL MODULE: ./src/component/commons/MarkdownRenderer/atom-one-dark-reasonable.min.css
-var atom_one_dark_reasonable_min = __webpack_require__(51);
+var atom_one_dark_reasonable_min = __webpack_require__(56);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/css.js"
-var css_js_ = __webpack_require__(28);
+var css_js_ = __webpack_require__(33);
 var css_js_default = /*#__PURE__*/__webpack_require__.n(css_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/javascript.js"
-var javascript_js_ = __webpack_require__(29);
+var javascript_js_ = __webpack_require__(34);
 var javascript_js_default = /*#__PURE__*/__webpack_require__.n(javascript_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/xml.js"
-var xml_js_ = __webpack_require__(30);
+var xml_js_ = __webpack_require__(35);
 var xml_js_default = /*#__PURE__*/__webpack_require__.n(xml_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/1c.js"
-var _1c_js_ = __webpack_require__(31);
+var _1c_js_ = __webpack_require__(36);
 var _1c_js_default = /*#__PURE__*/__webpack_require__.n(_1c_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/cpp.js"
-var cpp_js_ = __webpack_require__(32);
+var cpp_js_ = __webpack_require__(37);
 var cpp_js_default = /*#__PURE__*/__webpack_require__.n(cpp_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/java.js"
-var java_js_ = __webpack_require__(33);
+var java_js_ = __webpack_require__(38);
 var java_js_default = /*#__PURE__*/__webpack_require__.n(java_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/nginx.js"
-var nginx_js_ = __webpack_require__(34);
+var nginx_js_ = __webpack_require__(39);
 var nginx_js_default = /*#__PURE__*/__webpack_require__.n(nginx_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/python.js"
-var python_js_ = __webpack_require__(35);
+var python_js_ = __webpack_require__(40);
 var python_js_default = /*#__PURE__*/__webpack_require__.n(python_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/sql.js"
-var sql_js_ = __webpack_require__(36);
+var sql_js_ = __webpack_require__(41);
 var sql_js_default = /*#__PURE__*/__webpack_require__.n(sql_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/typescript.js"
-var typescript_js_ = __webpack_require__(37);
+var typescript_js_ = __webpack_require__(42);
 var typescript_js_default = /*#__PURE__*/__webpack_require__.n(typescript_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/shell.js"
-var shell_js_ = __webpack_require__(38);
+var shell_js_ = __webpack_require__(43);
 var shell_js_default = /*#__PURE__*/__webpack_require__.n(shell_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/yaml.js"
-var yaml_js_ = __webpack_require__(39);
+var yaml_js_ = __webpack_require__(44);
 var yaml_js_default = /*#__PURE__*/__webpack_require__.n(yaml_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/json.js"
-var json_js_ = __webpack_require__(40);
+var json_js_ = __webpack_require__(45);
 var json_js_default = /*#__PURE__*/__webpack_require__.n(json_js_);
 
 // CONCATENATED MODULE: ./src/component/commons/MarkdownRenderer/common-languages.js
@@ -1926,7 +2042,7 @@ var schema = _objectSpread({}, github_json_default.a, {
 
 /* harmony default export */ var commons_MarkdownRenderer = (MarkdownRenderer);
 // EXTERNAL MODULE: ./src/component/Editor/Editor.scss
-var Editor_Editor = __webpack_require__(53);
+var Editor_Editor = __webpack_require__(58);
 
 // CONCATENATED MODULE: ./src/component/Editor/Editor.jsx
 
@@ -1940,40 +2056,40 @@ var Editor_Editor = __webpack_require__(53);
 
 
 
-process.browser && __webpack_require__(52);
+process.browser && __webpack_require__(57);
 
 
 var Editor_Editor_Editor = function Editor(_ref) {
   var postID = _ref.postID;
 
   var _useState = Object(external_react_["useState"])(postID !== undefined),
-      _useState2 = _slicedToArray(_useState, 2),
+      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
       editMode = _useState2[0],
       setEditMode = _useState2[1]; // false: newPost, true: modifyPost
 
 
   var _useState3 = Object(external_react_["useState"])(''),
-      _useState4 = _slicedToArray(_useState3, 2),
+      _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
       title = _useState4[0],
       setTitle = _useState4[1];
 
   var _useState5 = Object(external_react_["useState"])([]),
-      _useState6 = _slicedToArray(_useState5, 2),
+      _useState6 = Object(slicedToArray["a" /* default */])(_useState5, 2),
       tags = _useState6[0],
       setTags = _useState6[1];
 
   var _useState7 = Object(external_react_["useState"])('#Hello World'),
-      _useState8 = _slicedToArray(_useState7, 2),
+      _useState8 = Object(slicedToArray["a" /* default */])(_useState7, 2),
       value = _useState8[0],
       setValue = _useState8[1];
 
   var _useState9 = Object(external_react_["useState"])(null),
-      _useState10 = _slicedToArray(_useState9, 2),
+      _useState10 = Object(slicedToArray["a" /* default */])(_useState9, 2),
       focusedEditor = _useState10[0],
       setFocusedEditor = _useState10[1];
 
   var _useState11 = Object(external_react_["useState"])(false),
-      _useState12 = _slicedToArray(_useState11, 2),
+      _useState12 = Object(slicedToArray["a" /* default */])(_useState11, 2),
       imageUploaderModalIsOpen = _useState12[0],
       setImageUploaderModalIsOpen = _useState12[1];
 
@@ -1993,7 +2109,7 @@ var Editor_Editor_Editor = function Editor(_ref) {
       setValue(curPostData.description);
     }
   }),
-      _useLazyQuery2 = _slicedToArray(_useLazyQuery, 1),
+      _useLazyQuery2 = Object(slicedToArray["a" /* default */])(_useLazyQuery, 1),
       currentPostdata = _useLazyQuery2[0]; // 글 작성 grapql mutation
 
 
@@ -2003,7 +2119,7 @@ var Editor_Editor_Editor = function Editor(_ref) {
       history.push("/post/".concat(_id));
     }
   }),
-      _useMutation2 = _slicedToArray(_useMutation, 2),
+      _useMutation2 = Object(slicedToArray["a" /* default */])(_useMutation, 2),
       writePost = _useMutation2[0],
       _useMutation2$ = _useMutation2[1],
       writeLoding = _useMutation2$.loading,
@@ -2016,7 +2132,7 @@ var Editor_Editor_Editor = function Editor(_ref) {
       history.push("/post/".concat(_id));
     }
   }),
-      _useMutation4 = _slicedToArray(_useMutation3, 2),
+      _useMutation4 = Object(slicedToArray["a" /* default */])(_useMutation3, 2),
       updatePostQuering = _useMutation4[0],
       _useMutation4$ = _useMutation4[1],
       updateLoding = _useMutation4$.loading,
@@ -2175,7 +2291,10 @@ function authQuerues_templateObject() {
 
 
 var CHK_TOKEN_VERIFY = external_graphql_tag_default()(authQuerues_templateObject());
+// CONCATENATED MODULE: ./src/lib/util.js
+var ssrEnabled = "enabled" === 'enabled';
 // CONCATENATED MODULE: ./src/pages/EditorPage.jsx
+
 
 
 
@@ -2185,43 +2304,45 @@ var CHK_TOKEN_VERIFY = external_graphql_tag_default()(authQuerues_templateObject
 var EditorPage_EditorPage = function EditorPage(_ref) {
   var params = _ref.match.params;
   var history = Object(external_react_router_dom_["useHistory"])();
-  var token = sessionStorage.getItem('token');
+  console.log('TCL: EditorPage -> ssrEnabled', ssrEnabled);
+  var token = ssrEnabled ? null : sessionStorage.getItem('token');
 
   if (!token) {
     history.push('/auth');
-  }
+  } else {
+    var _useQuery = Object(react_hooks_["useQuery"])(CHK_TOKEN_VERIFY, {
+      variables: {
+        token: token
+      }
+    }),
+        loading = _useQuery.loading,
+        error = _useQuery.error,
+        data = _useQuery.data;
 
-  var _useQuery = Object(react_hooks_["useQuery"])(CHK_TOKEN_VERIFY, {
-    variables: {
-      token: token
+    if (loading) return 'Loading...';
+    var authority = data.jwtVerify.authority;
+
+    if (authority > 1) {
+      alert('권한이 없습니다.');
+      history.goBack();
     }
-  }),
-      loading = _useQuery.loading,
-      error = _useQuery.error,
-      data = _useQuery.data;
-
-  if (loading) return 'Loading...';
-  var authority = data.jwtVerify.authority;
-
-  if (authority > 1) {
-    alert('권한이 없습니다.');
-    history.goBack();
   }
 
-  return external_react_default.a.createElement(external_react_default.a.Fragment, null, external_react_default.a.createElement(component_Editor, {
+  return external_react_default.a.createElement(external_react_default.a.Fragment, null, token && external_react_default.a.createElement(component_Editor, {
     postID: params.postid
   }));
 };
 
 /* harmony default export */ var pages_EditorPage = (EditorPage_EditorPage);
 // EXTERNAL MODULE: external "react-loading"
-var external_react_loading_ = __webpack_require__(10);
+var external_react_loading_ = __webpack_require__(12);
 var external_react_loading_default = /*#__PURE__*/__webpack_require__.n(external_react_loading_);
 
 // EXTERNAL MODULE: ./src/component/PostBody/PostBody.scss
-var PostBody_PostBody = __webpack_require__(54);
+var PostBody_PostBody = __webpack_require__(59);
 
 // CONCATENATED MODULE: ./src/component/PostBody/PostBody.jsx
+
 
 
 
@@ -2239,13 +2360,13 @@ var PostBody_PostBody_PostBody = function PostBody(_ref) {
   var history = Object(external_react_router_dom_["useHistory"])();
 
   var _useState = Object(external_react_["useState"])(false),
-      _useState2 = _slicedToArray(_useState, 2),
+      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
       author = _useState2[0],
       setAuthor = _useState2[1];
 
   if (process.browser) {
     Object(external_react_["useEffect"])(function () {
-      var token = sessionStorage.getItem('token');
+      var token = ssrEnabled ? null : sessionStorage.getItem('token');
 
       if (token) {
         var _jwt$decode = external_jsonwebtoken_default.a.decode(token),
@@ -2356,7 +2477,7 @@ var Post_Post = function Post(_ref) {
   } // Quering Error
 
 
-  if (error) {
+  if (!loading && error) {
     console.error(error);
     return external_react_default.a.createElement("div", null, "bad");
   } // GET_POST_BYID 결과 구조분해
@@ -2395,7 +2516,7 @@ var Post_Post = function Post(_ref) {
 
 /* harmony default export */ var pages_Post = (Post_Post);
 // EXTERNAL MODULE: ./src/component/About/About.scss
-var About_About = __webpack_require__(55);
+var About_About = __webpack_require__(60);
 
 // CONCATENATED MODULE: ./src/component/About/About.jsx
 
@@ -2463,11 +2584,11 @@ var AboutPage_AboutPage = function AboutPage() {
 
 /* harmony default export */ var pages_AboutPage = (AboutPage_AboutPage);
 // EXTERNAL MODULE: external "axios"
-var external_axios_ = __webpack_require__(41);
+var external_axios_ = __webpack_require__(46);
 var external_axios_default = /*#__PURE__*/__webpack_require__.n(external_axios_);
 
 // EXTERNAL MODULE: external "querystring"
-var external_querystring_ = __webpack_require__(42);
+var external_querystring_ = __webpack_require__(47);
 var external_querystring_default = /*#__PURE__*/__webpack_require__.n(external_querystring_);
 
 // CONCATENATED MODULE: ./src/context.js
@@ -2493,7 +2614,7 @@ var UserInfoContext = Object(external_react_["createContext"])({
 //   return WithPreload;
 // };
 // EXTERNAL MODULE: ./src/component/SignIn/SignIn.scss
-var SignIn_SignIn = __webpack_require__(56);
+var SignIn_SignIn = __webpack_require__(61);
 
 // CONCATENATED MODULE: ./src/component/SignIn/SignIn.jsx
 
@@ -2510,19 +2631,20 @@ var SignIn_SignIn = __webpack_require__(56);
 
 
 
+
 var SignIn_SignIn_SignIn = function SignIn() {
   var _useState = Object(external_react_["useState"])(),
-      _useState2 = _slicedToArray(_useState, 2),
+      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
       inputEmail = _useState2[0],
       setInputEmail = _useState2[1];
 
   var _useState3 = Object(external_react_["useState"])(),
-      _useState4 = _slicedToArray(_useState3, 2),
+      _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
       inputPW = _useState4[0],
       setInputPW = _useState4[1];
 
   var _useState5 = Object(external_react_["useState"])(false),
-      _useState6 = _slicedToArray(_useState5, 2),
+      _useState6 = Object(slicedToArray["a" /* default */])(_useState5, 2),
       isSigninLoading = _useState6[0],
       setIsSigninLoading = _useState6[1];
 
@@ -2542,7 +2664,7 @@ var SignIn_SignIn_SignIn = function SignIn() {
   var handleSubmit =
   /*#__PURE__*/
   function () {
-    var _ref = _asyncToGenerator(
+    var _ref = Object(asyncToGenerator["a" /* default */])(
     /*#__PURE__*/
     regenerator_default.a.mark(function _callee() {
       var opt;
@@ -2553,7 +2675,7 @@ var SignIn_SignIn_SignIn = function SignIn() {
               setIsSigninLoading(true);
               opt = {
                 method: 'post',
-                url: Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"browser"}).REACT_APP_BACKEND_HOST + '/signin',
+                url: '/signin',
                 headers: {
                   Accept: '*/*',
                   'Content-Type': 'application/x-www-form-urlencoded'
@@ -2567,7 +2689,7 @@ var SignIn_SignIn_SignIn = function SignIn() {
                 var _res$data = res.data,
                     token = _res$data.token,
                     user = _res$data.user;
-                sessionStorage.setItem('token', token);
+                if (!ssrEnabled) sessionStorage.setItem('token', token);
                 setUserInfoContext({
                   userId: user._id,
                   username: user.username,
@@ -2657,13 +2779,10 @@ var AuthPage_AuthPage = function AuthPage() {
 
 
 // EXTERNAL MODULE: external "@material-ui/core/colors"
-var colors_ = __webpack_require__(12);
-
-// EXTERNAL MODULE: external "@material-ui/core/styles"
-var styles_ = __webpack_require__(43);
+var colors_ = __webpack_require__(62);
 
 // EXTERNAL MODULE: ./src/component/NavBar/NavBar.scss
-var NavBar_NavBar = __webpack_require__(57);
+var NavBar_NavBar = __webpack_require__(63);
 
 // CONCATENATED MODULE: ./src/component/NavBar/NavBar.jsx
 
@@ -2673,19 +2792,6 @@ var NavBar_NavBar = __webpack_require__(57);
 
 
 
-var DarkSwitch = Object(styles_["withStyles"])({
-  switchBase: {
-    color: colors_["purple"][300],
-    '&$checked': {
-      color: colors_["purple"][500]
-    },
-    '&$checked + $track': {
-      backgroundColor: colors_["purple"][500]
-    }
-  },
-  checked: {},
-  track: {}
-})(core_["Switch"]);
 
 var NavBar_NavButtons = function NavButtons() {
   var githubURL = 'https://github.com/stump26';
@@ -2701,7 +2807,7 @@ var NavBar_NavButtons = function NavButtons() {
     className: "Nav-Button-group"
   }, external_react_default.a.createElement(core_["Typography"], {
     id: "Nav-Color-switch"
-  }, "L", external_react_default.a.createElement(DarkSwitch, {
+  }, "L", external_react_default.a.createElement(core_["Switch"], {
     onChange: toggleDarkMode,
     checked: darkMode
   }), "D"), external_react_default.a.createElement(core_["Link"], {
@@ -2745,7 +2851,7 @@ var NavBar_NavBar_NavBar = function NavBar() {
 
 /* harmony default export */ var component_NavBar = (component_NavBar_NavBar);
 // EXTERNAL MODULE: ./src/component/Footer/Footer.scss
-var Footer_Footer = __webpack_require__(58);
+var Footer_Footer = __webpack_require__(64);
 
 // CONCATENATED MODULE: ./src/component/Footer/Footer.jsx
 
@@ -2765,7 +2871,7 @@ var Footer_Footer_Footer = function Footer() {
 
 /* harmony default export */ var component_Footer = (component_Footer_Footer);
 // EXTERNAL MODULE: ./src/App.scss
-var App = __webpack_require__(59);
+var App = __webpack_require__(65);
 
 // CONCATENATED MODULE: ./src/App.jsx
 
@@ -2785,20 +2891,21 @@ function App_objectSpread(target) { for (var i = 1; i < arguments.length; i++) {
 
 
 
+
 /* harmony default export */ var src_App = (function () {
   var _useState = Object(external_react_["useState"])(false),
-      _useState2 = _slicedToArray(_useState, 2),
+      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
       darkMode = _useState2[0],
       setDarkMode = _useState2[1];
 
   var _useState3 = Object(external_react_["useState"])(null),
-      _useState4 = _slicedToArray(_useState3, 2),
+      _useState4 = Object(slicedToArray["a" /* default */])(_useState3, 2),
       userInfo = _useState4[0],
       setUserInfo = _useState4[1];
 
   var darkActions = {
     toggleDarkMode: function () {
-      var _toggleDarkMode = _asyncToGenerator(
+      var _toggleDarkMode = Object(asyncToGenerator["a" /* default */])(
       /*#__PURE__*/
       regenerator_default.a.mark(function _callee() {
         return regenerator_default.a.wrap(function _callee$(_context) {
@@ -2828,7 +2935,7 @@ function App_objectSpread(target) { for (var i = 1; i < arguments.length; i++) {
       setUserInfo(userInfoDic);
     },
     decodeJWTPayload: function decodeJWTPayload() {
-      var token = sessionStorage.getItem('token');
+      var token = ssrEnabled ? null : sessionStorage.getItem('token');
 
       if (token) {
         var _jwt$decode = external_jsonwebtoken_default.a.decode(token),
@@ -2900,9 +3007,10 @@ function App_objectSpread(target) { for (var i = 1; i < arguments.length; i++) {
 var Html_Html = function Html(_ref) {
   var content = _ref.content,
       styledElement = _ref.styledElement,
+      materialStyledElement = _ref.materialStyledElement,
       apolloState = _ref.apolloState,
       extractor = _ref.extractor;
-  return external_react_default.a.createElement("html", null, external_react_default.a.createElement("head", null, styledElement, extractor.getLinkElements(), extractor.getStyleElements()), external_react_default.a.createElement("body", null, external_react_default.a.createElement("div", {
+  return external_react_default.a.createElement("html", null, external_react_default.a.createElement("head", null, styledElement, materialStyledElement, extractor.getLinkElements(), extractor.getStyleElements()), external_react_default.a.createElement("body", null, external_react_default.a.createElement("div", {
     id: "root",
     dangerouslySetInnerHTML: {
       __html: content
@@ -2931,31 +3039,41 @@ var Html_Html = function Html(_ref) {
 
 
 
+
 var statsFile = external_path_default.a.resolve(__dirname, '../build/loadable-stats.json');
+var uri = "http://localhost:4000" + '/graphql';
 
 var serverRender =
 /*#__PURE__*/
 function () {
-  var _ref = _asyncToGenerator(
+  var _ref = Object(asyncToGenerator["a" /* default */])(
   /*#__PURE__*/
-  regenerator_default.a.mark(function _callee(ctx) {
-    var client, context, sheet, extractor, Root, content, initialState, styledElement, html;
+  regenerator_default.a.mark(function _callee(ctx, next) {
+    var client, context, sheet, materialSheet, extractor, Root, content, initialState, styledElement, materialStyledElement, html;
     return regenerator_default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            // const html = ReactDOMServer.renderToString(<div>Hello Koa Server</div>);
-            // ctx.body = html;
+            if (!/^\/(graphql|signin)/.test(ctx.path)) {
+              _context.next = 3;
+              break;
+            }
+
+            console.log('TCL: serverRender -> ctx.path', ctx.path);
+            return _context.abrupt("return", next());
+
+          case 3:
             // prepare apollo-client
             client = new external_apollo_boost_["ApolloClient"]({
               ssrMode: true,
               link: Object(external_apollo_link_http_["createHttpLink"])({
-                uri: 'http://localhost:4000/graphql'
+                uri: uri
               }),
               cache: new external_apollo_boost_["InMemoryCache"]()
             });
             context = {};
             sheet = new external_styled_components_["ServerStyleSheet"]();
+            materialSheet = new styles_["ServerStyleSheets"]();
             extractor = new external_loadable_server_["ChunkExtractor"]({
               statsFile: statsFile
             });
@@ -2969,58 +3087,78 @@ function () {
               location: ctx.url,
               context: context
             }, external_react_default.a.createElement(src_App, null)))));
-            _context.prev = 5;
-            _context.next = 8;
+            _context.prev = 9;
+            _context.next = 12;
             return Object(react_ssr_["getDataFromTree"])(Root);
 
-          case 8:
-            _context.next = 15;
+          case 12:
+            _context.next = 19;
             break;
 
-          case 10:
-            _context.prev = 10;
-            _context.t0 = _context["catch"](5);
+          case 14:
+            _context.prev = 14;
+            _context.t0 = _context["catch"](9);
             console.log('TCL: serverRender -> e', _context.t0); // TODO: status-code 500
 
             ctx.throw(500);
             return _context.abrupt("return");
 
-          case 15:
+          case 19:
             content = server_default.a.renderToString(Root);
             initialState = client.extract();
             styledElement = sheet.getStyleElement();
+            materialStyledElement = materialSheet.getStyleElement();
             html = external_react_default.a.createElement(ssr_Html, {
               content: content,
               apolloState: initialState,
               styledElement: styledElement,
+              materialStyledElement: materialStyledElement,
               extractor: extractor
             });
             ctx.body = "<!doctype html>\n".concat(server_default.a.renderToStaticMarkup(html));
 
-          case 20:
+          case 25:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[5, 10]]);
+    }, _callee, null, [[9, 14]]);
   }));
 
-  return function serverRender(_x) {
+  return function serverRender(_x, _x2) {
     return _ref.apply(this, arguments);
   };
 }();
 
 /* harmony default export */ var ssr_serverRender = (serverRender);
+// EXTERNAL MODULE: external "koa-better-http-proxy"
+var external_koa_better_http_proxy_ = __webpack_require__(48);
+var external_koa_better_http_proxy_default = /*#__PURE__*/__webpack_require__.n(external_koa_better_http_proxy_);
+
+// EXTERNAL MODULE: external "@koa/router"
+var router_ = __webpack_require__(49);
+var router_default = /*#__PURE__*/__webpack_require__.n(router_);
+
 // CONCATENATED MODULE: ./src/index.server.jsx
 
 
 
 
+
+
+console.log("enabled");
 var app = new external_koa_default.a();
+var router = new router_default.a();
 app.use(external_koa_static_default()(external_path_default.a.resolve('./build'), {
   index: false
 }));
+var proxyMiddleware = external_koa_better_http_proxy_default()('localhost', {
+  port: 4000
+});
+app.use(router.routes()).use(router.allowedMethods());
 app.use(ssr_serverRender);
+app.use(proxyMiddleware); // router.post('/graphql', proxyMiddleware);
+
 app.listen(3001, function () {
   console.log('SSR server is listening to http://localhost:3001');
 });

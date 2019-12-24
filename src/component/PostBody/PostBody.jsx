@@ -5,6 +5,7 @@ import { Edit as EditIcon } from '@material-ui/icons';
 import jwt from 'jsonwebtoken';
 
 import MDRenderer from '../commons/MarkdownRenderer';
+import { ssrEnabled } from '../../lib/util';
 import './PostBody.scss';
 
 const PostBody = ({ postID, title, modifyDate, description }) => {
@@ -12,7 +13,7 @@ const PostBody = ({ postID, title, modifyDate, description }) => {
   const [author, setAuthor] = useState(false);
   if (process.browser) {
     useEffect(() => {
-      const token = sessionStorage.getItem('token');
+      const token = ssrEnabled ? null : sessionStorage.getItem('token');
       if (token) {
         const { _id: userId, username, authority } = jwt.decode(token);
         setAuthor(authority);

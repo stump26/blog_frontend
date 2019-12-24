@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { Typography, Button } from '@material-ui/core';
 import {
@@ -22,9 +22,9 @@ const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {
   const [imageUploadMutation] = useCallback(useMutation(IMAGE_UPLOAD_QUERY), []);
   // 이미지 미리보기에 추가.
   const setPreView = async (file) => {
-    // console.log('TCL: setPreView -> file', file);
     // 이미지가 아닌것 거르기
     const fileTypeRegex = /^image\/(.*?)/;
+    console.log('TCL: setPreView -> file.type', file.type);
     if (!fileTypeRegex.test(file.type)) throw new Error('type error');
 
     // 10mb이상 거르기.
@@ -45,7 +45,7 @@ const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {
         setPreView(file);
         imagePathField.innerText = file.name;
       } catch (err) {
-        // console.log('TCL: upload.onchange -> err', err);
+        console.log('TCL: upload.onchange -> err', err);
         if (err === 'type error') {
           alert('지원하지 않는 확장자입니다.');
         } else if (err === 'sizeover') {

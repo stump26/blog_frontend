@@ -6,20 +6,6 @@ import { withStyles } from '@material-ui/core/styles';
 import { DarkModeContext } from '../../context';
 import './NavBar.scss';
 
-const DarkSwitch = withStyles({
-  switchBase: {
-    color: purple[300],
-    '&$checked': {
-      color: purple[500],
-    },
-    '&$checked + $track': {
-      backgroundColor: purple[500],
-    },
-  },
-  checked: {},
-  track: {},
-})(Switch);
-
 const NavButtons = () => {
   const githubURL = 'https://github.com/stump26';
   const instaURL = 'https://www.instagram.com/stumpark_26/';
@@ -31,7 +17,7 @@ const NavButtons = () => {
   return (
     <div className="Nav-Button-group">
       <Typography id="Nav-Color-switch">
-        L<DarkSwitch onChange={toggleDarkMode} checked={darkMode} />D
+        L<Switch onChange={toggleDarkMode} checked={darkMode} />D
       </Typography>
       <Link href="/aboutMe">
         <Typography id="Nav-Link">AboutMe</Typography>

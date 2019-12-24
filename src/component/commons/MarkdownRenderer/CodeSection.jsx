@@ -34,7 +34,7 @@ export default (languageDefinitions) => {
       props.language = language;
     }
 
-    console.log('TCL: Code -> language', language);
+    // console.log('TCL: Code -> language', language);
     return (
       <>
         {inline === null && <LangTag language={language} />}

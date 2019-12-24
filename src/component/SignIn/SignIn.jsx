@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 
 import { UserInfoContext } from '../../context';
+import { ssrEnabled } from '../../lib/util';
 import './SignIn.scss';
 
 const SignIn = () => {
@@ -26,7 +27,7 @@ const SignIn = () => {
     setIsSigninLoading(true);
     const opt = {
       method: 'post',
-      url: process.env.REACT_APP_BACKEND_HOST + '/signin',
+      url: '/signin',
       headers: {
         Accept: '*/*',
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -42,7 +43,7 @@ const SignIn = () => {
         const {
           data: { token, user },
         } = res;
-        sessionStorage.setItem('token', token);
+        if (!ssrEnabled) sessionStorage.setItem('token', token);
         setUserInfoContext({
           userId: user._id,
           username: user.username,

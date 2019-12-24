@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Html = ({ content, styledElement, apolloState, extractor }) => {
+const Html = ({ content, styledElement, materialStyledElement, apolloState, extractor }) => {
   return (
     <html>
       <head>
         {styledElement}
+        {materialStyledElement}
         {extractor.getLinkElements()}
         {extractor.getStyleElements()}
       </head>

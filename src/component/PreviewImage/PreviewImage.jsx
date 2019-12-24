@@ -1,12 +1,11 @@
 /* eslint-disable no-param-reassign */
 import React, { useState, useEffect, useRef } from 'react';
+import loadable from '@loadable/component';
 
-let Moveable = null;
-if (process.browser) {
-  Moveable = require('react-moveable');
-}
+const Moveable = loadable(() => import('react-moveable'));
 
 const PreviewImage = ({ superElemtnt, file, isEdited }) => {
+  console.log('TCL: PreviewImage -> file', file);
   const [srcImage, setSrcImage] = useState(null);
   const [target, setTarget] = useState(null);
   const [isMoveable, setIsMoveable] = useState(false);

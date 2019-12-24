@@ -7,6 +7,7 @@ import { DarkModeContext, UserInfoContext } from './context.js';
 import NavBar from './component/NavBar/';
 import Footer from './component/Footer/';
 import './App.scss';
+import { ssrEnabled } from './lib/util';
 
 export default () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -22,7 +23,7 @@ export default () => {
       setUserInfo(userInfoDic);
     },
     decodeJWTPayload: () => {
-      const token = sessionStorage.getItem('token');
+      const token = ssrEnabled ? null : sessionStorage.getItem('token');
       if (token) {
         const { _id: userId, username, authority } = jwt.decode(token);
         return authority;
