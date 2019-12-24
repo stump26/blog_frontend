@@ -28,6 +28,7 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const eslint = require('eslint');
+const LoadablePlugin = require('@loadable/webpack-plugin');
 
 const postcssNormalize = require('postcss-normalize');
 
@@ -193,7 +194,8 @@ module.exports = function(webpackEnv) {
       globalObject: 'this',
     },
     optimization: {
-      minimize: isEnvProduction,
+      // minimize: isEnvProduction,
+      minimize: false,
       minimizer: [
         // This is only used in production mode
         new TerserPlugin({
@@ -607,6 +609,7 @@ module.exports = function(webpackEnv) {
             new RegExp('/[^/?]+\\.[^/]+$'),
           ],
         }),
+      isEnvProduction && new LoadablePlugin(),
       // TypeScript type checking
       useTypeScript &&
         new ForkTsCheckerWebpackPlugin({

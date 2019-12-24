@@ -85,12 +85,17 @@ const ArticleList = () => {
     };
   }, [setCurrentReadOffset]);
   useMemo(() => {
-    if (!loading) {
+    if (!error && !loading && data) {
       setArticleElements([...data.post]);
     }
   }, data);
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
+  if (loading) {
+    return 'Loading...';
+  }
+  if (error) {
+    console.error('TCL: error', error);
+    return `Error! ${error.message}`;
+  }
 
   const onClickArticle = (articleId) => {
     history.push(`/post/${articleId}`);

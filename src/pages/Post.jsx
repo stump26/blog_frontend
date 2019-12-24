@@ -25,7 +25,7 @@ const Post = ({ match: { params } }) => {
   }
 
   // Quering Error
-  if (error) {
+  if (!loading && error) {
     console.error(error);
     return <div>bad</div>;
   }

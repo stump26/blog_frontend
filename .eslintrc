@@ -14,7 +14,11 @@
     "no-alert": "off",
     "no-shadow": "off",
     "no-param-reassign": "off",
-    "no-underscore-dangle": "warn"
+    "no-underscore-dangle": "warn",
+    "no-useless-return": "off",
+    "global-require": "off",
+    "consistent-return": "off",
+    "class-methods-use-this": "off"
   },
   "parser": "babel-eslint"
 }

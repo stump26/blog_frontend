@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { Typography, Button } from '@material-ui/core';
 import {
@@ -6,24 +6,25 @@ import {
   ImageSearch as ImageSearchIcon,
   Publish as PublishIcon,
 } from '@material-ui/icons';
-import html2canvas from 'html2canvas';
 
 import { IMAGE_UPLOAD_QUERY } from '../../graphql/queries/imageQuery';
 import PreviewImage from '../PreviewImage';
 import './ImageUploader.scss';
 
+let html2canvas = null;
+if (process.browser) {
+  html2canvas = require('html2canvas');
+}
+
 const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {
   const [targetFile, setTargetFile] = useState(null);
   const [isEdited, setIsEdited] = useState(false);
-  const [imageUploadMutation] = useCallback(
-    useMutation(IMAGE_UPLOAD_QUERY),
-    [],
-  );
+  const [imageUploadMutation] = useCallback(useMutation(IMAGE_UPLOAD_QUERY), []);
   // 이미지 미리보기에 추가.
   const setPreView = async (file) => {
-    // console.log('TCL: setPreView -> file', file);
     // 이미지가 아닌것 거르기
     const fileTypeRegex = /^image\/(.*?)/;
+    // console.log('TCL: setPreView -> file.type', file.type);
     if (!fileTypeRegex.test(file.type)) throw new Error('type error');
 
     // 10mb이상 거르기.
@@ -34,9 +35,7 @@ const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {
 
   // 이미지 셀렉터를 불러오기 위한.
   const handleImageSelector = () => {
-    const imagePathField = document.getElementsByClassName(
-      'image-path-field',
-    )[0];
+    const imagePathField = document.getElementsByClassName('image-path-field')[0];
     const upload = document.createElement('input');
     upload.type = 'file';
     upload.onchange = (event) => {
@@ -76,7 +75,7 @@ const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {
       uploadTargetFile = await capturePreviewEdit();
     }
 
-    // console.log('TCL: handleUploadImage -> uploadTargetFile', uploadTargetFile);
+    // // console.log('TCL: handleUploadImage -> uploadTargetFile', uploadTargetFile);
 
     const {
       data: { imageUpload },
@@ -87,7 +86,7 @@ const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {
         lastModifiedDate: uploadTargetFile.lastModifiedDate,
       },
     });
-    // console.log('TCL: handleUploadImage -> imageUpload', imageUpload);
+    // // console.log('TCL: handleUploadImage -> imageUpload', imageUpload);
 
     handleImageUploadComplet({
       name: uploadTargetFile.name,
@@ -101,11 +100,7 @@ const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {
         <Typography className="modal-title" variant="h5">
           Image Uploader
         </Typography>
-        <CloseIcon
-          color="disabled"
-          className="CloseBtn"
-          onClick={handleModalClose}
-        />
+        <CloseIcon color="disabled" className="CloseBtn" onClick={handleModalClose} />
       </div>
       <div className="modal-body">
         <div className="image-selector-field">

@@ -1,0 +1,3 @@
+{
+  "docker.defaultRegistryPath": "gcr.io/stumpark-blog"
+}

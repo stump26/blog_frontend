@@ -1,8 +1,11 @@
 /* eslint-disable no-param-reassign */
 import React, { useState, useEffect, useRef } from 'react';
-import Moveable, { updateRect } from 'react-moveable';
+import loadable from '@loadable/component';
+
+const Moveable = loadable(() => import('react-moveable'));
 
 const PreviewImage = ({ superElemtnt, file, isEdited }) => {
+  // console.log('TCL: PreviewImage -> file', file);
   const [srcImage, setSrcImage] = useState(null);
   const [target, setTarget] = useState(null);
   const [isMoveable, setIsMoveable] = useState(false);
@@ -24,22 +27,10 @@ const PreviewImage = ({ superElemtnt, file, isEdited }) => {
   }) => {
     target.style.transform = transform;
   };
-  const onScale = ({
-    currentTarget,
-    target,
-    scale,
-    dist,
-    delta,
-    transform,
-    clientX,
-    clientY,
-  }) => {
+  const onScale = ({ currentTarget, target, scale, dist, delta, transform, clientX, clientY }) => {
     isEdited(true);
     if (isPressShift) {
-      transform = transform.replace(
-        /scale\([0-9.,\s]+\)/g,
-        `scale(${scale[0]},${scale[0]})`,
-      );
+      transform = transform.replace(/scale\([0-9.,\s]+\)/g, `scale(${scale[0]},${scale[0]})`);
     }
     target.style.transform = transform;
   };

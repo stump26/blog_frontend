@@ -45,19 +45,35 @@
       font-size: 0.7em;
       color: #707070;
       margin: auto 20px;
+      .MuiSwitch-switchBase {
+        color: #ba68c8;
+
+        .MuiSwitch-input {
+          top: 0;
+          // left: 0;
+          // width: 100%;
+          cursor: inherit;
+          height: 100%;
+          margin: 0;
+          opacity: 0;
+          padding: 0;
+          z-index: 1;
+          position: absolute;
+        }
+      }
     }
 
-    >a {
+    > a {
       display: flex;
 
-      >#Nav-Link {
+      > #Nav-Link {
         font-size: 0.8rem;
         color: #707070;
         font-weight: 600;
         margin: auto 10px;
       }
 
-      >#Nav-Profile {
+      > #Nav-Profile {
         border: 2px #bbbbbb solid;
         margin-left: 10px;
         margin-right: 40px;
