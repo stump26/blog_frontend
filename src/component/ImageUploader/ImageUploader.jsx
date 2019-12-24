@@ -24,7 +24,7 @@ const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {
   const setPreView = async (file) => {
     // 이미지가 아닌것 거르기
     const fileTypeRegex = /^image\/(.*?)/;
-    console.log('TCL: setPreView -> file.type', file.type);
+    // console.log('TCL: setPreView -> file.type', file.type);
     if (!fileTypeRegex.test(file.type)) throw new Error('type error');
 
     // 10mb이상 거르기.
@@ -45,7 +45,7 @@ const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {
         setPreView(file);
         imagePathField.innerText = file.name;
       } catch (err) {
-        console.log('TCL: upload.onchange -> err', err);
+        // console.log('TCL: upload.onchange -> err', err);
         if (err === 'type error') {
           alert('지원하지 않는 확장자입니다.');
         } else if (err === 'sizeover') {
@@ -75,7 +75,7 @@ const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {
       uploadTargetFile = await capturePreviewEdit();
     }
 
-    // console.log('TCL: handleUploadImage -> uploadTargetFile', uploadTargetFile);
+    // // console.log('TCL: handleUploadImage -> uploadTargetFile', uploadTargetFile);
 
     const {
       data: { imageUpload },
@@ -86,7 +86,7 @@ const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {
         lastModifiedDate: uploadTargetFile.lastModifiedDate,
       },
     });
-    // console.log('TCL: handleUploadImage -> imageUpload', imageUpload);
+    // // console.log('TCL: handleUploadImage -> imageUpload', imageUpload);
 
     handleImageUploadComplet({
       name: uploadTargetFile.name,

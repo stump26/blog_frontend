@@ -27,7 +27,7 @@ const Editor = ({ postID }) => {
     variables: { id: postID },
     fetchPolicy: 'cache-and-network', // 게시글(post)에서 한번 동일한 조회가 캐싱되어 안보이는것을 방지.
     onCompleted: ({ post_BY_ID: curPostData }) => {
-      console.log('TCL: curPostData', curPostData);
+      // console.log('TCL: curPostData', curPostData);
       setTitle(curPostData.title);
       setTags(curPostData.tags);
       setValue(curPostData.description);
@@ -108,7 +108,7 @@ const Editor = ({ postID }) => {
   // 수정모드인경우 postid를통해 쿼리요청.
   useEffect(() => {
     if (postID !== undefined) {
-      console.log('TCL: editor >> postID', postID);
+      // console.log('TCL: editor >> postID', postID);
       currentPostdata();
       console.log(title);
     }

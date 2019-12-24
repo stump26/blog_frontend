@@ -20,7 +20,7 @@ const uri = process.env.REACT_APP_BACKEND_HOST + '/graphql';
 const serverRender = async (ctx, next) => {
   // if path is graphql, route to proxy by next();
   if (/^\/(graphql|signin)/.test(ctx.path)) {
-    console.log('TCL: serverRender -> ctx.path', ctx.path);
+    // console.log('TCL: serverRender -> ctx.path', ctx.path);
     return next();
   }
 
@@ -53,7 +53,7 @@ const serverRender = async (ctx, next) => {
   try {
     await getDataFromTree(Root);
   } catch (e) {
-    console.log('TCL: serverRender -> e', e);
+    // console.log('TCL: serverRender -> e', e);
     // TODO: status-code 500
     ctx.throw(500);
     return;
