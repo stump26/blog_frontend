@@ -13,8 +13,10 @@ import 'fetch-everywhere';
 
 import App from '../App';
 import Html from './Html';
+import CacheManager from './CacheManager';
 
 const statsFile = path.resolve(__dirname, '../build/loadable-stats.json');
+const cacheManager = new CacheManager();
 const uri = process.env.REACT_APP_BACKEND_HOST + '/graphql';
 
 const serverRender = async (ctx, next) => {
@@ -22,6 +24,14 @@ const serverRender = async (ctx, next) => {
   if (/^\/(graphql|signin)/.test(ctx.path)) {
     // console.log('TCL: serverRender -> ctx.path', ctx.path);
     return next();
+  }
+
+  // const loggedIn = !!ctx.cookies.get('token');
+  // if exist page cache on redis, return cached page at redis
+  const cachedPage = await cacheManager.get(ctx.url);
+  if (cachedPage) {
+    ctx.body = cachedPage;
+    return;
   }
 
   // prepare apollo-client
@@ -74,7 +84,14 @@ const serverRender = async (ctx, next) => {
     />
   );
 
-  ctx.body = `<!doctype html>\n${ReactDOMServer.renderToStaticMarkup(html)}`;
+  const pageHtml = `<!doctype html>\n${ReactDOMServer.renderToStaticMarkup(html)}`;
+
+  ctx.body = pageHtml;
+
+  // Set redis chching page
+  setImmediate(() => {
+    cacheManager.set(ctx.url, pageHtml);
+  });
 };
 
 export default serverRender;
