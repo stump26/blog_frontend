@@ -129,7 +129,7 @@ module.exports = {
   },
   plugins: [new webpack.DefinePlugin(env.stringified)],
   optimization: {
-    minimize: false,
+    minimize: true,
   },
   externals: [
     nodeExternals({
