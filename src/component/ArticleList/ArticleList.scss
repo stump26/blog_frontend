@@ -1,48 +1,33 @@
 .Article-list {
   position: relative;
-  width: 65%;
+  width: 80%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0 auto;
   margin-top: 64px;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
 
-  > .Article-card {
-    position: relative;
-    width: 100%;
-    height: 220px;
-    margin: 20px;
+.Article-card {
+  position: relative;
+  width: 100%;
+  max-width: 1150px;
+  height: 220px;
+  margin: 20px;
 
-    &:hover {
-      // font-weight: bold !important;
-      text-shadow: 1px 1px 1px rgb(221, 221, 221);
-    }
+  &:hover {
+    // font-weight: bold !important;
+    text-shadow: 1px 1px 1px rgb(221, 221, 221);
+  }
 
-    .Article-card-head {
-      .Article-title {
-        padding-left: 4px;
-        color: #707070;
-        font-weight: bold;
-        font-size: 2rem;
-      }
-
-      > .Article-divide {
-        width: 50%;
-        border-color: #0410fd;
-        margin: 0;
-        border-width: 0.5px;
-      }
-
-      > .Article-date {
-        padding-left: 4px;
-        color: #707070;
-        font-style: italic;
-        font-size: 0.5rem;
-      }
-    }
+  .MuiCardContent-root {
+    height: inherit;
+    padding-bottom: 0;
 
     .Article-desc {
-      width: 68%;
+      width: 50em;
+      height: 4rem;
       color: #707070;
       text-indent: 0.5em;
       font-family: 'Segoe UI';
@@ -50,21 +35,52 @@
     }
 
     .Article-Tag-list {
+      display: flex;
       position: absolute;
-      top: 10px;
-      right: 10px;
+      flex-direction: row;
+      flex-wrap: wrap-reverse;
+      justify-content: flex-end;
+      align-items: baseline;
+      max-width: 20em;
+      height: 2rem;
+      right: 5px;
+      bottom: 7px;
       color: #bbbbbb;
       font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
       font-size: 0.8em;
       font-weight: 300;
 
       > .Article-tag-item {
+        display: block;
         margin: 0 2px;
         border-radius: 10px;
         box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.2);
         padding: 3px 8px;
       }
     }
+  }
+}
+
+.Article-card-head {
+  .Article-title {
+    padding-left: 4px;
+    color: #707070;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  > .Article-divide {
+    width: 50%;
+    border-color: #0410fd;
+    margin: 0;
+    border-width: 0.5px;
+  }
+
+  > .Article-date {
+    padding-left: 4px;
+    color: #707070;
+    font-style: italic;
+    font-size: 0.5rem;
   }
 }
 
@@ -81,6 +97,57 @@
 
       .Article-divide {
         border-color: #ffffff;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .Article-list {
+    > .Article-card {
+      .Article-title {
+        font-size: 1.5em;
+      }
+      .Article-desc {
+        width: 30em;
+        height: 7.2rem;
+        font-size: 1rem;
+        line-height: 1.2rem;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .Article-list {
+    width: calc(100% - 2em);
+    margin-left: 1em;
+    margin-right: 1em;
+    .Article-card {
+      height: auto;
+
+      .Article-divide {
+        width: 100%;
+      }
+      .Article-title {
+        font-size: 2em;
+      }
+      .Article-date {
+        font-size: 1em;
+      }
+      .Article-desc {
+        width: 100%;
+        height: 7.2rem;
+        font-size: 1rem;
+        line-height: 1.2rem;
+        margin: 1em 0 2em;
+      }
+      .Article-Tag-list {
+        max-width: 100%;
+        > .Article-tag-item {
+          font-size: 1.2em;
+        }
       }
     }
   }
