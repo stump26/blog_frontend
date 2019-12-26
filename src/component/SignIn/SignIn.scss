@@ -29,3 +29,21 @@
     margin-bottom: 30px;
   }
 }
+@media only screen and (max-width: 1440px) {
+  .sign-in-box-bg {
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .sign-in-box-bg {
+    width: 65%;
+    height: 80%;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .sign-in-box-bg {
+    width: 100%;
+    height: 80%;
+    border: none;
+  }
+}

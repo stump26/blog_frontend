@@ -69,7 +69,7 @@ const NavHamburgerMenu = ({ handleMenuShowing }) => {
 
 const NavBar = () => {
   const history = useHistory();
-  const isWidthOverTablet = useMediaQuery('(min-width:1000px)');
+  const isWidthOverTablet = useMediaQuery('(min-width:1020px)');
   const isWidthOverMobile = useMediaQuery('(min-width:640px');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

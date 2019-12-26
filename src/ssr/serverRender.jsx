@@ -28,11 +28,11 @@ const serverRender = async (ctx, next) => {
 
   // const loggedIn = !!ctx.cookies.get('token');
   // if exist page cache on redis, return cached page at redis
-  const cachedPage = await cacheManager.get(ctx.url);
-  if (cachedPage) {
-    ctx.body = cachedPage;
-    return;
-  }
+  // const cachedPage = await cacheManager.get(ctx.url);
+  // if (cachedPage) {
+  //   ctx.body = cachedPage;
+  //   return;
+  // }
 
   // prepare apollo-client
   const client = new ApolloClient({
@@ -89,9 +89,9 @@ const serverRender = async (ctx, next) => {
   ctx.body = pageHtml;
 
   // Set redis chching page
-  setImmediate(() => {
-    cacheManager.set(ctx.url, pageHtml);
-  });
+  // setImmediate(() => {
+  //   cacheManager.set(ctx.url, pageHtml);
+  // });
 };
 
 export default serverRender;

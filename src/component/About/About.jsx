@@ -5,9 +5,7 @@ const ImageList = ({ imgs }) => {
   return (
     <>
       {imgs.map((img) => {
-        return (
-          <img className="skill-img" src={`/img//tech/${img}.png`} alt={img} />
-        );
+        return <img className="skill-img" src={`/img//tech/${img}.png`} alt={img} />;
       })}
     </>
   );
@@ -45,7 +43,7 @@ const SKILLS = () => {
 
 const About = () => {
   return (
-    <div id="container">
+    <div id="about-container">
       <h1 className="title">
         <span className="title-Name">Shawn Park</span>
         <span style={{ fontSize: '0.5em' }}>aka 'stumpark'</span>

@@ -25,7 +25,7 @@ const PostBody = ({ postID, title, modifyDate, description }) => {
   };
 
   return (
-    <div className="container">
+    <div className="postbody-container">
       {author !== false && author < 1 && (
         <Fab className="ModifyBtn" size="small" aria-label="edit" onClick={onClickModify}>
           <EditIcon />

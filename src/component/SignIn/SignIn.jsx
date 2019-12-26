@@ -25,9 +25,15 @@ const SignIn = () => {
   };
   const handleSubmit = async () => {
     setIsSigninLoading(true);
+
+    let url = '/signin';
+    if (process.env.NODE_ENV === 'production') {
+      url = `${process.env.REACT_APP_BACKEND_HOST}/signin`;
+    }
+
     const opt = {
       method: 'post',
-      url: `${process.env.REACT_APP_BACKEND_HOST}/signin`,
+      url,
       headers: {
         Accept: '*/*',
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -53,6 +59,7 @@ const SignIn = () => {
         history.goBack();
       })
       .catch(({ response }) => {
+        console.log('TCL: handleSubmit -> response', response);
         if (response.status === 400) {
           if (response.data === 'nulluser') {
             alert('존재하지 않는 Email입니다.');

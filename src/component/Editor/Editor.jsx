@@ -115,7 +115,7 @@ const Editor = ({ postID }) => {
   }, [postID]);
 
   return (
-    <div id="container">
+    <div id="editor-container">
       <div className="title-field">
         <Typography className="label-title"> 제목 </Typography>
         <Divider orientation="vertical" />
