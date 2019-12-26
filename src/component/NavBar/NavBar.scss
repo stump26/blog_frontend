@@ -1,4 +1,9 @@
-#Nav-Bar {
+.App > .Nav-APPBar {
+  position: relative;
+  left: auto;
+  right: auto;
+}
+.Nav-Bar-First {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -41,28 +46,6 @@
     margin: auto 0;
     margin-left: auto;
 
-    #Nav-Color-switch {
-      font-size: 0.7em;
-      color: #707070;
-      margin: auto 20px;
-      .MuiSwitch-switchBase {
-        color: #ba68c8;
-
-        .MuiSwitch-input {
-          top: 0;
-          // left: 0;
-          // width: 100%;
-          cursor: inherit;
-          height: 100%;
-          margin: 0;
-          opacity: 0;
-          padding: 0;
-          z-index: 1;
-          position: absolute;
-        }
-      }
-    }
-
     > a {
       display: flex;
 
@@ -73,17 +56,41 @@
         margin: auto 10px;
       }
 
-      > #Nav-Profile {
+      > .Nav-Profile {
         border: 2px #bbbbbb solid;
         margin-left: 10px;
-        margin-right: 40px;
+        margin-right: 25px;
       }
     }
   }
 }
 
+#Nav-Color-switch {
+  font-size: 0.7em;
+  color: #707070;
+  font-weight: bold;
+  margin: auto 20px;
+
+  .MuiSwitch-switchBase {
+    color: #ba68c8;
+
+    .MuiSwitch-input {
+      top: 0;
+      // left: 0;
+      // width: 100%;
+      cursor: inherit;
+      height: 100%;
+      margin: 0;
+      opacity: 0;
+      padding: 0;
+      z-index: 1;
+      position: absolute;
+    }
+  }
+}
+
 .dark-mode {
-  #Nav-Bar {
+  .Nav-Bar-First {
     background-color: #1a1a1a;
 
     .Nav-logo:hover {
@@ -95,5 +102,56 @@
         border-bottom-color: #707070 !important;
       }
     }
+  }
+}
+
+.Nav-MenuBtn.Nav-MenuBtn {
+  padding: 0;
+  color: #707070;
+  min-width: 48px;
+}
+.Nav-DropDown-List {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.3s cubic-bezier(0, 0.51, 0.04, 0.99);
+  -moz-transition: all 0.3s cubic-bezier(0, 0.51, 0.04, 0.99);
+  -o-transition: all 0.3s cubic-bezier(0, 0.51, 0.04, 0.99);
+  transition: all 0.3s cubic-bezier(0, 0.51, 0.04, 0.99);
+
+  > .menuBtnItem {
+    display: block;
+    text-align: center;
+    color: #ffffff;
+    font-size: 1em !important;
+    margin: auto 0;
+    p,
+    a {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  }
+}
+
+.Nav-DropDown-Open {
+  display: flex;
+  flex-direction: column;
+  background-color: #2867e6;
+  align-items: stretch;
+  justify-items: center;
+  height: 10em;
+  padding: 0.5em 0;
+  box-shadow: 0px 6px 4px -3px #686868;
+}
+
+@media only screen and (max-width: 1019px) {
+  .Nav-Bar-First .Nav-logo {
+    margin: 0 13px;
+  }
+  .Nav-APPBar {
+    position: float;
+  }
+  #Nav-Color-switch {
+    color: #ffffff;
   }
 }

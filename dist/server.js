@@ -94,7 +94,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 68);
+/******/ 	return __webpack_require__(__webpack_require__.s = 67);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -227,13 +227,13 @@ module.exports = require("@apollo/react-hooks");
 /* 7 */
 /***/ (function(module, exports) {
 
-module.exports = require("graphql-tag");
+module.exports = require("@material-ui/icons");
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports) {
 
-module.exports = require("@material-ui/icons");
+module.exports = require("graphql-tag");
 
 /***/ }),
 /* 9 */
@@ -269,88 +269,82 @@ module.exports = require("hast-util-sanitize/lib/github.json");
 /* 14 */
 /***/ (function(module, exports) {
 
-module.exports = require("@material-ui/core/styles");
+module.exports = require("apollo-boost");
 
 /***/ }),
 /* 15 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-helmet");
+module.exports = require("@loadable/server");
 
 /***/ }),
 /* 16 */
 /***/ (function(module, exports) {
 
-module.exports = require("apollo-boost");
+module.exports = require("styled-components");
 
 /***/ }),
 /* 17 */
 /***/ (function(module, exports) {
 
-module.exports = require("@loadable/server");
+module.exports = require("react-lowlight");
 
 /***/ }),
 /* 18 */
 /***/ (function(module, exports) {
 
-module.exports = require("styled-components");
+module.exports = require("react-moveable");
 
 /***/ }),
 /* 19 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-lowlight");
+module.exports = require("koa");
 
 /***/ }),
 /* 20 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-moveable");
+module.exports = require("koa-static");
 
 /***/ }),
 /* 21 */
 /***/ (function(module, exports) {
 
-module.exports = require("koa");
+module.exports = require("@apollo/react-common");
 
 /***/ }),
 /* 22 */
 /***/ (function(module, exports) {
 
-module.exports = require("koa-static");
+module.exports = require("@apollo/react-ssr");
 
 /***/ }),
 /* 23 */
 /***/ (function(module, exports) {
 
-module.exports = require("@apollo/react-common");
+module.exports = require("apollo-link-http");
 
 /***/ }),
 /* 24 */
 /***/ (function(module, exports) {
 
-module.exports = require("@apollo/react-ssr");
+module.exports = require("react-router");
 
 /***/ }),
 /* 25 */
 /***/ (function(module, exports) {
 
-module.exports = require("apollo-link-http");
+module.exports = require("@material-ui/core/styles");
 
 /***/ }),
 /* 26 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-router");
-
-/***/ }),
-/* 27 */
-/***/ (function(module, exports) {
-
 module.exports = require("react-simplemde-editor");
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -360,7 +354,7 @@ module.exports = require("react-simplemde-editor");
 /* harmony import */ var _mnt_c_Users_moidp_CloudStation_sangwook_Programing_project_blog_blog_frontend_node_modules_babel_preset_react_app_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(0);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _loadable_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(29);
+/* harmony import */ var _loadable_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(28);
 /* harmony import */ var _loadable_component__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_loadable_component__WEBPACK_IMPORTED_MODULE_4__);
 
 
@@ -388,7 +382,7 @@ var Moveable = _loadable_component__WEBPACK_IMPORTED_MODULE_4___default()({
     return false;
   },
   importAsync: function importAsync() {
-    return Promise.resolve(/* import() */).then(__webpack_require__.t.bind(null, 20, 7));
+    return Promise.resolve(/* import() */).then(__webpack_require__.t.bind(null, 18, 7));
   },
   requireAsync: function requireAsync(props) {
     var _this = this;
@@ -411,7 +405,7 @@ var Moveable = _loadable_component__WEBPACK_IMPORTED_MODULE_4___default()({
   },
   resolve: function resolve() {
     if (true) {
-      return /*require.resolve*/(20);
+      return /*require.resolve*/(18);
     }
 
     return eval('require.resolve')("react-moveable");
@@ -617,106 +611,112 @@ var PreviewImage = function PreviewImage(_ref) {
 /* harmony default export */ __webpack_exports__["a"] = (PreviewImage);
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports) {
 
 module.exports = require("@loadable/component");
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports) {
 
 module.exports = require("remark-react");
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports) {
 
 module.exports = require("remark-parse");
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = require("unified");
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports) {
 
 module.exports = require("highlight.js/lib/languages/css.js");
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports) {
 
 module.exports = require("highlight.js/lib/languages/javascript.js");
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports) {
 
 module.exports = require("highlight.js/lib/languages/xml.js");
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports) {
 
 module.exports = require("highlight.js/lib/languages/1c.js");
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports) {
 
 module.exports = require("highlight.js/lib/languages/cpp.js");
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports) {
 
 module.exports = require("highlight.js/lib/languages/java.js");
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, exports) {
 
 module.exports = require("highlight.js/lib/languages/nginx.js");
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, exports) {
 
 module.exports = require("highlight.js/lib/languages/python.js");
 
 /***/ }),
-/* 41 */
+/* 40 */
 /***/ (function(module, exports) {
 
 module.exports = require("highlight.js/lib/languages/sql.js");
 
 /***/ }),
-/* 42 */
+/* 41 */
 /***/ (function(module, exports) {
 
 module.exports = require("highlight.js/lib/languages/typescript.js");
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports) {
 
 module.exports = require("highlight.js/lib/languages/shell.js");
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, exports) {
 
 module.exports = require("highlight.js/lib/languages/yaml.js");
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, exports) {
 
 module.exports = require("highlight.js/lib/languages/json.js");
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-helmet");
 
 /***/ }),
 /* 46 */
@@ -830,7 +830,7 @@ module.exports = require("upath");
 /* 64 */
 /***/ (function(module, exports) {
 
-module.exports = require("@material-ui/core/colors");
+
 
 /***/ }),
 /* 65 */
@@ -846,19 +846,13 @@ module.exports = require("@material-ui/core/colors");
 
 /***/ }),
 /* 67 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 68 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: external "koa"
-var external_koa_ = __webpack_require__(21);
+var external_koa_ = __webpack_require__(19);
 var external_koa_default = /*#__PURE__*/__webpack_require__.n(external_koa_);
 
 // EXTERNAL MODULE: external "path"
@@ -866,7 +860,7 @@ var external_path_ = __webpack_require__(10);
 var external_path_default = /*#__PURE__*/__webpack_require__.n(external_path_);
 
 // EXTERNAL MODULE: external "koa-static"
-var external_koa_static_ = __webpack_require__(22);
+var external_koa_static_ = __webpack_require__(20);
 var external_koa_static_default = /*#__PURE__*/__webpack_require__.n(external_koa_static_);
 
 // EXTERNAL MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/regenerator/index.js
@@ -885,28 +879,28 @@ var server_ = __webpack_require__(9);
 var server_default = /*#__PURE__*/__webpack_require__.n(server_);
 
 // EXTERNAL MODULE: external "apollo-boost"
-var external_apollo_boost_ = __webpack_require__(16);
+var external_apollo_boost_ = __webpack_require__(14);
 
 // EXTERNAL MODULE: external "@apollo/react-common"
-var react_common_ = __webpack_require__(23);
+var react_common_ = __webpack_require__(21);
 
 // EXTERNAL MODULE: external "@apollo/react-ssr"
-var react_ssr_ = __webpack_require__(24);
+var react_ssr_ = __webpack_require__(22);
 
 // EXTERNAL MODULE: external "apollo-link-http"
-var external_apollo_link_http_ = __webpack_require__(25);
+var external_apollo_link_http_ = __webpack_require__(23);
 
 // EXTERNAL MODULE: external "react-router"
-var external_react_router_ = __webpack_require__(26);
+var external_react_router_ = __webpack_require__(24);
 
 // EXTERNAL MODULE: external "@loadable/server"
-var external_loadable_server_ = __webpack_require__(17);
+var external_loadable_server_ = __webpack_require__(15);
 
 // EXTERNAL MODULE: external "styled-components"
-var external_styled_components_ = __webpack_require__(18);
+var external_styled_components_ = __webpack_require__(16);
 
 // EXTERNAL MODULE: external "@material-ui/core/styles"
-var styles_ = __webpack_require__(14);
+var styles_ = __webpack_require__(25);
 
 // EXTERNAL MODULE: external "fetch-everywhere"
 var external_fetch_everywhere_ = __webpack_require__(53);
@@ -980,7 +974,7 @@ function _taggedTemplateLiteral(strings, raw) {
   }));
 }
 // EXTERNAL MODULE: external "graphql-tag"
-var external_graphql_tag_ = __webpack_require__(7);
+var external_graphql_tag_ = __webpack_require__(8);
 var external_graphql_tag_default = /*#__PURE__*/__webpack_require__.n(external_graphql_tag_);
 
 // CONCATENATED MODULE: ./src/graphql/queries/postQueries.js
@@ -1077,7 +1071,7 @@ var ArticleList_ArticleCard = function ArticleCard(_ref) {
   }, sampleDescription), external_react_default.a.createElement("div", {
     className: "Article-Tag-list"
   }, tags.map(function (i) {
-    return external_react_default.a.createElement("span", {
+    return external_react_default.a.createElement("div", {
       key: i,
       className: "Article-tag-item"
     }, i);
@@ -1206,11 +1200,7 @@ var ArticleList_ArticleList_ArticleList = function ArticleList() {
 // CONCATENATED MODULE: ./src/component/ArticleList/index.jsx
 
 /* harmony default export */ var component_ArticleList = (component_ArticleList_ArticleList);
-// EXTERNAL MODULE: external "react-helmet"
-var external_react_helmet_ = __webpack_require__(15);
-
 // CONCATENATED MODULE: ./src/pages/Home.jsx
-
 
 
 
@@ -1222,10 +1212,10 @@ var Home_Home = function Home() {
 
 /* harmony default export */ var pages_Home = (Home_Home);
 // EXTERNAL MODULE: external "@material-ui/icons"
-var icons_ = __webpack_require__(8);
+var icons_ = __webpack_require__(7);
 
 // EXTERNAL MODULE: external "react-simplemde-editor"
-var external_react_simplemde_editor_ = __webpack_require__(27);
+var external_react_simplemde_editor_ = __webpack_require__(26);
 var external_react_simplemde_editor_default = /*#__PURE__*/__webpack_require__.n(external_react_simplemde_editor_);
 
 // CONCATENATED MODULE: ./src/graphql/queries/imageQuery.js
@@ -1244,7 +1234,7 @@ function imageQuery_templateObject() {
 
 var IMAGE_UPLOAD_QUERY = external_graphql_tag_default()(imageQuery_templateObject());
 // EXTERNAL MODULE: ./src/component/PreviewImage/PreviewImage.jsx
-var PreviewImage = __webpack_require__(28);
+var PreviewImage = __webpack_require__(27);
 
 // CONCATENATED MODULE: ./src/component/PreviewImage/index.jsx
 
@@ -1501,15 +1491,15 @@ var ImageUploader_ImageUploader_ImageUploader = function ImageUploader(_ref) {
 
 /* harmony default export */ var component_ImageUploader = (component_ImageUploader_ImageUploader);
 // EXTERNAL MODULE: external "remark-react"
-var external_remark_react_ = __webpack_require__(30);
+var external_remark_react_ = __webpack_require__(29);
 var external_remark_react_default = /*#__PURE__*/__webpack_require__.n(external_remark_react_);
 
 // EXTERNAL MODULE: external "remark-parse"
-var external_remark_parse_ = __webpack_require__(31);
+var external_remark_parse_ = __webpack_require__(30);
 var external_remark_parse_default = /*#__PURE__*/__webpack_require__.n(external_remark_parse_);
 
 // EXTERNAL MODULE: external "unified"
-var external_unified_ = __webpack_require__(32);
+var external_unified_ = __webpack_require__(31);
 var external_unified_default = /*#__PURE__*/__webpack_require__.n(external_unified_);
 
 // EXTERNAL MODULE: external "hast-util-sanitize/lib/github.json"
@@ -1517,7 +1507,7 @@ var github_json_ = __webpack_require__(13);
 var github_json_default = /*#__PURE__*/__webpack_require__.n(github_json_);
 
 // EXTERNAL MODULE: external "react-lowlight"
-var external_react_lowlight_ = __webpack_require__(19);
+var external_react_lowlight_ = __webpack_require__(17);
 var external_react_lowlight_default = /*#__PURE__*/__webpack_require__.n(external_react_lowlight_);
 
 // EXTERNAL MODULE: external "upath"
@@ -1578,55 +1568,55 @@ var CodeSection_LangTag = function LangTag(_ref) {
 var atom_one_dark_reasonable_min = __webpack_require__(58);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/css.js"
-var css_js_ = __webpack_require__(33);
+var css_js_ = __webpack_require__(32);
 var css_js_default = /*#__PURE__*/__webpack_require__.n(css_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/javascript.js"
-var javascript_js_ = __webpack_require__(34);
+var javascript_js_ = __webpack_require__(33);
 var javascript_js_default = /*#__PURE__*/__webpack_require__.n(javascript_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/xml.js"
-var xml_js_ = __webpack_require__(35);
+var xml_js_ = __webpack_require__(34);
 var xml_js_default = /*#__PURE__*/__webpack_require__.n(xml_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/1c.js"
-var _1c_js_ = __webpack_require__(36);
+var _1c_js_ = __webpack_require__(35);
 var _1c_js_default = /*#__PURE__*/__webpack_require__.n(_1c_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/cpp.js"
-var cpp_js_ = __webpack_require__(37);
+var cpp_js_ = __webpack_require__(36);
 var cpp_js_default = /*#__PURE__*/__webpack_require__.n(cpp_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/java.js"
-var java_js_ = __webpack_require__(38);
+var java_js_ = __webpack_require__(37);
 var java_js_default = /*#__PURE__*/__webpack_require__.n(java_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/nginx.js"
-var nginx_js_ = __webpack_require__(39);
+var nginx_js_ = __webpack_require__(38);
 var nginx_js_default = /*#__PURE__*/__webpack_require__.n(nginx_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/python.js"
-var python_js_ = __webpack_require__(40);
+var python_js_ = __webpack_require__(39);
 var python_js_default = /*#__PURE__*/__webpack_require__.n(python_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/sql.js"
-var sql_js_ = __webpack_require__(41);
+var sql_js_ = __webpack_require__(40);
 var sql_js_default = /*#__PURE__*/__webpack_require__.n(sql_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/typescript.js"
-var typescript_js_ = __webpack_require__(42);
+var typescript_js_ = __webpack_require__(41);
 var typescript_js_default = /*#__PURE__*/__webpack_require__.n(typescript_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/shell.js"
-var shell_js_ = __webpack_require__(43);
+var shell_js_ = __webpack_require__(42);
 var shell_js_default = /*#__PURE__*/__webpack_require__.n(shell_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/yaml.js"
-var yaml_js_ = __webpack_require__(44);
+var yaml_js_ = __webpack_require__(43);
 var yaml_js_default = /*#__PURE__*/__webpack_require__.n(yaml_js_);
 
 // EXTERNAL MODULE: external "highlight.js/lib/languages/json.js"
-var json_js_ = __webpack_require__(45);
+var json_js_ = __webpack_require__(44);
 var json_js_default = /*#__PURE__*/__webpack_require__.n(json_js_);
 
 // CONCATENATED MODULE: ./src/component/commons/MarkdownRenderer/common-languages.js
@@ -2348,6 +2338,9 @@ var EditorPage_EditorPage = function EditorPage(_ref) {
 var external_react_loading_ = __webpack_require__(12);
 var external_react_loading_default = /*#__PURE__*/__webpack_require__.n(external_react_loading_);
 
+// EXTERNAL MODULE: external "react-helmet"
+var external_react_helmet_ = __webpack_require__(45);
+
 // EXTERNAL MODULE: ./src/component/PostBody/PostBody.scss
 var PostBody_PostBody = __webpack_require__(61);
 
@@ -2685,7 +2678,7 @@ var SignIn_SignIn_SignIn = function SignIn() {
               setIsSigninLoading(true);
               opt = {
                 method: 'post',
-                url: '/signin',
+                url: "".concat("https://api.blog.stumpark.com", "/signin"),
                 headers: {
                   Accept: '*/*',
                   'Content-Type': 'application/x-www-form-urlencoded'
@@ -2788,11 +2781,8 @@ var AuthPage_AuthPage = function AuthPage() {
 
 
 
-// EXTERNAL MODULE: external "@material-ui/core/colors"
-var colors_ = __webpack_require__(64);
-
 // EXTERNAL MODULE: ./src/component/NavBar/NavBar.scss
-var NavBar_NavBar = __webpack_require__(65);
+var NavBar_NavBar = __webpack_require__(64);
 
 // CONCATENATED MODULE: ./src/component/NavBar/NavBar.jsx
 
@@ -2803,57 +2793,104 @@ var NavBar_NavBar = __webpack_require__(65);
 
 
 
-var NavBar_NavButtons = function NavButtons() {
+var NavBar_GithubLinkBtn = function GithubLinkBtn() {
   var githubURL = 'https://github.com/stump26';
+  var githubProfileIMG = 'https://blog.stumpark.com/img/stumpark/logo64.jpg';
+  return external_react_default.a.createElement(core_["Link"], {
+    href: githubURL
+  }, external_react_default.a.createElement(core_["Avatar"], {
+    alt: "Stump26",
+    src: githubProfileIMG,
+    className: "Nav-Profile"
+  }));
+};
+
+var NavBar_ButtonList = function ButtonList() {
   var instaURL = 'https://www.instagram.com/stumpark_26/';
   var DSMURL = 'https://stumpark.com:5001';
-  var githubProfileIMG = 'https://blog.stumpark.com/img/stumpark/logo64.jpg';
 
   var _useContext = Object(external_react_["useContext"])(DarkModeContext),
       darkMode = _useContext.darkMode,
       toggleDarkMode = _useContext.toggleDarkMode;
 
-  return external_react_default.a.createElement("div", {
-    className: "Nav-Button-group"
-  }, external_react_default.a.createElement(core_["Typography"], {
-    id: "Nav-Color-switch"
+  return external_react_default.a.createElement(external_react_default.a.Fragment, null, external_react_default.a.createElement(core_["Typography"], {
+    id: "Nav-Color-switch",
+    className: "menuBtnItem"
   }, "L", external_react_default.a.createElement(core_["Switch"], {
     onChange: toggleDarkMode,
     checked: darkMode
   }), "D"), external_react_default.a.createElement(core_["Link"], {
-    href: "/aboutMe"
+    href: "/aboutMe",
+    className: "menuBtnItem"
   }, external_react_default.a.createElement(core_["Typography"], {
     id: "Nav-Link"
   }, "AboutMe")), external_react_default.a.createElement(core_["Link"], {
-    href: instaURL
+    href: instaURL,
+    className: "menuBtnItem"
   }, external_react_default.a.createElement(core_["Typography"], {
     id: "Nav-Link"
   }, "Instagram")), external_react_default.a.createElement(core_["Link"], {
-    href: DSMURL
+    href: DSMURL,
+    className: "menuBtnItem"
   }, external_react_default.a.createElement(core_["Typography"], {
     id: "Nav-Link"
-  }, "DSM")), external_react_default.a.createElement(core_["Link"], {
-    href: githubURL
-  }, external_react_default.a.createElement(core_["Avatar"], {
-    alt: "Stump26",
-    src: githubProfileIMG,
-    id: "Nav-Profile"
-  })));
+  }, "DSM")));
+};
+
+var NavBar_NavButtonsFully = function NavButtonsFully() {
+  return external_react_default.a.createElement("div", {
+    className: "Nav-Button-group"
+  }, external_react_default.a.createElement(NavBar_ButtonList, null), external_react_default.a.createElement(NavBar_GithubLinkBtn, null));
+};
+
+var NavBar_NavHamburgerMenu = function NavHamburgerMenu(_ref) {
+  var handleMenuShowing = _ref.handleMenuShowing;
+  return external_react_default.a.createElement("div", {
+    className: "Nav-Button-group"
+  }, external_react_default.a.createElement(core_["Button"], {
+    className: "Nav-MenuBtn",
+    onClick: handleMenuShowing
+  }, external_react_default.a.createElement(icons_["Menu"], null)), external_react_default.a.createElement(NavBar_GithubLinkBtn, null));
 };
 
 var NavBar_NavBar_NavBar = function NavBar() {
   var history = Object(external_react_router_dom_["useHistory"])();
-  return external_react_default.a.createElement(core_["AppBar"], {
-    id: "Nav-Bar"
+  var isWidthOverTablet = Object(core_["useMediaQuery"])('(min-width:1000px)');
+  var isWidthOverMobile = Object(core_["useMediaQuery"])('(min-width:640px');
+
+  var _useState = Object(external_react_["useState"])(false),
+      _useState2 = Object(slicedToArray["a" /* default */])(_useState, 2),
+      isMenuOpen = _useState2[0],
+      setIsMenuOpen = _useState2[1];
+
+  var handleMenuShowing = function handleMenuShowing() {
+    setIsMenuOpen(!isMenuOpen);
+  }; // Width > 1000px
+
+
+  var isDesktop = isWidthOverTablet && isWidthOverMobile; // 폭이넓은경우 메뉴가 열려있다면 닫히도록 설정.
+
+  if (isDesktop && isMenuOpen) {
+    setIsMenuOpen(false);
+  }
+
+  return external_react_default.a.createElement(external_react_default.a.Fragment, null, external_react_default.a.createElement(core_["AppBar"], {
+    className: "Nav-APPBar"
+  }, external_react_default.a.createElement("div", {
+    className: "Nav-Bar-First"
   }, external_react_default.a.createElement(core_["Typography"], {
     variant: "h5",
     className: "Nav-logo",
     onClick: function onClick() {
       history.push('/');
     }
-  }, "StumPark"), external_react_default.a.createElement(core_["Input"], {
+  }, "StumPark"), isWidthOverMobile && external_react_default.a.createElement(core_["Input"], {
     className: "Nav-Search-Bar"
-  }), external_react_default.a.createElement(NavBar_NavButtons, null));
+  }), isDesktop ? external_react_default.a.createElement(NavBar_NavButtonsFully, null) : external_react_default.a.createElement(NavBar_NavHamburgerMenu, {
+    handleMenuShowing: handleMenuShowing
+  })), external_react_default.a.createElement("div", {
+    className: "Nav-DropDown-List ".concat(!isDesktop && isMenuOpen ? 'Nav-DropDown-Open' : '')
+  }, external_react_default.a.createElement(NavBar_ButtonList, null))));
 };
 
 /* harmony default export */ var component_NavBar_NavBar = (NavBar_NavBar_NavBar);
@@ -2861,7 +2898,7 @@ var NavBar_NavBar_NavBar = function NavBar() {
 
 /* harmony default export */ var component_NavBar = (component_NavBar_NavBar);
 // EXTERNAL MODULE: ./src/component/Footer/Footer.scss
-var Footer_Footer = __webpack_require__(66);
+var Footer_Footer = __webpack_require__(65);
 
 // CONCATENATED MODULE: ./src/component/Footer/Footer.jsx
 
@@ -2881,7 +2918,7 @@ var Footer_Footer_Footer = function Footer() {
 
 /* harmony default export */ var component_Footer = (component_Footer_Footer);
 // EXTERNAL MODULE: ./src/App.scss
-var App = __webpack_require__(67);
+var App = __webpack_require__(66);
 
 // CONCATENATED MODULE: ./src/App.jsx
 
@@ -3194,7 +3231,7 @@ function () {
   var _ref = Object(asyncToGenerator["a" /* default */])(
   /*#__PURE__*/
   regenerator_default.a.mark(function _callee(ctx, next) {
-    var cachedPage, client, context, sheet, materialSheet, extractor, Root, content, initialState, styledElement, materialStyledElement, html, pageHtml;
+    var client, context, sheet, materialSheet, extractor, Root, content, initialState, styledElement, materialStyledElement, html, pageHtml;
     return regenerator_default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -3207,21 +3244,13 @@ function () {
             return _context.abrupt("return", next());
 
           case 2:
-            _context.next = 4;
-            return cacheManager.get(ctx.url);
-
-          case 4:
-            cachedPage = _context.sent;
-
-            if (!cachedPage) {
-              _context.next = 8;
-              break;
-            }
-
-            ctx.body = cachedPage;
-            return _context.abrupt("return");
-
-          case 8:
+            // const loggedIn = !!ctx.cookies.get('token');
+            // if exist page cache on redis, return cached page at redis
+            // const cachedPage = await cacheManager.get(ctx.url);
+            // if (cachedPage) {
+            //   ctx.body = cachedPage;
+            //   return;
+            // }
             // prepare apollo-client
             client = new external_apollo_boost_["ApolloClient"]({
               ssrMode: true,
@@ -3246,23 +3275,23 @@ function () {
               location: ctx.url,
               context: context
             }, external_react_default.a.createElement(src_App, null)))));
-            _context.prev = 14;
-            _context.next = 17;
+            _context.prev = 8;
+            _context.next = 11;
             return Object(react_ssr_["getDataFromTree"])(Root);
 
-          case 17:
-            _context.next = 23;
+          case 11:
+            _context.next = 17;
             break;
 
-          case 19:
-            _context.prev = 19;
-            _context.t0 = _context["catch"](14);
+          case 13:
+            _context.prev = 13;
+            _context.t0 = _context["catch"](8);
             // console.log('TCL: serverRender -> e', e);
             // TODO: status-code 500
             ctx.throw(500);
             return _context.abrupt("return");
 
-          case 23:
+          case 17:
             content = server_default.a.renderToString(Root);
             initialState = client.extract();
             styledElement = sheet.getStyleElement();
@@ -3276,17 +3305,16 @@ function () {
             });
             pageHtml = "<!doctype html>\n".concat(server_default.a.renderToStaticMarkup(html));
             ctx.body = pageHtml; // Set redis chching page
+            // setImmediate(() => {
+            //   cacheManager.set(ctx.url, pageHtml);
+            // });
 
-            setImmediate(function () {
-              cacheManager.set(ctx.url, pageHtml);
-            });
-
-          case 31:
+          case 24:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[14, 19]]);
+    }, _callee, null, [[8, 13]]);
   }));
 
   return function serverRender(_x, _x2) {

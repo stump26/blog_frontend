@@ -1,6 +1,6 @@
-.container {
+.postbody-container {
   position: relative;
-  // top: 4rem;
+  // top: 140px;
   width: 65%;
   display: flex;
   flex-direction: column;
@@ -17,6 +17,7 @@
   }
   .post-title-bg {
     width: 95%;
+    margin-top: 20px;
     #post-title {
       margin-bottom: 30px;
       font-size: 90px;
@@ -81,6 +82,53 @@
       list-style-type: none;
       position: relative;
       padding-left: 15px;
+    }
+
+    img {
+      max-width: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .postbody-container {
+    width: 90%;
+
+    .ModifyBtn {
+      left: unset;
+      right: 0px;
+      align-self: end;
+    }
+  }
+}
+@media only screen and (max-width: 640px) {
+  .postbody-container > .post-title-bg {
+    > #post-title {
+      font-size: 50px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+  }
+
+  .postbody-container {
+    > .post-desc {
+      blockquote {
+        margin: 1em;
+        > p {
+          padding: 0.5em 1em;
+        }
+      }
+      > h2,
+      h3 {
+        margin-top: 1em;
+      }
+      ul {
+        padding-left: 1em;
+        > li {
+          padding-left: 0;
+        }
+      }
     }
   }
 }

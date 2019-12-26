@@ -5,7 +5,10 @@ import { createUploadLink } from 'apollo-upload-client';
 import { setContext } from 'apollo-link-context';
 import { ssrEnabled } from './lib/util';
 
-const uri = '/graphql';
+let uri = '/graphql';
+if (process.env.NODE_ENV === 'production') {
+  uri = `${process.env.REACT_APP_BACKEND_HOST}/graphql`;
+}
 
 const authLink = setContext((_, { headers, ...context }) => {
   // get the authentication token from local storage if it exists
@@ -22,7 +25,7 @@ const authLink = setContext((_, { headers, ...context }) => {
 });
 
 const uploadLink = createUploadLink({
-  uri: uri,
+  uri,
 });
 
 export const link = ApolloLink.from([authLink, uploadLink]);

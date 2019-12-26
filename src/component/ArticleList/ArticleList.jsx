@@ -30,9 +30,9 @@ const ArticleCard = ({ id, title, date, desc, tags, onClickArticle }) => {
         <div className="Article-Tag-list">
           {tags.map((i) => {
             return (
-              <span key={i} className="Article-tag-item">
+              <div key={i} className="Article-tag-item">
                 {i}
-              </span>
+              </div>
             );
           })}
         </div>
