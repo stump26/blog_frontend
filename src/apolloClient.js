@@ -5,7 +5,7 @@ import { createUploadLink } from 'apollo-upload-client';
 import { setContext } from 'apollo-link-context';
 import { ssrEnabled } from './lib/util';
 
-const uri = '/graphql';
+const uri = `${process.env.REACT_APP_BACKEND_HOST}/graphql`;
 
 const authLink = setContext((_, { headers, ...context }) => {
   // get the authentication token from local storage if it exists

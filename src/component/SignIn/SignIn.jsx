@@ -27,7 +27,7 @@ const SignIn = () => {
     setIsSigninLoading(true);
     const opt = {
       method: 'post',
-      url: '/signin',
+      url: `${process.env.REACT_APP_BACKEND_HOST}/signin`,
       headers: {
         Accept: '*/*',
         'Content-Type': 'application/x-www-form-urlencoded',
