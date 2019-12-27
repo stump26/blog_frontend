@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "export REACT_APP_BACKEND_HOST=http://localhost:4000 && node scripts/start.js",
+    "start": " node scripts/start.js",
     "start:ssr": "node dist/server",
     "build": "node scripts/build.js",
     "build:ssr": "node scripts/build.server.js",
@@ -58,6 +58,7 @@
     "koa": "^2.11.0",
     "koa-better-http-proxy": "^0.2.4",
     "koa-bodyparser": "^4.2.1",
+    "koa-compress": "^3.0.0",
     "koa-static": "^5.0.0",
     "mini-css-extract-plugin": "0.8.0",
     "node-fetch": "^2.6.0",

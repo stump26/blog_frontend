@@ -1,6 +1,13 @@
 import React from 'react';
 
-const Html = ({ content, styledElement, materialStyledElement, apolloState, extractor }) => {
+const Html = ({
+  content,
+  styledElement,
+  materialStyledElement,
+  apolloState,
+  extractor,
+  helmet,
+}) => {
   return (
     <html>
       <head>
@@ -8,6 +15,13 @@ const Html = ({ content, styledElement, materialStyledElement, apolloState, extr
         {materialStyledElement}
         {extractor.getLinkElements()}
         {extractor.getStyleElements()}
+        {helmet && (
+          <>
+            {helmet.title.toComponent()}
+            {helmet.meta.toComponent()}
+            {helmet.link.toComponent()}
+          </>
+        )}
       </head>
       <body>
         <div id="root" dangerouslySetInnerHTML={{ __html: content }}></div>

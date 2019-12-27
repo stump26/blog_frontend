@@ -110,7 +110,7 @@ const Editor = ({ postID }) => {
     if (postID !== undefined) {
       // console.log('TCL: editor >> postID', postID);
       currentPostdata();
-      console.log(title);
+      // console.log(title);
     }
   }, [postID]);
 
@@ -153,9 +153,6 @@ const Editor = ({ postID }) => {
             return ReactDOMServer.renderToString(<MDRenderer markup={text} />);
           },
           uploadImage: true,
-          imageUploadFunction: () => {
-            console.log('test');
-          },
           renderingConfig: {
             singleLineBreaks: false,
             codeSyntaxHighlighting: true,

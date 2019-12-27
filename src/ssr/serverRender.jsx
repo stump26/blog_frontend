@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import path from 'path';
+import { Helmet } from 'react-helmet';
 import { ApolloClient, InMemoryCache } from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-common';
 import { getDataFromTree } from '@apollo/react-ssr';
@@ -13,13 +14,15 @@ import 'fetch-everywhere';
 
 import App from '../App';
 import Html from './Html';
-import CacheManager from './CacheManager';
+// import CacheManager from './CacheManager';
 
 const statsFile = path.resolve(__dirname, '../build/loadable-stats.json');
-const cacheManager = new CacheManager();
+// const cacheManager = new CacheManager();
 const uri = process.env.REACT_APP_BACKEND_HOST + '/graphql';
 
 const serverRender = async (ctx, next) => {
+  ctx.compress = true;
+
   // if path is graphql, route to proxy by next();
   if (/^\/(graphql|signin)/.test(ctx.path)) {
     // console.log('TCL: serverRender -> ctx.path', ctx.path);
@@ -63,7 +66,7 @@ const serverRender = async (ctx, next) => {
   try {
     await getDataFromTree(Root);
   } catch (e) {
-    // console.log('TCL: serverRender -> e', e);
+    console.log('TCL: serverRender -> e', e);
     // TODO: status-code 500
     ctx.throw(500);
     return;
@@ -73,6 +76,7 @@ const serverRender = async (ctx, next) => {
   const initialState = client.extract();
   const styledElement = sheet.getStyleElement();
   const materialStyledElement = materialSheet.getStyleElement();
+  const helmet = Helmet.renderStatic();
 
   const html = (
     <Html
@@ -81,6 +85,7 @@ const serverRender = async (ctx, next) => {
       styledElement={styledElement}
       materialStyledElement={materialStyledElement}
       extractor={extractor}
+      helmet={helmet}
     />
   );
 

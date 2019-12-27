@@ -1,11 +1,10 @@
-import Koa from 'koa';
 import path from 'path';
-import serve from 'koa-static';
 import serverRender from './ssr/serverRender';
+import Koa from 'koa';
+import serve from 'koa-static';
 import proxy from 'koa-better-http-proxy';
 import Router from '@koa/router';
-
-console.log(process.env.REACT_APP_SSR);
+import compress from 'koa-compress';
 
 const app = new Koa();
 const router = new Router();
@@ -16,12 +15,21 @@ app.use(
   }),
 );
 
+app.use(
+  compress({
+    filter: function(content_type) {
+      return /text/i.test(content_type);
+    },
+    threshold: 2048,
+    flush: require('zlib').Z_SYNC_FLUSH,
+  }),
+);
+
 const proxyMiddleware = proxy('localhost', { port: 4000 });
 app.use(router.routes()).use(router.allowedMethods());
 
 app.use(serverRender);
 app.use(proxyMiddleware);
-// router.post('/graphql', proxyMiddleware);
 
 app.listen(3001, () => {
   console.log('SSR server is listening to http://localhost:3001');

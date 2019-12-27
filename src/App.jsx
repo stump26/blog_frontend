@@ -10,7 +10,6 @@ import './App.scss';
 import { ssrEnabled } from './lib/util';
 
 export default () => {
-  console.log('TCL: process.env.REACT_APP_BACKEND_HOST', process.env.REACT_APP_BACKEND_HOST);
   const [darkMode, setDarkMode] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
   const darkActions = {

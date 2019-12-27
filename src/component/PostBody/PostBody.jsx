@@ -39,20 +39,20 @@ const PostBody = ({ postID, title, modifyDate, description }) => {
         {modifyDate}
         <meta itemProp="dateModified" content={modifyDate}></meta>
       </div>
-      <div className="post-desc" itemscope itemtype="http://schema.org/BlogPosting">
+      <div className="post-desc" itemScope itemType="http://schema.org/BlogPosting">
         <MDRenderer markup={description} />
       </div>
 
       <div>
         <meta itemProp="mainEntityOfPage" content={`/post/${postID}`} />
         <meta itemProp="name" content={title} />
-        <div itemProp="publisher" itemscope itemtype="http://schema.org/Organization">
+        <div itemProp="publisher" itemScope itemType="http://schema.org/Organization">
           <meta itemProp="name" content="Stumpark's blog" />
-          <div itemProp="logo" itemscope itemtype="http://schema.org/ImageObject">
+          <div itemProp="logo" itemScope itemType="http://schema.org/ImageObject">
             <meta itemProp="url" content="{https://blog.stumpark.com/logo512.png}" />
           </div>
         </div>
-        <div itemProp="author" itemscope itemtype="http://schema.org/Person">
+        <div itemProp="author" itemScope itemType="http://schema.org/Person">
           <meta itemProp="name" content="Outsider" />
           <meta itemProp="url" content="/" />
         </div>

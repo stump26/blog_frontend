@@ -18,7 +18,9 @@
     "no-useless-return": "off",
     "global-require": "off",
     "consistent-return": "off",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "camelcase": "off",
+    "func-names": "off"
   },
   "parser": "babel-eslint"
 }

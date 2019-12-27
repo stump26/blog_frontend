@@ -37,13 +37,16 @@ const Post = ({ match: { params } }) => {
 
   return (
     <>
-      <Helmet>
+      <Helmet encodeSpecialCharacters={true} titleTemplate="%s | Stumpark's blog">
         <meta name="description" content={extrectDescription} />
         <meta name="Keywords" content={tags.join(', ')} />
-        <title>{`${title} | Stumpark's blog`}</title>
+        <title>{title}</title>
         <meta property="og:url" content={`https://blog.stumpark.co.kr/post/${_id}`} />
-        <meta name="og:description" content={extrectDescription} />
         <meta name="og:title" content={`${title} | Stumpark's blog`} />
+        <meta name="og:description" content={extrectDescription} />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={extrectDescription} />
       </Helmet>
       <PostBody
         postID={params.id}
