@@ -65,6 +65,7 @@
       color: #414565;
       font-size: 17px;
       border-radius: 0.3em;
+      margin: 1em 0;
       background-color: #ececec;
       > p {
         padding: 1.4rem 2em;
@@ -114,7 +115,6 @@
   .postbody-container {
     > .post-desc {
       blockquote {
-        margin: 1em;
         > p {
           padding: 0.5em 1em;
         }
