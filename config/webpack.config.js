@@ -29,8 +29,9 @@ const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpack
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const eslint = require('eslint');
 const LoadablePlugin = require('@loadable/webpack-plugin');
-
+const CompressionPlugin = require('compression-webpack-plugin');
 const postcssNormalize = require('postcss-normalize');
+const zopfli = require('@gfx/zopfli');
 
 const appPackageJson = require(paths.appPackageJson);
 
@@ -194,8 +195,8 @@ module.exports = function(webpackEnv) {
       globalObject: 'this',
     },
     optimization: {
-      // minimize: isEnvProduction,
-      minimize: false,
+      minimize: isEnvProduction,
+      // minimize: false,
       minimizer: [
         // This is only used in production mode
         new TerserPlugin({
@@ -634,6 +635,15 @@ module.exports = function(webpackEnv) {
           silent: true,
           // The formatter is invoked directly in WebpackDevServerUtils during development
           formatter: isEnvProduction ? typescriptFormatter : undefined,
+        }),
+      isEnvProduction &&
+        new CompressionPlugin({
+          compressionOptions: {
+            numiterations: 15,
+          },
+          algorithm(input, compressionOptions, callback) {
+            return zopfli.gzip(input, compressionOptions, callback);
+          },
         }),
     ].filter(Boolean),
     // Some libraries import Node modules but don't use them in the browser.

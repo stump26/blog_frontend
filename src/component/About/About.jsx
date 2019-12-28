@@ -4,8 +4,10 @@ import './About.scss';
 const ImageList = ({ imgs }) => {
   return (
     <>
-      {imgs.map((img) => {
-        return <img className="skill-img" src={`/img//tech/${img}.png`} alt={img} />;
+      {imgs.map((img, i) => {
+        return (
+          <img className="skill-img" src={`/img//tech/${img}.png`} alt={img} key={`skill-${i}`} />
+        );
       })}
     </>
   );

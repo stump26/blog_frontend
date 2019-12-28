@@ -8,6 +8,8 @@ const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 const path = require('path');
+const CompressionPlugin = require('compression-webpack-plugin');
+const zopfli = require('@gfx/zopfli');
 
 const publicUrl = paths.servedPath.slice(0, -1);
 const env = getClientEnvironment(publicUrl);
@@ -127,9 +129,19 @@ module.exports = {
       .map((ext) => `.${ext}`)
       .filter((ext) => true || !ext.includes('ts')),
   },
-  plugins: [new webpack.DefinePlugin(env.stringified)],
+  plugins: [
+    new webpack.DefinePlugin(env.stringified),
+    new CompressionPlugin({
+      compressionOptions: {
+        numiterations: 15,
+      },
+      algorithm(input, compressionOptions, callback) {
+        return zopfli.gzip(input, compressionOptions, callback);
+      },
+    }),
+  ],
   optimization: {
-    minimize: false,
+    minimize: true,
   },
   externals: [
     nodeExternals({
