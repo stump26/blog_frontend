@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useCallback, useRef } from 'react';
 import axios from 'axios';
 import { TextField, Typography, Button } from '@material-ui/core';
 import qs from 'querystring';
@@ -16,13 +16,26 @@ const SignIn = () => {
   const [isSigninLoading, setIsSigninLoading] = useState(false);
   const history = useHistory();
   const { setUserInfoContext } = useContext(UserInfoContext);
+  const inputEmailRef = useRef();
+  const inputPWRef = useRef();
 
-  const handleInputEmail = (e) => {
+  const handleInputEmail = useCallback((e) => {
     setInputEmail(e.target.value);
-  };
-  const handleinputPW = (e) => {
+  }, []);
+
+  const handleInputPW = useCallback((e) => {
     setInputPW(e.target.value);
-  };
+  }, []);
+
+  const clearInput = useCallback(() => {
+    console.log(inputEmailRef);
+    setInputEmail('');
+    inputEmailRef.current.value = '';
+    setInputPW('');
+    inputPWRef.current.value = '';
+    setIsSigninLoading((prevState) => !prevState);
+  }, []);
+
   const handleSubmit = async () => {
     setIsSigninLoading(true);
 
@@ -65,7 +78,10 @@ const SignIn = () => {
           } else if (response.data === 'wrongpass') {
             alert('비밀번호가 잘못되었습니다.');
           }
-          setIsSigninLoading(false);
+          clearInput();
+        } else {
+          alert(response.status, response.data);
+          clearInput();
         }
       });
   };
@@ -81,6 +97,7 @@ const SignIn = () => {
         margin="normal"
         variant="filled"
         onChange={handleInputEmail}
+        inputRef={inputEmailRef}
       />
       <TextField
         id="filled-password"
@@ -89,7 +106,8 @@ const SignIn = () => {
         type="password"
         margin="normal"
         variant="filled"
-        onChange={handleinputPW}
+        onChange={handleInputPW}
+        inputRef={inputPWRef}
       />
       <Button
         variant="contained"

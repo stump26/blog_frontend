@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { TextField, Typography, Divider, Button, Modal } from '@material-ui/core';
 import { Save as SaveIcon, Update as UpdateIcon } from '@material-ui/icons';
@@ -27,7 +27,6 @@ const Editor = ({ postID }) => {
     variables: { id: postID },
     fetchPolicy: 'cache-and-network', // 게시글(post)에서 한번 동일한 조회가 캐싱되어 안보이는것을 방지.
     onCompleted: ({ post_BY_ID: curPostData }) => {
-      // console.log('TCL: curPostData', curPostData);
       setTitle(curPostData.title);
       setTags(curPostData.tags);
       setValue(curPostData.description);
@@ -51,14 +50,15 @@ const Editor = ({ postID }) => {
     },
   );
 
-  const onTypeTitle = (e) => {
+  const onTypeTitle = useCallback((e) => {
     setTitle(e.target.value);
-  };
-  const onTypeTags = (e) => {
+  }, []);
+  const onTypeTags = useCallback((e) => {
     const inputString = e.target.value;
     setTags(inputString.split(/,\s?/));
-  };
-  const onClickSave = (e) => {
+  });
+
+  const onClickSave = useCallback(() => {
     writePost({
       variables: {
         title: title,
@@ -67,8 +67,8 @@ const Editor = ({ postID }) => {
         tags: tags,
       },
     });
-  };
-  const onClickUpdate = (e) => {
+  });
+  const onClickUpdate = useCallback(() => {
     updatePostQuering({
       variables: {
         id: postID,
@@ -77,7 +77,7 @@ const Editor = ({ postID }) => {
         newTags: tags,
       },
     });
-  };
+  });
 
   const handleImageUploadModal = (editor) => {
     setImageUploaderModalIsOpen(true);
@@ -108,9 +108,7 @@ const Editor = ({ postID }) => {
   // 수정모드인경우 postid를통해 쿼리요청.
   useEffect(() => {
     if (postID !== undefined) {
-      // console.log('TCL: editor >> postID', postID);
       currentPostdata();
-      // console.log(title);
     }
   }, [postID]);
 
