@@ -1,45 +1,11 @@
 /* eslint-disable no-underscore-dangle */
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { useHistory } from 'react-router-dom';
-import { Card, CardContent, Typography } from '@material-ui/core';
 
+import ArticleCard from './ArticleCard';
 import { GET_POST_LIST } from '../../graphql/queries/postQueries';
 import './ArticleList.scss';
-
-const ArticleCard = ({ id, title, date, desc, tags, onClickArticle }) => {
-  // filter Markdown syntex
-  const markdownRegExp = /!?\[.*?\]\(.*?\)|<.*?>|\*.*?\*|#+|\t+|\n|[\s]{2,}|`{3}.*?`{3}/gi;
-  const sampleDescription = desc.replace(markdownRegExp, '').slice(0, 200) + '...';
-  return (
-    <Card
-      className="Article-card"
-      onClick={() => {
-        onClickArticle(id);
-      }}
-    >
-      <CardContent>
-        <div className="Article-card-head">
-          <Typography className="Article-title" variant="h4">
-            {title}
-          </Typography>
-          <hr className="Article-divide" />
-          <div className="Article-date">{date}</div>
-        </div>
-        <p className="Article-desc">{sampleDescription}</p>
-        <div className="Article-Tag-list">
-          {tags.map((i) => {
-            return (
-              <div key={i} className="Article-tag-item">
-                {i}
-              </div>
-            );
-          })}
-        </div>
-      </CardContent>
-    </Card>
-  );
-};
 
 const ArticleList = () => {
   const [articleElements, setArticleElements] = useState([]);
@@ -77,6 +43,7 @@ const ArticleList = () => {
       fetchNextPage(page + 1);
     }
   };
+
   useEffect(() => {
     window.addEventListener('scroll', setCurrentReadOffset);
 
@@ -84,11 +51,13 @@ const ArticleList = () => {
       window.removeEventListener('scroll', setCurrentReadOffset);
     };
   }, [setCurrentReadOffset]);
+
   useMemo(() => {
     if (!error && !loading && data) {
       setArticleElements([...data.post]);
     }
   }, data);
+
   if (loading) {
     return 'Loading...';
   }

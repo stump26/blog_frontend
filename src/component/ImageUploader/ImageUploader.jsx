@@ -138,4 +138,4 @@ const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {
   );
 };
 
-export default ImageUploader;
+export default React.memo(ImageUploader);
