@@ -55,7 +55,7 @@ const Editor = ({ postID }) => {
   }, []);
   const onTypeTags = useCallback((e) => {
     const inputString = e.target.value;
-    setTags(inputString.split(/,\s?/));
+    setTags(inputString.split(/\s?,\s?/));
   });
 
   const onClickSave = useCallback(() => {

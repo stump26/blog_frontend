@@ -7,7 +7,9 @@ export const GET_POST_LIST = gql`
       title
       modifyDate
       description
-      tags
+      tags{
+        tagName
+      }
     }
   }
 `;
@@ -19,7 +21,9 @@ export const GET_POST_BYID = gql`
       title
       modifyDate
       description
-      tags
+      tags{
+        tagName
+      }
     }
   }
 `;
