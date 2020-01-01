@@ -34,12 +34,14 @@ const Post = ({ match: { params } }) => {
   const { _id, title, modifyDate, description, tags } = data.post_BY_ID;
   const markdownRegExp = /!?\[.*?\]\(.*?\)|<.*?>|\*.*?\*|#+|\t+|\n|[\s]{2,}|`{3}.*?`{3}/g;
   const extrectDescription = description.replace(markdownRegExp, '').slice(0, 150) + '...';
-
+  const taglist = tags.reduce((acc, cur) => {
+    return [...acc, cur.tagName];
+  }, []);
   return (
     <>
       <Helmet encodeSpecialCharacters={true} titleTemplate="%s | Stumpark's blog">
         <meta name="description" content={extrectDescription} />
-        <meta name="Keywords" content={tags.join(', ')} />
+        <meta name="Keywords" content={taglist.join(', ')} />
         <title>{title}</title>
         <meta property="og:url" content={`https://blog.stumpark.co.kr/post/${_id}`} />
         <meta name="og:title" content={`${title} | Stumpark's blog`} />

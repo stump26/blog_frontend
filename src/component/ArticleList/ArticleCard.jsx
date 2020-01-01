@@ -22,10 +22,10 @@ const ArticleCard = ({ id, title, date, desc, tags, onClickArticle }) => {
         </div>
         <p className="Article-desc">{sampleDescription}</p>
         <div className="Article-Tag-list">
-          {tags.map((i) => {
+          {tags.map((tag) => {
             return (
-              <div key={i} className="Article-tag-item">
-                {i}
+              <div key={tag.tagName} className="Article-tag-item">
+                {tag.tagName}
               </div>
             );
           })}
