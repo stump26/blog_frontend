@@ -31,6 +31,7 @@ export const GET_POST_BYID = gql`
 export const LOOK_TAGS = gql`
   query Tags {
     Tags {
+      _id
       tagName
     }
   }

@@ -5,11 +5,14 @@
     display: none;
   }
 }
+
 .TagListHead {
   color: #707070;
-  padding-right: 1.7em;
   text-align: right;
   border-bottom: solid 2px #b3b3b3;
+  padding-right: 1.7em;
+  margin-bottom: 1em;
+
   > .MuiTypography-root {
     line-height: 0.5;
     font-weight: bold;

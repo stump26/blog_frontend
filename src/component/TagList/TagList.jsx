@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { Typography } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { LOOK_TAGS } from '../../graphql/queries/postQueries';
@@ -23,6 +24,12 @@ const TagButton = styled.span`
 
 const TagList = () => {
   const { loading, error, data } = useQuery(LOOK_TAGS);
+  const history = useHistory();
+  const onClickTagButton = (e) => {
+    const tagId = e.target.getAttribute('data-index');
+    history.push(`/tag/${tagId}`);
+  };
+
   if (loading) {
     return 'Loading...';
   }
@@ -38,7 +45,11 @@ const TagList = () => {
       {!loading &&
         data &&
         data.Tags.map((tag) => {
-          return <TagButton>{tag.tagName}</TagButton>;
+          return (
+            <TagButton onClick={onClickTagButton} key={tag._id} data-index={tag._id}>
+              {tag.tagName}
+            </TagButton>
+          );
         })}
     </div>
   );
