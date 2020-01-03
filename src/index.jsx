@@ -4,7 +4,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { loadableReady } from '@loadable/component';
-import ApolloClient from './apolloClient';
+import ApolloClient from './graphql/apolloClient';
 import { ApolloProvider } from '@apollo/react-hooks';
 import App from './App';
 

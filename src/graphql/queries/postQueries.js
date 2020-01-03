@@ -7,7 +7,7 @@ export const GET_POST_LIST = gql`
       title
       modifyDate
       description
-      tags{
+      tags {
         tagName
       }
     }
@@ -21,30 +21,29 @@ export const GET_POST_BYID = gql`
       title
       modifyDate
       description
-      tags{
+      tags {
         tagName
       }
     }
   }
 `;
 
+export const LOOK_TAGS = gql`
+  query Tags {
+    Tags {
+      tagName
+    }
+  }
+`;
+
 export const WRITE_POST = gql`
-  mutation writePost(
-    $title: String!
-    $writer: String!
-    $description: String!
-    $tags: [String]
-  ) {
-    writePost(
-      title: $title
-      writer: $writer
-      description: $description
-      tags: $tags
-    ) {
+  mutation writePost($title: String!, $writer: String!, $description: String!, $tags: [String]) {
+    writePost(title: $title, writer: $writer, description: $description, tags: $tags) {
       _id
     }
   }
 `;
+
 export const UPDATE_POST = gql`
   mutation UPDATEPOST(
     $id: String!
@@ -52,12 +51,7 @@ export const UPDATE_POST = gql`
     $newDescription: String!
     $newTags: [String]
   ) {
-    updatePost(
-      _id: $id
-      newTitle: $newTitle
-      newDescription: $newDescription
-      newTags: $newTags
-    ) {
+    updatePost(_id: $id, newTitle: $newTitle, newDescription: $newDescription, newTags: $newTags) {
       _id
     }
   }

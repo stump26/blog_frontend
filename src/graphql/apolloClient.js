@@ -3,7 +3,7 @@ import { ApolloLink } from 'apollo-link';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createUploadLink } from 'apollo-upload-client';
 import { setContext } from 'apollo-link-context';
-import { ssrEnabled } from './lib/util';
+import { ssrEnabled } from '../lib/util';
 
 let uri = '/graphql';
 if (process.env.NODE_ENV === 'production') {

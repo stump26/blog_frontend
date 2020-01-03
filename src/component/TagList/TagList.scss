@@ -1,0 +1,18 @@
+.TagListBox {
+  width: 20em;
+  margin: 5rem auto 0 0;
+  @media only screen and (max-width: 1020px) {
+    display: none;
+  }
+}
+.TagListHead {
+  color: #707070;
+  padding-right: 1.7em;
+  text-align: right;
+  border-bottom: solid 2px #b3b3b3;
+  > .MuiTypography-root {
+    line-height: 0.5;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+}
