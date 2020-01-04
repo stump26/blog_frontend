@@ -37,6 +37,18 @@ export const LOOK_TAGS = gql`
   }
 `;
 
+export const LOOK_TAG_BY_ID = gql`
+  query Tag_BY_ID($id: String!) {
+    Tag_BY_ID(id: $id) {
+      _id
+      tagName
+      posts
+      tagExplanation
+      tagUsedCount
+    }
+  }
+`;
+
 export const WRITE_POST = gql`
   mutation writePost($title: String!, $writer: String!, $description: String!, $tags: [String]) {
     writePost(title: $title, writer: $writer, description: $description, tags: $tags) {
