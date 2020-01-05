@@ -31,7 +31,20 @@ export const GET_POST_BYID = gql`
 export const LOOK_TAGS = gql`
   query Tags {
     Tags {
+      _id
       tagName
+    }
+  }
+`;
+
+export const LOOK_TAG_BY_ID = gql`
+  query Tag_BY_ID($id: String!) {
+    Tag_BY_ID(id: $id) {
+      _id
+      tagName
+      posts
+      tagExplanation
+      tagUsedCount
     }
   }
 `;

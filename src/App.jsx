@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import jwt from 'jsonwebtoken';
 
-import { Home, Editor, Post, About, Auth } from './pages';
+import { Home, Editor, Post, About, Auth, Page404, Tags } from './pages';
 import { DarkModeContext, UserInfoContext } from './context.js';
 import NavBar from './component/NavBar/';
 import Footer from './component/Footer/';
@@ -18,6 +18,7 @@ export default () => {
       localStorage.setItem('isDark', !darkMode);
     },
   };
+
   const userActions = {
     setUserInfoContext: (userInfoDic) => {
       setUserInfo(userInfoDic);
@@ -31,25 +32,25 @@ export default () => {
       return false;
     },
   };
+
   // componentDidMount
   useEffect(() => {
     const historyDark = localStorage.getItem('isDark');
-    // console.log('TCL: App -> historyDark', historyDark);
     if (historyDark === 'true') {
-      // console.log('TCL: load localstorage');
       setDarkMode(true);
     } else if (
       (historyDark === undefined || historyDark === null) &&
       window.matchMedia('(prefers-color-scheme: dark)').matches
     ) {
-      // console.log('TCL: load prefers-color-scheme');
       setDarkMode(true);
     }
   }, []);
+
   // componentDidUpdate
   useEffect(() => {
     document.getElementsByTagName('body')[0].classList.toggle('dark-mode', darkMode);
   });
+
   return (
     <>
       <DarkModeContext.Provider value={{ darkMode, ...darkActions }}>
@@ -61,8 +62,11 @@ export default () => {
               <Route exact path="/editor/:postid" component={Editor} />
               <Route exact path="/editor/" component={Editor} />
               <Route exact path="/post/:id" component={Post} />
+              <Route exact path="/tag" component={Tags} />
+              <Route exact path="/tag/:id" component={Tags}/>
               <Route exact path="/aboutMe" component={About} />
               <Route exact path="/auth" component={Auth} />
+              <Route component={Page404} />
             </Switch>
             <Footer />
           </div>
