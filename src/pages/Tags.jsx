@@ -2,10 +2,46 @@ import React from 'react';
 import ReactLoading from 'react-loading';
 import { useQuery } from '@apollo/react-hooks';
 import { useHistory } from 'react-router-dom';
-import { Typography } from '@material-ui/core';
+import styled from 'styled-components';
 
 import { LOOK_TAG_BY_ID, GET_POST_BYID } from '../graphql/queries/postQueries';
 import ArticleCard from '../component/ArticleList/ArticleCard';
+
+const TagsPageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1150px;
+`;
+
+const TagNameHead = styled.div`
+  font-size: 5rem;
+  font-weight: 500;
+  overflow-x: auto;
+  width: 100%;
+  margin-top: 1rem;
+  font-family: 'Do Hyeon', sans-serif;
+  text-transform: capitalize;
+`;
+const TagUsedCounter = styled.span`
+  font-size: 1rem;
+  color: #ff3700;
+`;
+const TagThumbnailImg = styled.img`
+  width: 100%;
+  object-fit: cover;
+`;
+const TagExplanation = styled.p`
+  color: #b76d58;
+  font-size: 1.2rem;
+
+  &::first-letter {
+    padding-left: 0.1em;
+    font-size: 200%;
+  }
+`;
 
 const TagRelatedPostList = ({ posts }) => {
   const history = useHistory();
@@ -73,15 +109,19 @@ const TagsPage = ({ match }) => {
     return <div>bad</div>;
   }
 
-  const { tagName, posts, tagExplanation, tagUsedCount } = data.Tag_BY_ID;
+  const { tagName, posts, tagExplanation, tagUsedCount, tagThumbnail } = data.Tag_BY_ID;
   return (
     <>
       {!loading && !error && data && (
-        <div>
-          <Typography variant="h2">{tagName}</Typography>
-          {tagExplanation && <div>{tagExplanation}</div>}
+        <TagsPageContainer>
+          <TagNameHead>
+            {tagName}
+            <TagUsedCounter>- {tagUsedCount}</TagUsedCounter>
+          </TagNameHead>
+          {tagThumbnail && <TagThumbnailImg src={tagThumbnail} alt="" />}
+          {tagExplanation && <TagExplanation>{tagExplanation}</TagExplanation>}
           <TagRelatedPostList posts={posts} />
-        </div>
+        </TagsPageContainer>
       )}
     </>
   );

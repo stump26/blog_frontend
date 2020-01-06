@@ -45,6 +45,7 @@ export const LOOK_TAG_BY_ID = gql`
       posts
       tagExplanation
       tagUsedCount
+      tagThumbnail
     }
   }
 `;
