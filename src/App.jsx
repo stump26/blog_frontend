@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
 import jwt from 'jsonwebtoken';
 
-import { Home, Editor, Post, About, Auth, Page404, Tags } from './pages';
 import { DarkModeContext, UserInfoContext } from './context.js';
 import NavBar from './component/NavBar/';
 import Footer from './component/Footer/';
 import './App.scss';
 import { ssrEnabled } from './lib/util';
+import PageRouter from './Router';
 
 export default () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -57,17 +56,7 @@ export default () => {
         <UserInfoContext.Provider value={{ userInfo, ...userActions }}>
           <div className="App">
             <NavBar />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/editor/:postid" component={Editor} />
-              <Route exact path="/editor/" component={Editor} />
-              <Route exact path="/post/:id" component={Post} />
-              <Route exact path="/tag" component={Tags} />
-              <Route exact path="/tag/:id" component={Tags}/>
-              <Route exact path="/aboutMe" component={About} />
-              <Route exact path="/auth" component={Auth} />
-              <Route component={Page404} />
-            </Switch>
+            <PageRouter />
             <Footer />
           </div>
         </UserInfoContext.Provider>

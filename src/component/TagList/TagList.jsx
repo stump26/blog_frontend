@@ -37,6 +37,7 @@ const TagList = () => {
     console.error('TCL: error', error);
     return `Error! ${error.message}`;
   }
+  const {Tags} = data;
   return (
     <div className="TagListBox">
       <div className="TagListHead">
