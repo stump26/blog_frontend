@@ -5,9 +5,12 @@ import serve from 'koa-static';
 import proxy from 'koa-better-http-proxy';
 import Router from '@koa/router';
 import compress from 'koa-compress';
+import sitemaps from './ssr/sitemaps';
 
 const app = new Koa();
 const router = new Router();
+
+router.use('/sitemaps', sitemaps.routes());
 
 app.use(
   serve(path.resolve('./build'), {

@@ -11054,18 +11054,6 @@ react-router-server@^4.2.3:
   resolved "https://registry.yarnpkg.com/react-router-server/-/react-router-server-4.2.3.tgz#b5add7e4b22e6fcc853f0f0eea3144f582d3b583"
   integrity sha512-qR7boML0PSFb3uBmT1IHnsA4wlCqQHCB1AlRZnQdCP7YU/j6mf6kwLlILPmxXjiLOEW0m+7YufP0pvt+hV8pbw==
 
-react-router-sitemap-builder@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/react-router-sitemap-builder/-/react-router-sitemap-builder-1.1.1.tgz#cb1df6a390767c1378343930ccf9479fc0b51f49"
-  integrity sha1-yx32o5B2fBN4NDkwzPlHn8C1H0k=
-
-react-router-sitemap@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/react-router-sitemap/-/react-router-sitemap-1.2.0.tgz#4a32ddf7a1adbb3ad3c59a4e3e5338ca00b4febb"
-  integrity sha512-3aETwxCFTGHsGbXpyh7sr+c/WDr0q1rpng0M4pgoV6Owl3673buejPHGvzDmZEdiqhRa+I0znRDneKRc1NC06Q==
-  dependencies:
-    sitemap "^1.6.0"
-
 react-router@5.1.2, react-router@^5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-5.1.2.tgz#6ea51d789cb36a6be1ba5f7c0d48dd9e817d3418"
@@ -11988,14 +11976,6 @@ sisteransi@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.3.tgz#98168d62b79e3a5e758e27ae63c4a053d748f4eb"
   integrity sha512-SbEG75TzH8G7eVXFSN5f9EExILKfly7SUvVY5DhhYLvfhKqhDFY0OzevWa/zwak0RLRfWS5AvfMWpd9gJvr5Yg==
-
-sitemap@^1.6.0:
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/sitemap/-/sitemap-1.13.0.tgz#569cbe2180202926a62a266cd3de09c9ceb43f83"
-  integrity sha1-Vpy+IYAgKSamKiZs094Jyc60P4M=
-  dependencies:
-    underscore "^1.7.0"
-    url-join "^1.1.0"
 
 slash@^1.0.0:
   version "1.0.0"
@@ -12950,11 +12930,6 @@ uglify-js@^3.1.4:
     commander "~2.20.3"
     source-map "~0.6.1"
 
-underscore@^1.7.0:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.9.1.tgz#06dce34a0e68a7babc29b365b8e74b8925203961"
-  integrity sha512-5/4etnCkd9c8gwgowi5/om/mYO5ajCaOgdzj/oW+0eQV9WxKBDZw5+ycmKmeaTXjInS/W0BzpGLo2xR2aBwZdg==
-
 unherit@^1.0.4:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/unherit/-/unherit-1.1.2.tgz#14f1f397253ee4ec95cec167762e77df83678449"
@@ -13137,11 +13112,6 @@ urix@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
-
-url-join@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/url-join/-/url-join-1.1.0.tgz#741c6c2f4596c4830d6718460920d0c92202dc78"
-  integrity sha1-dBxsL0WWxIMNZxhGCSDQySIC3Hg=
 
 url-loader@2.1.0:
   version "2.1.0"
