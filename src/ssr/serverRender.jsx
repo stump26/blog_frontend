@@ -24,8 +24,7 @@ const serverRender = async (ctx, next) => {
   ctx.compress = true;
 
   // if path is graphql, route to proxy by next();
-  if (/^\/(graphql|signin)/.test(ctx.path)) {
-    // console.log('TCL: serverRender -> ctx.path', ctx.path);
+  if (process.env.NODE_ENV === 'development' && /^\/(graphql|signin)/.test(ctx.path)) {
     return next();
   }
 

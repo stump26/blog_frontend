@@ -9,7 +9,6 @@ sitemaps.get('/', (ctx) => {
 
 sitemaps.get('/:xmlfile', async (ctx) => {
   const target = ctx.params.xmlfile;
-  console.log('TCL: target', target);
   let url = `/${target}`;
   if (process.env.NODE_ENV === 'production') {
     url = `${process.env.REACT_APP_BACKEND_HOST}/sitemaps/${target}`;
@@ -21,7 +20,6 @@ sitemaps.get('/:xmlfile', async (ctx) => {
 
   const res = await axios(opt);
   ctx.body = res.data;
-  console.log('TCL: ctx.body', ctx.body);
 });
 
 export default sitemaps;

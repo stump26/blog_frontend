@@ -69,7 +69,6 @@ const TagRelatedPostList = ({ posts }) => {
       console.error(error);
       return <div>bad</div>;
     }
-    console.log(data);
     const { title, modifyDate, description, tags } = data.post_BY_ID;
     return (
       <ArticleCard

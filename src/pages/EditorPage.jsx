@@ -7,7 +7,6 @@ import { ssrEnabled } from '../lib/util';
 
 const EditorPage = ({ match: { params } }) => {
   const history = useHistory();
-  // console.log('TCL: EditorPage -> ssrEnabled', ssrEnabled);
   const token = ssrEnabled ? null : sessionStorage.getItem('token');
   if (!token) {
     history.push('/auth');

@@ -28,11 +28,14 @@ app.use(
   }),
 );
 
-const proxyMiddleware = proxy('localhost', { port: 4000 });
 app.use(router.routes()).use(router.allowedMethods());
 
 app.use(serverRender);
-app.use(proxyMiddleware);
+
+if (process.env.NODE_ENV === 'development') {
+  const proxyMiddleware = proxy('localhost', { port: 4000 });
+  app.use(proxyMiddleware);
+}
 
 app.listen(3001, () => {
   console.log('SSR server is listening to http://localhost:3001');

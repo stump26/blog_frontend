@@ -28,7 +28,6 @@ const SignIn = () => {
   }, []);
 
   const clearInput = useCallback(() => {
-    console.log(inputEmailRef);
     setInputEmail('');
     inputEmailRef.current.value = '';
     setInputPW('');
