@@ -66,7 +66,11 @@ const ArticleList = () => {
     return `Error! ${error.message}`;
   }
 
-  const onClickArticle = (articleId) => {
+  const onClickArticle = (e,articleId) => {
+    if(e.target.className==="Article-tag-link"){
+      history.push(`/tag/${e.target.id}`);
+      return;
+    }
     history.push(`/post/${articleId}`);
   };
 

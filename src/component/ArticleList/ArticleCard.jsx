@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography } from '@material-ui/core';
+import {Link} from 'react-router-dom';
 
 const ArticleCard = ({ id, title, date, desc, tags, onClickArticle }) => {
   // filter Markdown syntex
@@ -8,8 +9,8 @@ const ArticleCard = ({ id, title, date, desc, tags, onClickArticle }) => {
   return (
     <Card
       className="Article-card"
-      onClick={() => {
-        onClickArticle(id);
+      onClick={(e) => {
+        onClickArticle(e,id);
       }}
     >
       <CardContent>
@@ -21,11 +22,12 @@ const ArticleCard = ({ id, title, date, desc, tags, onClickArticle }) => {
           <div className="Article-date">{date}</div>
         </div>
         <p className="Article-desc">{sampleDescription}</p>
+
         <div className="Article-Tag-list">
           {tags.map((tag) => {
             return (
               <div key={tag.tagName} className="Article-tag-item">
-                {tag.tagName}
+                <span id={tag._id} className="Article-tag-link">{tag.tagName}</span>
               </div>
             );
           })}

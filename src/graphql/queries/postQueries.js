@@ -8,6 +8,7 @@ export const GET_POST_LIST = gql`
       modifyDate
       description
       tags {
+        _id
         tagName
       }
     }
