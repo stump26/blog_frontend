@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { LOOK_TAGS } from '../../graphql/queries/postQueries';
+import { SkeletonTagButtons } from '../Skeleton';
 import './TagList.scss';
 
 const TagButton = styled.span`
@@ -31,13 +32,21 @@ const TagList = () => {
   };
 
   if (loading) {
-    return 'Loading...';
+    return (
+      <div className="TagListBox">
+        <div className="TagListHead">
+          <Typography>Tags</Typography>
+        </div>
+        <SkeletonTagButtons />
+      </div>
+    );
   }
   if (error) {
     console.error('TCL: error', error);
     return `Error! ${error.message}`;
   }
-  const {Tags} = data;
+  const { Tags } = data;
+
   return (
     <div className="TagListBox">
       <div className="TagListHead">
