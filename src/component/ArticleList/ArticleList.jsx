@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import ArticleCard from './ArticleCard';
 import { GET_POST_LIST } from '../../graphql/queries/postQueries';
 import './ArticleList.scss';
+import {SkeletonArticleCard} from '../Skeleton';
 
 const ArticleList = () => {
   const [articleElements, setArticleElements] = useState([]);
@@ -59,7 +60,12 @@ const ArticleList = () => {
   }, data);
 
   if (loading) {
-    return 'Loading...';
+    return (<div className="Article-list">
+      <SkeletonArticleCard />
+      <SkeletonArticleCard />
+      <SkeletonArticleCard />
+      <SkeletonArticleCard />
+    </div>);
   }
   if (error) {
     console.error('TCL: error', error);
@@ -80,15 +86,15 @@ const ArticleList = () => {
         articleElements !== null &&
         articleElements.map((articleElement) => {
           return (
-            <ArticleCard
-              key={articleElement._id}
-              id={articleElement._id}
-              title={articleElement.title}
-              date={articleElement.modifyDate}
-              desc={articleElement.description}
-              tags={articleElement.tags}
-              onClickArticle={onClickArticle}
-            />
+              <ArticleCard
+                key={articleElement._id}
+                id={articleElement._id}
+                title={articleElement.title}
+                date={articleElement.modifyDate}
+                desc={articleElement.description}
+                tags={articleElement.tags}
+                onClickArticle={onClickArticle}
+              />
           );
         })}
     </div>
