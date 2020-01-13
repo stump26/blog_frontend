@@ -53,7 +53,7 @@ const PostBody = ({ postID, title, modifyDate, description }) => {
           </div>
         </div>
         <div itemProp="author" itemScope itemType="http://schema.org/Person">
-          <meta itemProp="name" content="Outsider" />
+          <meta itemProp="name" content="Stumpark" />
           <meta itemProp="url" content="/" />
         </div>
       </div>

@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 import { LOOK_TAG_BY_ID, GET_POST_BYID } from '../graphql/queries/postQueries';
 import ArticleCard from '../component/ArticleList/ArticleCard';
+import { SkeletonTagsPage, SkeletonTagPagePostList } from '../component/Skeleton';
 
 const TagsPageContainer = styled.div`
   display: flex;
@@ -54,15 +55,7 @@ const TagRelatedPostList = ({ posts }) => {
       fetchPolicy: 'cache-and-network',
     });
     if (loading) {
-      return (
-        <ReactLoading
-          className="loding-symbole"
-          type="spin"
-          color="#3376FB"
-          width={100}
-          height={100}
-        />
-      );
+      return <SkeletonTagPagePostList />;
     }
     // Quering Error
     if (!loading && error) {
@@ -92,15 +85,7 @@ const TagsPage = ({ match }) => {
   });
   // Query on loading..
   if (loading) {
-    return (
-      <ReactLoading
-        className="loding-symbole"
-        type="bars"
-        color="#3376FB"
-        width={100}
-        height={100}
-      />
-    );
+    return <SkeletonTagsPage />;
   }
   // Quering Error
   if (!loading && error) {

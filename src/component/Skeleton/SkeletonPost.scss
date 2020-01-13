@@ -1,25 +1,23 @@
 $skeleton-primary-color: #e0e0e0;
 
-.Article-card-skeleton {
-  .Article-card-head {
-    > .Article-title-skeleton {
-      width: 100%;
-      max-width: 24em;
-      height: 2rem;
+.postbody-container {
+  > .post-title-bg-skeleton {
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 2rem;
+    > #post-title {
+      height: 90px;
       background-color: $skeleton-primary-color;
       border-radius: 5px;
-      margin-bottom: 3px;
 
       animation-name: loading;
       animation-duration: 1.7s;
       animation-iteration-count: infinite;
     }
   }
-  .Article-date-skeleton {
-    width: 100%;
-    max-width: 12em;
-    height: 0.7rem;
-    margin-top: 0.1em;
+  > .modify-date-skeleton {
+    width: 15em;
+    height: 1rem;
     background-color: $skeleton-primary-color;
     border-radius: 5px;
 
@@ -27,26 +25,15 @@ $skeleton-primary-color: #e0e0e0;
     animation-duration: 1.7s;
     animation-iteration-count: infinite;
   }
-  .Article-desc-skeleton {
+  > .post-desc-skeleton {
+    width: 90%;
     margin: 1em 0;
-    > div {
-      width: 100%;
-      max-width: 800px;
-      margin: 5px 0;
-      background-color: $skeleton-primary-color;
-      border-radius: 5px;
-      height: 1rem;
 
-      animation-name: loading;
-      animation-duration: 1.7s;
-      animation-iteration-count: infinite;
-    }
-  }
-  .Article-Tag-list {
-    > .Article-tag-item-skeleton {
-      height: 1rem;
-      width: 3.5em;
-      margin: 0 3px;
+    > div {
+      margin: 5px 0;
+      font-size: 22px;
+      max-width: 40em;
+      height: 22px;
       background-color: $skeleton-primary-color;
       border-radius: 5px;
 

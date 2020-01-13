@@ -1,8 +1,9 @@
 import React from 'react';
-import ReactLoading from 'react-loading';
 import { useQuery } from '@apollo/react-hooks';
 import { Helmet } from 'react-helmet';
+
 import PostBody from '../component/PostBody';
+import { SkeletonPost } from '../component/Skeleton';
 import { GET_POST_BYID } from '../graphql/queries/postQueries';
 
 const Post = ({ match: { params } }) => {
@@ -13,15 +14,7 @@ const Post = ({ match: { params } }) => {
 
   // Query on loading..
   if (loading) {
-    return (
-      <ReactLoading
-        className="loding-symbole"
-        type="bars"
-        color="#3376FB"
-        width={100}
-        height={100}
-      />
-    );
+    return <SkeletonPost />;
   }
 
   // Quering Error

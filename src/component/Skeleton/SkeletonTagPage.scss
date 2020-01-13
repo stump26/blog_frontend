@@ -1,0 +1,52 @@
+$skeleton-primary-color: #e0e0e0;
+
+.TagsPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1150px;
+
+  > .TagNameHead {
+    width: 30em;
+    height: 5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    background-color: $skeleton-primary-color;
+    align-self: start;
+
+    animation-name: loading;
+    animation-duration: 1.7s;
+    animation-iteration-count: infinite;
+  }
+
+  > .TagThumbnailImg {
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    background-color: $skeleton-primary-color;
+
+    animation-name: loading;
+    animation-duration: 1.7s;
+    animation-iteration-count: infinite;
+
+    > .loding-symbole {
+      margin: auto;
+    }
+  }
+
+  > .TagExplanation {
+    width: 100%;
+    margin: 1rem 0;
+    > div {
+      height: 1.2rem;
+      margin: 4px 0;
+      background-color: $skeleton-primary-color;
+
+      animation-name: loading;
+      animation-duration: 1.7s;
+      animation-iteration-count: infinite;
+    }
+  }
+}
