@@ -105,13 +105,13 @@ const Editor = ({ postID }) => {
     title: 'Custom-Image-button',
   };
 
-  // 수정모드인경우 postid를통해 쿼리요청.
+  // 수정모드인경우 postid를 통해 쿼리요청.
   useEffect(() => {
     if (postID !== undefined) {
       currentPostdata();
     }
   }, [postID]);
-
+  
   return (
     <div id="editor-container">
       <div className="title-field">
@@ -122,7 +122,7 @@ const Editor = ({ postID }) => {
       <div className="tag-field">
         <Typography className="label-tags"> tag </Typography>
         <Divider orientation="vertical" />
-        <TextField className="input-tags" onChange={onTypeTags} value={tags.join(', ')} />
+        <TextField className="input-tags" onChange={onTypeTags} value={tags.map(function(t){return t.tagName}).join(', ')} />
       </div>
 
       <SimpleMDE

@@ -39,8 +39,8 @@ jobs:
       # Build the Docker image
       - name: Build Image
         run: |
-          docker build -t gcr.io/stumpark-blog/backend:${{ github.sha }} .
+          docker build -t gcr.io/stumpark-blog/frontend:${{ github.sha }} .
 
       - name: Push Image
         run: |
-          docker push gcr.io/stumpark-blog/backend:${{ github.sha }}
+          docker push gcr.io/stumpark-blog/frontend:${{ github.sha }}
