@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 
 import PostBody from '../component/PostBody';
 import { SkeletonPost } from '../component/Skeleton';
+import PostComments from '../component/PostComments';
 import { GET_POST_BYID } from '../graphql/queries/postQueries';
 
 const Post = ({ match: { params } }) => {
@@ -48,6 +49,11 @@ const Post = ({ match: { params } }) => {
         title={title}
         modifyDate={modifyDate}
         description={description}
+      />
+      <PostComments
+        url={`https://blog.stumpark.co.kr/post/${_id}`}
+        identifier={_id}
+        title={title}
       />
     </>
   );
