@@ -5,6 +5,7 @@ import { Edit as EditIcon } from '@material-ui/icons';
 import jwt from 'jsonwebtoken';
 
 import MDRenderer from '../commons/MarkdownRenderer';
+import PostComments from '../PostComments';
 import { ssrEnabled } from '../../lib/util';
 import './PostBody.scss';
 
@@ -42,6 +43,12 @@ const PostBody = ({ postID, title, modifyDate, description }) => {
       <div className="post-desc" itemScope itemType="http://schema.org/BlogPosting">
         <MDRenderer markup={description} />
       </div>
+
+      <PostComments
+        url={`https://blog.stumpark.co.kr/post/${postID}`}
+        identifier={postID}
+        title={title}
+      />
 
       <div>
         <meta itemProp="mainEntityOfPage" content={`/post/${postID}`} />
