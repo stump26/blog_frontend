@@ -26,7 +26,7 @@ jobs:
       # Setup gcloud CLI
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
-          version: '270.0.0'
+          version: '272.0.0'
           service_account_email: ${{ secrets.GCLOUD_SERVICE_ACCOUNT_EMAIL }}
           service_account_key: ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}
 
@@ -44,3 +44,10 @@ jobs:
       - name: Push Image
         run: |
           docker push gcr.io/stumpark-blog/frontend:${{ github.sha }}
+      - name: cloud run deploy
+        run: |
+          gcloud run deploy backend \
+            --image gcr.io/stumpark-blog/frontend:${{ github.sha }} \
+            --region asia-northeast1 \
+            --platform managed \
+            --project stumpark-blog
