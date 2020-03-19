@@ -49,17 +49,40 @@
       font-size: 1rem;
       margin: 10px;
     }
-
     > .input-tags {
       min-width: 20em;
       margin: 0;
       padding: 0 20px;
 
       > .MuiInputBase-root {
+        display: flex;
+        flex-direction: row;
         line-height: 1.5rem;
         font-size: 1rem;
 
+        > .tag-item {
+          display: inline-flex;
+          flex-direction: row;
+          width: fit-content;
+          margin: 0 2px;
+          border-radius: 10px;
+          box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.2);
+          padding: 3px 8px;
+          font-size: 0.9em;
+          color: #707070;
+          align-items: center;
+
+          > .tag-name {
+            display: inline-block;
+            width: max-content;
+          }
+          > .tag-erase {
+            padding-left: 4px;
+            cursor: pointer;
+          }
+        }
         input {
+          padding-left: 10px;
           height: 2rem;
         }
       }
