@@ -6,17 +6,17 @@ on:
       - master
 
 jobs:
-  prepare-npm-repo:
-    runs-on: ubuntu-latest
+#   prepare-npm-repo:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout the repo
-        uses: actions/checkout@v2
+#     steps:
+#       - name: Checkout the repo
+#         uses: actions/checkout@v2
 
-      # test
+#       # test
 
   build_and_push:
-    needs: prepare-npm-repo
+#     needs: prepare-npm-repo
     runs-on: ubuntu-latest
 
     steps:
@@ -46,7 +46,7 @@ jobs:
           docker push gcr.io/stumpark-blog/frontend:${{ github.sha }}
       - name: cloud run deploy
         run: |
-          gcloud run deploy backend \
+          gcloud run deploy frontend \
             --image gcr.io/stumpark-blog/frontend:${{ github.sha }} \
             --region asia-northeast1 \
             --platform managed \
