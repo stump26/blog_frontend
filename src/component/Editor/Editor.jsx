@@ -57,7 +57,7 @@ const Editor = ({ postID }) => {
 
   const onTypeTags = useCallback((e) => {
     if (e.target.value.slice(-1) === ',') {
-      const regexp = new RegExp(tagInput, 'gi');
+      const regexp = new RegExp(`\b${tagInput}\b`, 'gi');
       if (!tags.some((t) => regexp.test(t.tagName))) {
         setTags([...tags, { __typename: 'Tag', tagName: tagInput }]);
       }
@@ -144,8 +144,8 @@ const Editor = ({ postID }) => {
           InputProps={{
             startAdornment: (
               <>
-                {tags.map((t) => (
-                  <div className="tag-item">
+                {tags.map((t, index) => (
+                  <div className="tag-item" key={`tag${index}`}>
                     <span className="tag-name">{t.tagName}</span>{' '}
                     <span className="tag-erase" onClick={onClickTagErase}>
                       &nbsp;x&nbsp;
