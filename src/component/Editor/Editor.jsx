@@ -17,6 +17,7 @@ const Editor = ({ postID }) => {
   const [editMode, setEditMode] = useState(postID !== undefined); // false: newPost, true: modifyPost
   const [title, setTitle] = useState('');
   const [tags, setTags] = useState([]);
+  const [tagInput, setTagInput] = useState('');
   const [value, setValue] = useState('#Hello World');
   const [focusedEditor, setFocusedEditor] = useState(null);
   const [imageUploaderModalIsOpen, setImageUploaderModalIsOpen] = useState(false);
@@ -53,9 +54,22 @@ const Editor = ({ postID }) => {
   const onTypeTitle = useCallback((e) => {
     setTitle(e.target.value);
   }, []);
+
   const onTypeTags = useCallback((e) => {
-    const inputString = e.target.value;
-    setTags(inputString.split(/\s?,\s?/));
+    if (e.target.value.slice(-1) === ',') {
+      const regexp = new RegExp(tagInput, 'gi');
+      if (!tags.some((t) => regexp.test(t.tagName))) {
+        setTags([...tags, { __typename: 'Tag', tagName: tagInput }]);
+      }
+      setTagInput('');
+    } else {
+      setTagInput(e.target.value);
+    }
+  });
+
+  const onClickTagErase = useCallback((e) => {
+    const targetTagName = e.target.parentElement.children[0].innerText;
+    setTags(tags.filter((t) => t.tagName !== targetTagName));
   });
 
   const onClickSave = useCallback(() => {
@@ -111,7 +125,7 @@ const Editor = ({ postID }) => {
       currentPostdata();
     }
   }, [postID]);
-  
+
   return (
     <div id="editor-container">
       <div className="title-field">
@@ -122,7 +136,26 @@ const Editor = ({ postID }) => {
       <div className="tag-field">
         <Typography className="label-tags"> tag </Typography>
         <Divider orientation="vertical" />
-        <TextField className="input-tags" onChange={onTypeTags} value={tags.map(function(t){return t.tagName}).join(', ')} />
+
+        <TextField
+          className="input-tags"
+          onChange={onTypeTags}
+          value={tagInput}
+          InputProps={{
+            startAdornment: (
+              <>
+                {tags.map((t) => (
+                  <div className="tag-item">
+                    <span className="tag-name">{t.tagName}</span>{' '}
+                    <span className="tag-erase" onClick={onClickTagErase}>
+                      &nbsp;x&nbsp;
+                    </span>
+                  </div>
+                ))}
+              </>
+            ),
+          }}
+        />
       </div>
 
       <SimpleMDE
