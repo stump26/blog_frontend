@@ -73,22 +73,32 @@ const Editor = ({ postID }) => {
   });
 
   const onClickSave = useCallback(() => {
+    const tagNamesList = tags.reduce((acc, cur) => {
+      acc.push(cur.tagName);
+      return acc;
+    }, []);
+
     writePost({
       variables: {
         title: title,
         writer: 'stump26',
         description: value,
-        tags: tags,
+        tags: tagNamesList,
       },
     });
   });
+
   const onClickUpdate = useCallback(() => {
+    const tagNamesList = tags.reduce((acc, cur) => {
+      acc.push(cur.tagName);
+      return acc;
+    }, []);
     updatePostQuering({
       variables: {
         id: postID,
         newTitle: title,
         newDescription: value,
-        newTags: tags,
+        newTags: tagNamesList,
       },
     });
   });
