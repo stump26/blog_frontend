@@ -2,11 +2,12 @@ import React from 'react';
 import './About.scss';
 
 const ImageList = ({ imgs }) => {
+  const techURL = 'https://stumpark.blob.core.windows.net/post-image-store/tech';
   return (
     <>
       {imgs.map((img, i) => {
         return (
-          <img className="skill-img" src={`/img//tech/${img}.png`} alt={img} key={`skill-${i}`} />
+          <img className="skill-img" src={`${techURL}/${img}.png`} alt={img} key={`skill-${i}`} />
         );
       })}
     </>
@@ -27,7 +28,6 @@ const SKILLS = () => {
     'graphql',
     'apollo',
     'docker',
-    'kubernetes',
     'git',
     'nginx',
   ];
@@ -64,7 +64,7 @@ const About = () => {
         </div>
         <img
           className="my-shot"
-          src="https://stumpark.com/wordpress/wp-content/uploads/2018/04/IMG_9008-1-768x512.jpg"
+          src="https://stumpark.blob.core.windows.net/post-image-store/IMG_9008.jpg"
         />
       </div>
       <SKILLS />

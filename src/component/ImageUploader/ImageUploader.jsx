@@ -114,9 +114,11 @@ const ImageUploader = ({ handleModalClose, handleImageUploadComplet }) => {
             />
           )}
         </div>
+        {/* 구현예정
         <div className="recent-image-list">
           <span className="subTitle-on-div">Recent</span>
-        </div>
+        </div> 
+        */}
       </div>
       <div className="modal-footer">
         <Button

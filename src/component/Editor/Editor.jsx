@@ -117,7 +117,7 @@ const Editor = ({ postID }) => {
   // For editing result
   const handleImageUploadComplet = (img) => {
     const cm = focusedEditor.codemirror;
-    const output = `![${img.name}](${img.path})`;
+    const output = `![${img.name}](${encodeURI(img.path)})`;
     cm.replaceSelection(output);
     setImageUploaderModalIsOpen(false);
   };
