@@ -71,7 +71,7 @@ const TagRelatedPostList = ({ posts }) => {
         date={modifyDate}
         desc={description}
         tags={tags}
-        onClickArticle={onClickArticle}
+        onClickArticle={() => onClickArticle(postId)}
       />
     );
   });
