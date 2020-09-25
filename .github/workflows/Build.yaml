@@ -34,7 +34,7 @@ jobs:
       - run: |
           # Set up docker to authenticate
           # via gcloud command-line tool.
-          gcloud auth login &
+          gcloud config set account github-action &
           gcloud auth configure-docker
 
       # Build the Docker image
