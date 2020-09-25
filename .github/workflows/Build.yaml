@@ -34,7 +34,7 @@ jobs:
       - run: |
           # Set up docker to authenticate
           # via gcloud command-line tool.
-          gcloud config set account github-action &
+          gcloud auth activate-service-account ${{ secrets.GCLOUD_SERVICE_ACCOUNT_EMAIL }} &
           gcloud auth configure-docker
 
       # Build the Docker image
